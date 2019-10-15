@@ -4,11 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:300,400,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="css" href="/node_modules/react-responsive-carousel/lib/styles/carousel.min.css"/>
   <link rel="stylesheet" href="styles.css">
   <title>Gym Buddy</title>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <div class="main">
+      <div class="main__container">
+        <div class="main__header">
+          <button class="btn main__button">Sign Up</button>
+          <button class="btn main__button">Log In</button>
+        </div>
+        <div class="main__body">
+          <div class="main__carousel">
+            <div class="main__carousel-header">
+              GYM
+            </div>
+            <div class="main__carousel-header">
+              BUDDY
+            </div>
+          </div>
+          <div class="main__view">
+            View Gyms Around Me
+          </div>
+          <div class="main__search">
+            Search Gym
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>

@@ -1,7 +1,23 @@
 import React from 'react';
+import Header from './header';
+import Home from './home';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentUser: {},
+      name: 'home'
+    };
+  }
   render() {
-    return null;
+    return (
+      <div className="main">
+        <div className="main__container">
+          <Header />
+          <Home />
+        </div>
+      </div>
+    );
   }
 }

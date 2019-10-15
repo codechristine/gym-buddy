@@ -1,0 +1,132 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /* 10px  */
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+/**************************************
+              MAIN
+**************************************/
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom ,rgba(251, 193, 188) 70%, rgba(255, 255, 255));
+}
+
+.main__container {
+  height: 97.5%;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/**************************************
+              HEADER
+**************************************/
+
+.main__header {
+  height: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/**************************************
+              BODY
+**************************************/
+
+.main__body {
+  height: 95%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/**************************************
+              HOME SCREEN
+**************************************/
+
+.main__carousel-container {
+  height: 100%;
+  width: 100%;
+}
+
+.main__carousel {
+  height: 72.5%;
+  width: 100%;
+  border-radius: 5px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url("./images/landingpage-4.jpeg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__carousel-header {
+  font-size: 9rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1rem;
+}
+
+.main__view,
+.main__search {
+  height: 7.5%;
+  width: 80%;
+  font-size: 2.5rem;
+  border-radius: 5rem;
+  background-color: #233567;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/**************************************
+              BUTTONS
+**************************************/
+
+.btn {
+  height: 4rem;
+  width: 12rem;
+  font-size: 1.75rem;
+  border-radius: 2.5rem;
+  background-color: #233567;
+  color: #fff;
+}
+
+
+
+
+/**************************************
+              FONTS
+**************************************/
+
+/*
+font-family: 'Playfair Display', serif;
+font-family: 'Source Sans Pro', sans-serif;
+*/
