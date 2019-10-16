@@ -1,6 +1,8 @@
 import React from 'react';
 import Home from './home';
 import GymMap from './gym-map';
+import GoogleMaps from './map';
+
 
 export default class App extends React.Component {
   constructor(props) {
