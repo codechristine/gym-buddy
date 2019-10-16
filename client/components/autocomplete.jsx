@@ -20,7 +20,7 @@ class LocationSearchInput extends React.Component {
     geocodeByAddress(addressInput)
       .then(result => getLatLng(result[0]))
       .then(latLng => {
-        latLng.json();
+        latLng.JSON();
       });
     this.setState({ address: addressInput });
   }
@@ -36,7 +36,7 @@ class LocationSearchInput extends React.Component {
           <div className="main__search-container">
             <input
               {...getInputProps({
-                placeholder: 'Search Places ...',
+                placeholder: 'Search near you!',
                 className: 'main__search-field'
               })}
             />
@@ -44,19 +44,11 @@ class LocationSearchInput extends React.Component {
               {loading && <div>Loading...</div>}
               {suggestions.map((suggestion, index) => {
                 const className = suggestion.active
-                  ? 'suggestion-item--active'
-                  : 'suggestion-item';
-                // inline style for demonstration purpose
-                const style = suggestion.active
-                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                  ? 'main__search-item-active'
+                  : 'main__search-item';
                 return (
                   <div key = { index }
-                    {...getSuggestionItemProps(suggestion, {
-                      className,
-                      style
-                    })}
-                  >
+                    {...getSuggestionItemProps(suggestion, { className })}>
                     <span>{suggestion.description}</span>
                   </div>
                 );
