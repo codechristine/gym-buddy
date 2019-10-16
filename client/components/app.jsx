@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './header';
 import Home from './home';
+import GoogleMaps from './map';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class App extends React.Component {
         <div className="main__container">
           <Header />
           <Home />
+          <GoogleMaps />
         </div>
       </div>
     );
