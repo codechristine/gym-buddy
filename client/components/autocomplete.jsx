@@ -20,7 +20,8 @@ class LocationSearchInput extends React.Component {
     geocodeByAddress(addressInput)
       .then(result => getLatLng(result[0]))
       .then(latLng => {
-        latLng.JSON();
+        this.props.setLocation(latLng);
+        this.props.viewMap();
       });
     this.setState({ address: addressInput });
   }
