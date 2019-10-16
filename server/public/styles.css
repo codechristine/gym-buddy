@@ -1,3 +1,12 @@
+/**************************************
+              FONTS
+**************************************/
+
+/*
+font-family: 'Playfair Display', serif;
+font-family: 'Source Sans Pro', sans-serif;
+*/
+
 *,
 *::after,
 *::before {
@@ -203,18 +212,6 @@ body {
   width: 10rem;
   font-size: 1.5rem;
 }
-
-
-
-
-/**************************************
-              FONTS
-**************************************/
-
-/*
-font-family: 'Playfair Display', serif;
-font-family: 'Source Sans Pro', sans-serif;
-*/
 
 /**************************************
               CAROUSEL
