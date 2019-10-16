@@ -17,7 +17,7 @@
         $whereClase = "";
     }
 
-    $query = "SELECT * FROM `user`";
+    $query = "SELECT * FROM `user`" . $whereClase;
 
     $result = mysqli_query($conn, $query);
     if(!$result){
@@ -34,3 +34,5 @@
 
     $json_version = json_encode($output);
     print($json_version);
+
+    ?>
