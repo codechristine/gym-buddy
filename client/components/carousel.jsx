@@ -8,6 +8,10 @@ class Carousel extends React.Component {
     this.className = null;
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   goRight() {
     if (this.state.index < 4) {
       this.setState({ index: this.state.index + 1 });

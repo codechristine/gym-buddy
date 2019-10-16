@@ -45,7 +45,19 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 0.5rem;
+}
+
+.main__header-title {
+  font-size: 3rem;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #233567;
+  color: #fff;
+  border-radius: 5px;
 }
 
 
@@ -150,9 +162,6 @@ body {
 **************************************/
 
 .btn {
-  height: 4rem;
-  width: 12rem;
-  font-size: 1.75rem;
   border-radius: 2.5rem;
   background-color: #233567;
   color: #fff;
@@ -160,6 +169,18 @@ body {
 
 .btn:focus {
   outline: none;
+}
+
+.main__button {
+  height: 4rem;
+  width: 12rem;
+  font-size: 1.75rem;
+}
+
+.map__button {
+  height: 3rem;
+  width: 10rem;
+  font-size: 1.5rem;
 }
 
 
