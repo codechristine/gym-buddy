@@ -45,6 +45,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 
 
@@ -71,7 +72,7 @@ body {
 }
 
 .main__carousel {
-  height: 72.5%;
+  height: 70%;
   width: 100%;
   border-radius: 5px;
   background-size: cover;
@@ -90,8 +91,7 @@ body {
   letter-spacing: 1rem;
 }
 
-.main__view,
-.main__search {
+.main__view{
   height: 7.5%;
   width: 80%;
   font-size: 2.5rem;
@@ -102,8 +102,48 @@ body {
   justify-content: center;
   align-items: center;
 }
+.main__search-container {
+  width: 90%;
+  height: 17.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main__search-field {
+  width: 60%;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #233567;
+  transition: all 0.2s;
+  cursor: pointer;
+}
 
+.main__search-field:focus {
+  outline: none;
+  width: 100%;
+  border-bottom: 2px solid #233567;
+}
 
+.main__search-dropdown {
+  height: 100%;
+  width: 100%;
+}
+
+.main__search-item {
+  font-size: 1.25rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.main__search-item-active {
+  font-size: 1.25rem;
+  color: #233567;
+  cursor: pointer;
+}
 
 /**************************************
               BUTTONS
@@ -116,6 +156,10 @@ body {
   border-radius: 2.5rem;
   background-color: #233567;
   color: #fff;
+}
+
+.btn:focus {
+  outline: none;
 }
 
 

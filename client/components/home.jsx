@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from './carousel';
+import LocationSearchInput from './autocomplete';
 
 class Home extends React.Component {
   render() {
@@ -9,9 +10,7 @@ class Home extends React.Component {
         <div className="main__view">
           View Gyms Around Me
         </div>
-        <div className="main__search">
-          Search Gym
-        </div>
+        <LocationSearchInput />
       </div>
     );
   }
