@@ -43,9 +43,25 @@ export default class Place extends React.Component {
   }
   render() {
     this.map = this.props.map;
+
+    // if (this.state.places) {
+    //   console.log(this.state.places);
+    //   let image = this.state.places.image;
+    //   let name = this.state.places.name;
     return (
-      <div>{'SUCCESS'}</div>
+      <div className="place___list">
+        <h3 className="place__list-header">Gym View List</h3>
+        {this.state.places.map(list => {
+          // console.log(list);
+          return (
+            <div key={list.id}>
+              <img className="place__list-image" src={list.image}></img>
+              <div className="place__list-name">{list.name}</div>
+            </div>
+          );
+        })}
+
+      </div>
     );
   }
-
 }
