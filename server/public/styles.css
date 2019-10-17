@@ -190,6 +190,24 @@ body {
 }
 
 /**************************************
+              PLACE LIST
+**************************************/
+
+.place__list {
+  border: 1px solid black;
+}
+.place__list-header {
+  font-size: 20px;
+}
+.place__list-image {
+  height: 7rem;
+  width: 7rem;
+}
+.place__list-name {
+  font: 10px;
+}
+
+/**************************************
               SIGN UP
 **************************************/
 
