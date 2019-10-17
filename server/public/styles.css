@@ -59,14 +59,14 @@ body {
 
 .main__header-title {
   font-size: 3rem;
-  width: 60%;
+  width: 52.5%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #233567;
   color: #fff;
   font-weight: 700;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.25rem;
   border-radius: 5px;
 }
 
@@ -457,13 +457,15 @@ body {
 
 .map__button {
   height: 3rem;
-  width: 10rem;
+  width: 8rem;
   font-size: 1.5rem;
 }
 
-.login__button {
+.login__button,
+.signup__button {
   background-color: #315b96;
 }
+
 
 /**************************************
               CAROUSEL
@@ -487,4 +489,24 @@ body {
 
 .background-4 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url("./images/landingpage-6.jpg");
+}
+
+
+/**************************************
+              ICONS
+**************************************/
+
+.icon__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 8rem;
+  border-radius: 2.5rem;
+  background-color: #233567;
+  color: #fff;
+}
+
+.icon {
+  font-size: 1.5rem;
 }
