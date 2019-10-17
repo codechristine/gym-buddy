@@ -5,9 +5,10 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      userName: '',
       firstName: '',
       lastName: '',
-      Age: '',
+      age: '',
       weightLifting: '',
       cardio: '',
       yoga: '',
@@ -29,7 +30,10 @@ class SignUp extends React.Component {
         this.setState({ lastName: event.target.value });
         break;
       case 'Age':
-        this.setState({ Age: event.target.value });
+        this.setState({ age: event.target.value });
+        break;
+      case 'User Name':
+        this.setState({ userName: event.target.value });
         break;
     }
   }
@@ -58,10 +62,23 @@ class SignUp extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const userObj = {
+      userName: this.state.userName,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      age: this.state.age,
+      weightLifting: this.state.weightLifting,
+      cardio: this.state.cardio,
+      yoga: this.state.cardio,
+      bodyBuilding: this.state.bodyBuilding,
+      swimming: this.state.swimming
+    };
+
+    this.props.createUser(userObj);
   }
 
   render() {
-    const { firstName, lastName, Age, weightLifting, cardio, yoga, bodyBuilding, swimming } = this.state;
+    const { userName, firstName, lastName, Age, weightLifting, cardio, yoga, bodyBuilding, swimming } = this.state;
 
     return (
       <div className="main__container">
@@ -69,6 +86,10 @@ class SignUp extends React.Component {
         <form className="main__body" onSubmit={this.handleSubmit}>
           <div className="signup__container">
             <div className="signup__container-top">
+              <div className="signup__block">
+                <h2 className="signup__block-name">User Name</h2>
+                <input value={userName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="User Name" required />
+              </div>
               <div className="signup__block">
                 <h2 className="signup__block-name">First Name</h2>
                 <input value={firstName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="First Name" required/>
