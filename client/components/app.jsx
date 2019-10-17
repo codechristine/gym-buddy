@@ -50,7 +50,7 @@ export default class App extends React.Component {
     let element;
     switch (name) {
       case 'home':
-        element = <Home setView={this.setView} view={this.state.view} setLocation={this.setLocation}/>;
+        element = <Home setView={this.setView} view={this.state.view} setLocation={this.setLocation} isLoggedIn={this.state.isLoggedIn}/>;
         break;
       case 'map':
         element = <GymMap setView={this.setView} view={ this.state.view } location={ this.state.location } isLoggedIn={this.state.isLoggedIn}/>;
