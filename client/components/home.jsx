@@ -23,9 +23,9 @@ class Home extends React.Component {
         <Header name = { this.props.view.name } prevName = { this.props.view.prevName } setView = { this.props.setView }/>
         <div className="main__body">
           <Carousel />
-          <div className="main__view" onClick={this.updateLocation}>
+          <button className="main__view" onClick={this.updateLocation}>
             View Gyms Around Me
-          </div>
+          </button>
           <LocationSearchInput setLocation = { this.props.setLocation } viewMap={ viewMap }/>
         </div>
       </div>
