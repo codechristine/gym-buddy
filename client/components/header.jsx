@@ -15,6 +15,10 @@ class Header extends React.Component {
       case 'home':
         leftButton = <button className="btn main__button" onClick={signUpView}>Sign Up</button>;
         rightButton = <button className="btn main__button" onClick={loginView} >Log In</button>;
+        if (isLoggedIn) {
+          leftButton = '';
+          rightButton = <button className="btn main__button icon__home" onClick={loginView}><i className="icon__main fas fa-user"></i></button>;
+        }
         break;
       case 'map':
         leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;

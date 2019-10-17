@@ -479,6 +479,32 @@ body {
   background-color: #315b96;
 }
 
+/**************************************
+              ICONS
+**************************************/
+
+.icon__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 8rem;
+  border-radius: 2.5rem;
+  background-color: #233567;
+  color: #fff;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.icon__main {
+  font-size: 2rem;
+}
+
+.icon__home {
+  margin-left: auto;
+}
 
 /**************************************
               CAROUSEL
@@ -502,24 +528,4 @@ body {
 
 .background-4 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url("./images/landingpage-6.jpg");
-}
-
-
-/**************************************
-              ICONS
-**************************************/
-
-.icon__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 3rem;
-  width: 8rem;
-  border-radius: 2.5rem;
-  background-color: #233567;
-  color: #fff;
-}
-
-.icon {
-  font-size: 1.5rem;
 }
