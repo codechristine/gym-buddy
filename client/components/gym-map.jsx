@@ -15,14 +15,20 @@ class GymMap extends React.Component {
     this.setState({ map: mapObject });
   }
   render() {
-
+    let element;
     const location = this.props.location;
+    if (!this.state.map) {
+      element = <div>Loading</div>;
+    } else {
+      element = <Place map={this.state.map} location={location} />;
+    }
+
     return (
       <div className="main__container">
         <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} />
         <div className="main__body">
           <div className="map__view">
-            <GoogleMaps id="myMap" className = "map__view-map" updateMap={this.updateMap}
+            <GoogleMaps id="myMap" className = "map__view-map"
               options={{
                 center: { lat: location.lat, lng: location.lng },
                 zoom: 15
@@ -41,7 +47,7 @@ class GymMap extends React.Component {
             />
           </div>
           <div className="map__list">
-            <Place map={this.state.map} location={location}/>
+            { element }
           </div>
         </div>
       </div>
