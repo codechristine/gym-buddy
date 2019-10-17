@@ -300,6 +300,7 @@ body {
 
 .stats__block-dropdown {
   width: 100%;
+  border-radius: 5px;
   background-color: #fff;
 }
 

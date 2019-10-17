@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './home';
 import GymMap from './gym-map';
+import SignUp from './sign-up';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -39,6 +40,8 @@ export default class App extends React.Component {
       case 'map':
         element = <GymMap setView={this.setView} view={ this.state.view } location={ this.state.location }/>;
         break;
+      case 'signup':
+        element = <SignUp setView={this.setView} view={this.state.view} />;
     }
     return (
       <div className="main">
