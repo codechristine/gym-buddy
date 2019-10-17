@@ -15,13 +15,13 @@ export default class GoogleMaps extends React.Component {
 
   componentDidMount() {
     if (!window.google) {
-      var s = document.createElement('script');
-      s.type = 'text/javascript';
-      var x = document.getElementsByTagName('script')[0];
-      x.parentNode.insertBefore(s, x);
-      s.addEventListener('load', e => {
-        this.onScriptLoad();
-      });
+      // var s = document.createElement('script');
+      // s.type = 'text/javascript';
+      // var x = document.getElementsByTagName('script')[0];
+      // x.parentNode.insertBefore(s, x);
+      // s.addEventListener('load', e => {
+      this.onScriptLoad();
+      // });
     } else {
       this.onScriptLoad();
     }
