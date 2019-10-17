@@ -12,4 +12,10 @@
     function startup(){
         header('Content-Type:application/json');
     }
+
+    function getBodyData() {
+        $postData = json_decode(file_get_contents('php://input'), true);
+        return $postData;
+      }
+      
 ?>
