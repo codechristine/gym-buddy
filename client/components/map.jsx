@@ -10,20 +10,20 @@ export default class GoogleMaps extends React.Component {
       document.getElementById(this.props.id),
       this.props.options);
     this.props.onMapLoad(map);
-    this.props.updateMap(map);
   }
   componentDidMount() {
-    if (!window.google) {
-      // var s = document.createElement('script');
-      // s.type = 'text/javascript';
-      // var x = document.getElementsByTagName('script')[0];
-      // x.parentNode.insertBefore(s, x);
-      // s.addEventListener('load', e => {
-      this.onScriptLoad();
-      // });
-    } else {
-      this.onScriptLoad();
-    }
+    // if (!window.google) {
+    // var s = document.createElement('script');
+    // s.type = 'text/javascript';
+    // var x = document.getElementsByTagName('script')[0];
+    // x.parentNode.insertBefore(s, x);
+    // s.addEventListener('load', e => {
+    // this.onScriptLoad();
+    // });
+    // } else {
+    //   this.onScriptLoad();
+    // }
+    this.onScriptLoad();
   }
   // createInfoWindow(e, map) {
   //   const infoWindow = new window.google.maps.InfoWindow({

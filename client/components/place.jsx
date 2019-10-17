@@ -7,6 +7,17 @@ export default class Place extends React.Component {
       places: []
     };
     this.addResultsToList = this.addResultsToList.bind(this);
+    this.map = null;
+  }
+  componentDidMount() {
+    const placesServiceObj = new window.google.maps.places.PlacesService(this.map);
+    let locationObjToSearch = new window.google.maps.LatLng(this.props.location.lat, this.props.location.lng);
+    let request = {
+      location: locationObjToSearch,
+      radius: '15000',
+      type: ['gym']
+    };
+    placesServiceObj.nearbySearch(request, this.addResultsToList);
   }
   addResultsToList(searchResults, searchStatus) {
     let placesArray = [];
@@ -14,39 +25,26 @@ export default class Place extends React.Component {
     if (searchStatus !== 'OK') {
       return false;
     }
-    for (let resultIndex = 0; resultIndex < 10; resultIndex++) {
+    for (let i = 0; i < 10; i++) {
       let placesObject = {
-        name: searchResults[resultIndex].name,
-        lat: searchResults[resultIndex].geometry.location.lat(),
-        lng: searchResults[resultIndex].geometry.location.lng(),
-        open: searchResults[resultIndex].opening_hours.open_now,
-        rating: searchResults[resultIndex].rating
+        id: searchResults[i].id,
+        name: searchResults[i].name,
+        lat: searchResults[i].geometry.location.lat(),
+        lng: searchResults[i].geometry.location.lng(),
+        open: searchResults[i].opening_hours.open_now,
+        rating: searchResults[i].rating,
+        image: searchResults[i].photos[0].getUrl()
       };
       placesArray.push(placesObject);
     }
     this.setState({
       places: placesArray
     });
-    // console.log(this.state.places);
   }
   render() {
-    // console.log(this.state.places);
-    if (!this.props.map) {
-      return (
-        <div>no content</div>
-      );
-    }
-    const placesServiceObj = new window.google.maps.places.PlacesService(this.props.map);
-    let locationObjToSearch = new window.google.maps.LatLng(this.props.location.lat, this.props.location.lng);
-    let request = {
-      location: locationObjToSearch,
-      radius: '15000',
-      type: ['gym']
-    };
-    // Create Google Places Service object
-    placesServiceObj.nearbySearch(request, this.addResultsToList);
+    this.map = this.props.map;
     return (
-      <div>{`${this.state.places}`}</div>
+      <div>{'SUCCESS'}</div>
     );
   }
 
