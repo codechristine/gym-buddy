@@ -9,7 +9,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       currentUser: {},
-      isLoggedIn: true,
+      isLoggedIn: false,
       location: {},
       view: {
         name: 'home',

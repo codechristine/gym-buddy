@@ -59,6 +59,19 @@ body {
 
 .main__header-title {
   font-size: 3rem;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #233567;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+  border-radius: 5px;
+}
+
+.main__header-sub {
+  font-size: 3rem;
   width: 52.5%;
   display: flex;
   justify-content: center;

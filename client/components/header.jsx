@@ -21,6 +21,7 @@ class Header extends React.Component {
         title = <div className="main__header-title">GYM BUDDY</div>;
         if (isLoggedIn) {
           rightButton = <button className="icon__container"><i className="icon fas fa-user"></i></button>;
+          title = <div className="main__header-sub">GYM BUDDY</div>;
         }
         break;
       case 'signup':
