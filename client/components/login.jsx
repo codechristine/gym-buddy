@@ -8,6 +8,7 @@ class LogIn extends React.Component {
       username: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
     const eventTarget = event.target.name;
@@ -18,6 +19,13 @@ class LogIn extends React.Component {
         break;
     }
   }
+  handleSubmit(event) {
+    event.preventDefault();
+    const loginObj = {
+      username: this.state.username
+    };
+    this.props.checkLogIn(loginObj);
+  }
   render() {
     const { username } = this.state;
 
@@ -26,18 +34,18 @@ class LogIn extends React.Component {
         <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} />
         <div className="main__body">
           <div className="login__container">
-            <form className="login__box">
+            <form className="login__box" onSubmit={this.handleSubmit}>
               <div className="login__input">
                 <div className="login__card">
                   <div className="login__card-username">Username</div>
-                  <input value={username} onChange={this.handleChange} type="text" name="username" className="login__card-input" autoComplete="off"></input>
+                  <input value={username} onChange={this.handleChange} type="text" name="username" className="login__card-input" autoComplete="off" required></input>
                 </div>
                 <div className="login__card">
                   <div className="login__card-username">Password</div>
                   <input type="password" name="password" className="login__card-input"></input>
                 </div>
               </div>
-              <button className="btn login__button">Log In</button>
+              <button type="submit" className="btn login__button">Log In</button>
             </form>
           </div>
         </div>
