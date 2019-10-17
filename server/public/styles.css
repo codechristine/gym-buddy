@@ -257,6 +257,7 @@ body {
   font-size: 2rem;
   border-radius: 5px;
   margin-right: 0.5rem;
+  text-align: center;
 }
 
 .signup__block-input:focus {
@@ -290,7 +291,7 @@ body {
 }
 
 .stats__header-options {
-  font-size: 1.15rem;
+  font-size: 2rem;
   display: flex;
   width: 60%;
   color: #fff;
@@ -309,7 +310,7 @@ body {
 .stats__block-options {
   font-size: 1.15rem;
   display: flex;
-  width: 30%;
+  width: 60%;
   height: 40%;
   color: #fff;
   justify-content: center;
@@ -317,6 +318,7 @@ body {
 
 .stats__block-dropdown {
   width: 100%;
+  border-radius: 5px;
   background-color: #fff;
 }
 
