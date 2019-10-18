@@ -19,6 +19,8 @@
             break;
         case 'GET':
             require_once('user-get.php');
+            require_once('test.php');
+
             break;
     }
 
