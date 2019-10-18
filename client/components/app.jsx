@@ -55,7 +55,17 @@ export default class App extends React.Component {
   }
   logInUser(userObj) {
     fetch(`/api/user.php?username=${userObj.username}`)
-      .then(result => result.json());
+      .then(result => result.json())
+      .then(result => {
+        this.setState({
+          currentUser: result[0],
+          view: {
+            name: 'profile',
+            prevName: 'home',
+            paras: {}
+          }
+        });
+      });
   }
   setLocation(locationObj) {
     this.setState({ location: locationObj });
