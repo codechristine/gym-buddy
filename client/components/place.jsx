@@ -1,4 +1,5 @@
 import React from 'react';
+import GymView from './gym-view';
 
 export default class Place extends React.Component {
   constructor(props) {
@@ -7,6 +8,7 @@ export default class Place extends React.Component {
       places: []
     };
     this.addResultsToList = this.addResultsToList.bind(this);
+    // this.addMarkers = this.addMarkers.bind(this);
     this.map = null;
   }
   componentDidMount() {
@@ -41,26 +43,60 @@ export default class Place extends React.Component {
       places: placesArray
     });
   }
+  // addMarkers(lat, lng, iconURL, map) {
+
+  //   var markerCenter = new window.google.maps.LatLng(lat, lng);
+  //   var marker = new window.google.maps.Marker({
+  //     position: markerCenter,
+  //     icon: {
+  //       url: iconURL,
+  //       scaledSize: new window.google.maps.Size(70, 70)
+  //     }
+  //   });
+  //   // marker.addListener('click', () => {
+  //   //   scrollResult(this.map);
+  //   // });
+  //   marker.setMap(this.map);
+  //   this.markers.push(marker);
+  //   return marker;
+  // }
+  // changeMapCenter(marker) {
+  //   var latLng = marker.getPosition();
+  //   this.map.setCenter(latLng);
+  // }
+
   render() {
     this.map = this.props.map;
+    this.markers = [];
 
-    // if (this.state.places) {
-    //   console.log(this.state.places);
-    //   let image = this.state.places.image;
-    //   let name = this.state.places.name;
     return (
-      <div className="place___list">
-        <h3 className="place__list-header">Gym View List</h3>
-        {this.state.places.map(list => {
-          // console.log(list);
-          return (
-            <div key={list.id}>
-              <img className="place__list-image" src={list.image}></img>
-              <div className="place__list-name">{list.name}</div>
-            </div>
-          );
-        })}
+      <div className="container">
+        <h3 className="place__list-header">Gyms Nearby</h3>
+        <div className="place__list-container">
+          {this.state.places.map(list => {
+            // console.log(list.lat);
+            // console.log(list.lng);
+            let marker = new window.google.maps.Marker({
+              position: { lat: list.lat, lng: list.lng }
+              // icon: {
+              //   // url: iconURL,
+              //   scaledSize: new window.google.maps.Size(70, 70)
+              // }
+            });
+            marker.setMap(this.map);
+            this.markers.push(marker);
 
+            return (
+              <div className="places__list-details" onClick={() => { this.props.setView('gym', { id: list.id }); }} key={list.id} >
+                <GymView gym={list} />
+                {/* <div className="places__list-details"> */}
+                <img className="place__list-image" src={list.image}></img>
+                <div className="place__list-name">{list.name}</div>
+              </div>
+              // </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

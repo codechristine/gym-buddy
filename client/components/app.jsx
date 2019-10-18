@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './home';
 import GymMap from './gym-map';
 import SignUp from './sign-up';
+import GymView from './gym-view';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -42,6 +43,10 @@ export default class App extends React.Component {
         break;
       case 'signup':
         element = <SignUp setView={this.setView} view={this.state.view} />;
+        break;
+      case 'gym':
+        element = <GymView setView={this.setView} view={this.state.view} />;
+        break;
     }
     return (
       <div className="main">
