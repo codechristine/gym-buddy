@@ -15,7 +15,7 @@
 
     switch($_SERVER['REQUEST_METHOD']){
         case 'POST':
-            require_once('user-add.php');
+            require_once('user-signup.php');
             break;
         case 'GET':
             require_once('user-get.php');
