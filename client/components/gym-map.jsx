@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './header';
 import GoogleMaps from './map';
-import Place from './place';
+import MapList from './map-list';
 
 class GymMap extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class GymMap extends React.Component {
     if (!this.state.map) {
       element = <div>Loading</div>;
     } else {
-      element = <Place map={this.state.map} location={location} />;
+      element = <MapList map={this.state.map} location={location} />;
     }
 
     return (

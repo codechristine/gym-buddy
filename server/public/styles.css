@@ -138,6 +138,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.main__view:focus {
+  outline: none;
+}
+
+
 .main__search-container {
   width: 90%;
   height: 17.5%;
@@ -200,7 +206,40 @@ body {
 .map__list {
   height: 37.5%;
   width: 100%;
+  overflow: scroll;
+  background-color: #fff;
+  border: 2px solid #315b96;
+  border-radius: 5px;
 }
+
+.map__list-item {
+  height: 10rem;
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #315b96
+}
+
+.map__list-photo {
+  width: 45%;
+  height: 90%;
+  border: 2px solid #315b96;
+  border-radius: 5px;
+}
+
+.map__list-name {
+  width: 45%;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #233567;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 /**************************************
               PLACE LIST
