@@ -4,6 +4,7 @@ import GymMap from './gym-map';
 import SignUp from './sign-up';
 import GymView from './gym-view';
 import LogIn from './login';
+import Profile from './profile';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -32,16 +33,24 @@ export default class App extends React.Component {
     });
   }
   createUser(userObj) {
-    fetch('/api/user.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userObj) })
-      .then(result => {
-        this.setState({
-          view: {
-            name: 'login',
-            prevName: 'home',
-            params: {}
-          }
-        });
-      });
+    // fetch('/api/user.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userObj) })
+    //   .then(result => {
+    //     this.setState({
+    //       view: {
+    //         name: 'login',
+    //         prevName: 'home',
+    //         params: {}
+    //       }
+    //     });
+    //   });
+    this.setState({
+      currentUser: userObj,
+      view: {
+        name: 'profile',
+        prevName: 'home',
+        paras: {}
+      }
+    });
   }
   setLocation(locationObj) {
     this.setState({ location: locationObj });
@@ -64,6 +73,9 @@ export default class App extends React.Component {
         break;
       case 'login':
         element = <LogIn setView={this.setView} view={this.state.view}/>;
+        break;
+      case 'profile':
+        element = <Profile setView={this.setView} view={this.state.view} currentUser={this.state.currentUser}/>;
         break;
     }
     return (
