@@ -3,7 +3,7 @@ import React from 'react';
 class MapItem extends React.Component {
   render() {
     const location = this.props.location;
-    const setView = () => this.props.setView('gym', 'map', this.props.location);
+    const setView = () => this.props.setView('gym', 'map', location);
 
     return (
       <div className="map__list-item" onClick={setView}>
