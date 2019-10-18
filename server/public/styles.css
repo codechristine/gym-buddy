@@ -155,7 +155,6 @@ body {
   outline: none;
 }
 
-
 .main__search-container {
   width: 90%;
   height: 17.5%;
@@ -251,37 +250,72 @@ body {
   align-items: center;
 }
 
-
-
 /**************************************
-              PLACE LIST
+              PROFILE
 **************************************/
 
-.place__list-container {
-  border: 1px solid black;
-  height: 25rem;
-  overflow: scroll;
+.profile__container {
+  height: 95%;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.place__list-header {
-  font-size: 20px;
-  text-align: center;
+.profile__container-top {
+  height: 48.5%;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.places__list-details {
+.profile__photo {
+  height: 45%;
+  width: 45%;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #315b96;
+}
+
+.profile__info {
+  height: 22.5%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__info-name {
+  font-size: 2rem;
+}
+
+.profile__info-gym {
+  font-size: 3rem;
+  color: #315b96;
+}
+
+.profile__buttons {
+  height: 22.5%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 5%;
 }
 
-.place__list-image {
-  height: 80px;
-  width: 80px;
-}
 
-.place__list-name {
-  font-size: 2rem;
+.profile__container-bottom {
+  height: 48.5%;
+  width: 100%;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
 }
 
 /**************************************
@@ -532,14 +566,16 @@ body {
   font-size: 1.75rem;
 }
 
-.map__button {
+.map__button,
+.profile__button {
   height: 3rem;
   width: 8rem;
   font-size: 1.5rem;
 }
 
 .login__button,
-.signup__button {
+.signup__button,
+.profile__button {
   background-color: #315b96;
 }
 
