@@ -206,18 +206,31 @@ body {
               PLACE LIST
 **************************************/
 
-.place__list {
+.place__list-container {
   border: 1px solid black;
+  height: 25rem;
+  overflow: scroll;
 }
+
 .place__list-header {
   font-size: 20px;
+  text-align: center;
 }
+
+.places__list-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5%;
+}
+
 .place__list-image {
-  height: 7rem;
-  width: 7rem;
+  height: 80px;
+  width: 80px;
 }
+
 .place__list-name {
-  font: 10px;
+  font-size: 2rem;
 }
 
 /**************************************
