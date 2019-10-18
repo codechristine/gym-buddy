@@ -20,12 +20,12 @@ class Home extends React.Component {
     const viewMap = () => this.props.setView('map', 'home', {});
     return (
       <div className="main__container">
-        <Header name = { this.props.view.name } prevName = { this.props.view.prevName } setView = { this.props.setView }/>
+        <Header name = { this.props.view.name } prevName = { this.props.view.prevName } setView = { this.props.setView } isLoggedIn = { this.props.isLoggedIn } />
         <div className="main__body">
           <Carousel />
-          <div className="main__view" onClick={this.updateLocation}>
+          <button className="main__view" onClick={this.updateLocation}>
             View Gyms Around Me
-          </div>
+          </button>
           <LocationSearchInput setLocation = { this.props.setLocation } viewMap={ viewMap }/>
         </div>
       </div>

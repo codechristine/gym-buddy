@@ -70,6 +70,19 @@ body {
   border-radius: 5px;
 }
 
+.main__header-sub {
+  font-size: 3rem;
+  width: 52.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #233567;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+  border-radius: 5px;
+}
+
 
 /**************************************
               BODY
@@ -228,7 +241,7 @@ body {
   width: 100%;
   height: 92.5%;
   border-radius: 5px;
-  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 20%, rgba(49, 91, 150));
+  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
   margin-top: 0.5rem;
 }
 
@@ -338,6 +351,114 @@ body {
 .stats__block-dropdown:focus {
   outline: none;
 }
+
+/**************************************
+              LOGIN
+**************************************/
+
+.login__container {
+  width: 100%;
+  height: 95%;
+  border-radius: 5px;
+  border: 2px solid #315b96;
+  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__box {
+  height: 70%;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.login__input {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.login__card {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login__card-username {
+  font-size: 2rem;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__card-input {
+  width: 55%;
+  height: 45%;
+  border-radius: 5px;
+  background-color: rgb(255, 223, 223, 0.5);
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.login__card-input:focus {
+  outline: none;
+}
+
+/**************************************
+              CALENDAR
+**************************************/
+
+.calendar__container {
+  width: 100%;
+  height: 95%;
+  border-radius: 5px;
+  border: 2px solid #315b96;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar__container-top {
+  height: 7.5%;
+  width: 100%;
+  display: flex;
+  border-bottom: 2px solid #315b96;
+}
+
+.calendar__day {
+  width: 12.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.calendar__container-bottom {
+  height: 92.5%;
+  width: 100%;
+  display: flex;
+}
+
+.calendar__time {
+  height: 100%;
+  width: 12.5%;
+  border-left: 0.5px solid black;
+}
+
 /**************************************
               BUTTONS
 **************************************/
@@ -353,7 +474,8 @@ body {
 }
 
 .main__button,
-.signup__button {
+.signup__button,
+.login__button {
   height: 4rem;
   width: 12rem;
   font-size: 1.75rem;
@@ -361,8 +483,40 @@ body {
 
 .map__button {
   height: 3rem;
-  width: 10rem;
+  width: 8rem;
   font-size: 1.5rem;
+}
+
+.login__button,
+.signup__button {
+  background-color: #315b96;
+}
+
+/**************************************
+              ICONS
+**************************************/
+
+.icon__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 8rem;
+  border-radius: 2.5rem;
+  background-color: #233567;
+  color: #fff;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.icon__main {
+  font-size: 2rem;
+}
+
+.icon__home {
+  margin-left: auto;
 }
 
 /**************************************

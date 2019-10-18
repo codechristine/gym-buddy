@@ -2,28 +2,39 @@ import React from 'react';
 
 class Header extends React.Component {
   render() {
+    const isLoggedIn = this.props.isLoggedIn;
     const name = this.props.name;
     const prevName = this.props.prevName;
     const backMethod = () => this.props.setView(prevName, name, {});
     const signUpView = () => this.props.setView('signup', 'home', {});
+    const loginView = () => this.props.setView('login', 'home', {});
 
     let leftButton, title, rightButton;
 
     switch (name) {
       case 'home':
         leftButton = <button className="btn main__button" onClick={signUpView}>Sign Up</button>;
-        rightButton = <button className="btn main__button">Log In</button>;
-        title = '';
+        rightButton = <button className="btn main__button" onClick={loginView} >Log In</button>;
+        if (isLoggedIn) {
+          leftButton = '';
+          rightButton = <button className="btn main__button icon__home" onClick={loginView}><i className="icon__main fas fa-user"></i></button>;
+        }
         break;
       case 'map':
         leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
         title = <div className="main__header-title">GYM BUDDY</div>;
-        rightButton = '';
+        if (isLoggedIn) {
+          rightButton = <button className="icon__container"><i className="icon fas fa-user"></i></button>;
+          title = <div className="main__header-sub">GYM BUDDY</div>;
+        }
         break;
       case 'signup':
         leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
         title = <div className="main__header-title">GYM BUDDY</div>;
-        rightButton = '';
+        break;
+      case 'login':
+        leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
+        title = <div className="main__header-title">GYM BUDDY</div>;
     }
 
     return (

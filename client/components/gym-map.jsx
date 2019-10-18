@@ -25,7 +25,7 @@ class GymMap extends React.Component {
 
     return (
       <div className="main__container">
-        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} />
+        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} isLoggedIn={this.props.isLoggedIn}/>
         <div className="main__body">
           <div className="map__view">
             <GoogleMaps id="myMap" className = "map__view-map"
