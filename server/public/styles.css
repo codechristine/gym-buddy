@@ -293,7 +293,8 @@ body {
   align-items: center;
 }
 
-.profile__info-name {
+.profile__info-name,
+.profile__info-age {
   font-size: 2rem;
 }
 
@@ -577,6 +578,10 @@ body {
 .signup__button,
 .profile__button {
   background-color: #315b96;
+}
+
+.selected {
+  background-color: #233567;
 }
 
 /**************************************
