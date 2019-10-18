@@ -20,7 +20,7 @@ class GymMap extends React.Component {
     if (!this.state.map) {
       element = <div>Loading</div>;
     } else {
-      element = <MapList map={this.state.map} location={location} />;
+      element = <MapList map={this.state.map} location={location} setView={this.props.setView}/>;
     }
 
     return (
@@ -31,7 +31,7 @@ class GymMap extends React.Component {
             <GoogleMaps id="myMap" className = "map__view-map"
               options={{
                 center: { lat: location.lat, lng: location.lng },
-                zoom: 15
+                zoom: 12.5
               }}
               onMapLoad={mapObject => {
                 const marker = new window.google.maps.Marker({

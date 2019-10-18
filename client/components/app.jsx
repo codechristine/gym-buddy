@@ -5,7 +5,6 @@ import SignUp from './sign-up';
 import GymView from './gym-view';
 import LogIn from './login';
 
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -57,11 +56,11 @@ export default class App extends React.Component {
       case 'map':
         element = <GymMap setView={this.setView} view={ this.state.view } location={ this.state.location } isLoggedIn={this.state.isLoggedIn}/>;
         break;
-      case 'signup':
-        element = <SignUp setView={this.setView} view={this.state.view} createUser={this.createUser}/>;
-        break;
       case 'gym':
         element = <GymView setView={this.setView} view={this.state.view} />;
+        break;
+      case 'signup':
+        element = <SignUp setView={this.setView} view={this.state.view} createUser={this.createUser} />;
         break;
       case 'login':
         element = <LogIn setView={this.setView} view={this.state.view}/>;

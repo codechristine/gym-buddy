@@ -9,6 +9,8 @@ export default class GymView extends React.Component {
   // needs MORE details from Map ==> getDetails()
   // }
   render() {
+    // const location = this.props.view.params;
+    // console.log(location);
     // console.log(this.props.gym);
     // if (this.props.gym) {
     //   let address = this.props.gym.address;
@@ -16,7 +18,7 @@ export default class GymView extends React.Component {
     //   let peakHours = this.props.gym;
     // }
     return (
-      <div>carasoul of </div>
+      <div>Testing</div>
     );
   }
 }
