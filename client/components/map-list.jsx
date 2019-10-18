@@ -1,7 +1,7 @@
 import React from 'react';
-import GymView from './gym-view';
+import MapItem from './map-item';
 
-export default class Place extends React.Component {
+export default class MapList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,34 +70,20 @@ export default class Place extends React.Component {
     this.markers = [];
 
     return (
-      <div className="container">
-        <h3 className="place__list-header">Gyms Nearby</h3>
-        <div className="place__list-container">
-          {this.state.places.map(list => {
-            // console.log(list.lat);
-            // console.log(list.lng);
-            let marker = new window.google.maps.Marker({
-              position: { lat: list.lat, lng: list.lng }
-              // icon: {
-              //   // url: iconURL,
-              //   scaledSize: new window.google.maps.Size(70, 70)
-              // }
-            });
-            marker.setMap(this.map);
-            this.markers.push(marker);
-
-            return (
-              <div className="places__list-details" onClick={() => { this.props.setView('gym', { id: list.id }); }} key={list.id} >
-                <GymView gym={list} />
-                {/* <div className="places__list-details"> */}
-                <img className="place__list-image" src={list.image}></img>
-                <div className="place__list-name">{list.name}</div>
-              </div>
-              // </div>
-            );
-          })}
-        </div>
-      </div>
+      this.state.places.map(element => {
+        let marker = new window.google.maps.Marker({
+          position: { lat: element.lat, lng: element.lng },
+          icon: {
+            // url: iconURL,
+            scaledSize: new window.google.maps.Size(70, 70)
+          }
+        });
+        marker.setMap(this.map);
+        this.markers.push(marker);
+        return (
+          <MapItem key = { element.id } location = { element } setView = { this.props.setView } />
+        );
+      })
     );
   }
 }
