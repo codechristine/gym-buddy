@@ -475,7 +475,16 @@ body {
 
 .login__card {
   width: 100%;
-  height: 20%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login__info {
+  width: 100%;
+  height: 45%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -491,11 +500,21 @@ body {
 
 .login__card-input {
   width: 55%;
-  height: 45%;
+  height: 50%;
   border-radius: 5px;
   background-color: rgb(255, 223, 223, 0.5);
   text-align: center;
   font-size: 1.5rem;
+}
+
+.login__error {
+  font-size: 1.5rem;
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 0, 0);
 }
 
 .login__card-input:focus {
