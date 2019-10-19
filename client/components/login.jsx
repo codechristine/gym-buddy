@@ -25,9 +25,18 @@ class LogIn extends React.Component {
       username: this.state.username
     };
     this.props.logInUser(loginObj);
+    this.clearInputs();
+  }
+  clearInputs() {
+    this.setState({ username: '' });
   }
   render() {
     const { username } = this.state;
+    let params = this.props.view.params;
+    let errorMessage;
+    if (params.error) {
+      errorMessage = params.error;
+    }
 
     return (
       <div className="main__container">
@@ -37,12 +46,18 @@ class LogIn extends React.Component {
             <form className="login__box" onSubmit={this.handleSubmit}>
               <div className="login__input">
                 <div className="login__card">
-                  <div className="login__card-username">Username</div>
-                  <input value={username} onChange={this.handleChange} type="text" name="username" className="login__card-input" autoComplete="off" required></input>
+                  <div className="login__info">
+                    <div className="login__card-username">Username</div>
+                    <input value={username} onChange={this.handleChange} type="text" name="username" className="login__card-input" autoComplete="off" required></input>
+                  </div>
+                  <div className="login__error"> {errorMessage} </div>
                 </div>
                 <div className="login__card">
-                  <div className="login__card-username">Password</div>
-                  <input type="password" name="password" className="login__card-input"></input>
+                  <div className="login__info">
+                    <div className="login__card-username">Password</div>
+                    <input type="password" name="password" className="login__card-input"></input>
+                  </div>
+                  <div className="login__error"></div>
                 </div>
               </div>
               <button type="submit" className="btn login__button">Log In</button>

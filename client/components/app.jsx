@@ -49,7 +49,7 @@ export default class App extends React.Component {
       view: {
         name: 'profile',
         prevName: 'home',
-        paras: {}
+        params: {}
       }
     });
   }
@@ -58,7 +58,13 @@ export default class App extends React.Component {
       .then(result => result.json())
       .then(result => {
         if (result.error) {
-          result.json();
+          this.setState({
+            view: {
+              name: 'login',
+              prevName: 'home',
+              params: result
+            }
+          });
         } else {
           this.setState({
             currentUser: result[0],
@@ -66,7 +72,7 @@ export default class App extends React.Component {
             view: {
               name: 'profile',
               prevName: 'home',
-              paras: {}
+              params: {}
             }
           });
         }
