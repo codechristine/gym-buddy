@@ -5,6 +5,7 @@ class Header extends React.Component {
     const isLoggedIn = this.props.isLoggedIn;
     const name = this.props.name;
     const prevName = this.props.prevName;
+    const currentUser = this.props.currentUser;
     const backMethod = () => this.props.setView(prevName, name, {});
     const signUpView = () => this.props.setView('signup', 'home', {});
     const loginView = () => this.props.setView('login', 'home', {});
@@ -40,6 +41,9 @@ class Header extends React.Component {
         leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
         title = <div className="main__header-title">GYM BUDDY</div>;
         break;
+      case 'profile':
+        leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
+        title = <div className="main__header-username">{currentUser.username}</div>;
     }
 
     return (
