@@ -23,7 +23,6 @@ export default class MapList extends React.Component {
   }
 
   addResultsToList(searchResults, searchStatus) {
-
     let placesArray = [];
 
     if (searchStatus !== 'OK') {
@@ -36,9 +35,10 @@ export default class MapList extends React.Component {
         name: searchResults[i].name,
         lat: searchResults[i].geometry.location.lat(),
         lng: searchResults[i].geometry.location.lng(),
-        open: searchResults[i].opening_hours.open_now,
         rating: searchResults[i].rating,
-        image: searchResults[i].photos[0].getUrl()
+        image: typeof searchResults[i].photos !== 'undefined'
+          ? searchResults[i].photos[0].getUrl()
+          : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/No_image_available_600_x_450.svg/1200px-No_image_available_600_x_450.svg.png'
       };
       placesArray.push(placesObject);
     }
