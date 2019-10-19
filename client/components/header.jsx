@@ -35,6 +35,11 @@ class Header extends React.Component {
       case 'login':
         leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
         title = <div className="main__header-title">GYM BUDDY</div>;
+        break;
+      case 'gym-view':
+        leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
+        title = <div className="main__header-title">GYM BUDDY</div>;
+        break;
     }
 
     return (
