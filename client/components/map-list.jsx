@@ -20,27 +20,10 @@ export default class MapList extends React.Component {
       type: ['gym']
     };
     this.placesServiceObj.nearbySearch(request, this.addResultsToList);
-
-    let searchResultData = {};
-    let moreDetails = {
-      placeId: '8a9733830bd509d8a0afac83495891a3e3f0768c',
-      fields: ['name', 'place_id', 'formatted_address', 'geometry',
-        'url', 'types', 'photos', 'rating', 'user_ratings_total', 'price_level']
-    };
-    // console.log(this.placesServiceObj);
-    this.placesServiceObj.getDetails(moreDetails, function (place, status) {
-      // console.log(place);
-      if (status !== 'OK') {
-        return false;
-      }
-      for (let field of moreDetails.fields) {
-        searchResultData[field] = place[field];
-      }
-      // trip.places.renderPlaceResultBox(searchResultData);
-    });
   }
 
   addResultsToList(searchResults, searchStatus) {
+
     let placesArray = [];
 
     if (searchStatus !== 'OK') {
@@ -49,6 +32,7 @@ export default class MapList extends React.Component {
     for (let i = 0; i < 10; i++) {
       let placesObject = {
         id: searchResults[i].id,
+        placeId: searchResults[i].place_id,
         name: searchResults[i].name,
         lat: searchResults[i].geometry.location.lat(),
         lng: searchResults[i].geometry.location.lng(),

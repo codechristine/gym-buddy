@@ -38,7 +38,7 @@ class Header extends React.Component {
         leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
         title = <div className="main__header-title">GYM BUDDY</div>;
         break;
-      case 'gym-view':
+      case 'gym':
         leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
         title = <div className="main__header-title">GYM BUDDY</div>;
         break;
