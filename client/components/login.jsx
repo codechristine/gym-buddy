@@ -24,7 +24,7 @@ class LogIn extends React.Component {
     const loginObj = {
       username: this.state.username
     };
-    this.props.checkLogIn(loginObj);
+    this.props.logInUser(loginObj);
   }
   render() {
     const { username } = this.state;

@@ -22,6 +22,7 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.setLocation = this.setLocation.bind(this);
     this.createUser = this.createUser.bind(this);
+    this.logInUser = this.logInUser.bind(this);
   }
   setView(name, prevName, params) {
     this.setState({
@@ -52,6 +53,25 @@ export default class App extends React.Component {
       }
     });
   }
+  logInUser(userObj) {
+    fetch(`/api/user.php?username=${userObj.username}`)
+      .then(result => result.json())
+      .then(result => {
+        if (result.error) {
+          result.json();
+        } else {
+          this.setState({
+            currentUser: result[0],
+            isLoggedIn: true,
+            view: {
+              name: 'profile',
+              prevName: 'home',
+              paras: {}
+            }
+          });
+        }
+      });
+  }
   setLocation(locationObj) {
     this.setState({ location: locationObj });
   }
@@ -72,7 +92,7 @@ export default class App extends React.Component {
         element = <SignUp setView={this.setView} view={this.state.view} createUser={this.createUser} />;
         break;
       case 'login':
-        element = <LogIn setView={this.setView} view={this.state.view}/>;
+        element = <LogIn setView={this.setView} view={this.state.view} logInUser={this.logInUser}/>;
         break;
       case 'profile':
         element = <Profile setView={this.setView} view={this.state.view} currentUser={this.state.currentUser}/>;

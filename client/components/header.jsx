@@ -39,7 +39,7 @@ class Header extends React.Component {
         break;
       case 'profile':
         leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
-        title = <div className="main__header-username">{currentUser.userName}</div>;
+        title = <div className="main__header-username">{currentUser.username}</div>;
     }
 
     return (

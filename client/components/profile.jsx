@@ -3,8 +3,8 @@ import Header from './header';
 
 class Profile extends React.Component {
   render() {
-    const firstName = this.props.currentUser.firstName;
-    const lastName = this.props.currentUser.lastName;
+    const firstName = this.props.currentUser.firstname;
+    const lastName = this.props.currentUser.lastname;
     const age = this.props.currentUser.age;
     let gym = this.props.currentUser.gym;
     let photo = this.props.currentUser.photo;
