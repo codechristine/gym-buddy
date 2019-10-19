@@ -18,6 +18,7 @@ class Home extends React.Component {
   }
   render() {
     const viewMap = () => this.props.setView('map', 'home', {});
+    const searchOptions = { componentRestrictions: { country: 'us' } };
     return (
       <div className="main__container">
         <Header name = { this.props.view.name } prevName = { this.props.view.prevName } setView = { this.props.setView } isLoggedIn = { this.props.isLoggedIn } />
@@ -26,7 +27,7 @@ class Home extends React.Component {
           <button className="main__view" onClick={this.updateLocation}>
             View Gyms Around Me
           </button>
-          <LocationSearchInput setLocation = { this.props.setLocation } viewMap={ viewMap }/>
+          <LocationSearchInput setLocation = { this.props.setLocation } viewMap={ viewMap } searchOptions={ searchOptions }/>
         </div>
       </div>
     );
