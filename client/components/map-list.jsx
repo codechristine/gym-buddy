@@ -8,19 +8,38 @@ export default class MapList extends React.Component {
       places: []
     };
     this.addResultsToList = this.addResultsToList.bind(this);
-    // this.addMarkers = this.addMarkers.bind(this);
     this.map = null;
+    this.placesServiceObj = null;
   }
   componentDidMount() {
-    const placesServiceObj = new window.google.maps.places.PlacesService(this.map);
+    this.placesServiceObj = new window.google.maps.places.PlacesService(this.map);
     let locationObjToSearch = new window.google.maps.LatLng(this.props.location.lat, this.props.location.lng);
     let request = {
       location: locationObjToSearch,
       radius: '15000',
       type: ['gym']
     };
-    placesServiceObj.nearbySearch(request, this.addResultsToList);
+    this.placesServiceObj.nearbySearch(request, this.addResultsToList);
+
+    let searchResultData = {};
+    let moreDetails = {
+      placeId: '8a9733830bd509d8a0afac83495891a3e3f0768c',
+      fields: ['name', 'place_id', 'formatted_address', 'geometry',
+        'url', 'types', 'photos', 'rating', 'user_ratings_total', 'price_level']
+    };
+    // console.log(this.placesServiceObj);
+    this.placesServiceObj.getDetails(moreDetails, function (place, status) {
+      // console.log(place);
+      if (status !== 'OK') {
+        return false;
+      }
+      for (let field of moreDetails.fields) {
+        searchResultData[field] = place[field];
+      }
+      // trip.places.renderPlaceResultBox(searchResultData);
+    });
   }
+
   addResultsToList(searchResults, searchStatus) {
     let placesArray = [];
 
@@ -43,45 +62,26 @@ export default class MapList extends React.Component {
       places: placesArray
     });
   }
-  // addMarkers(lat, lng, iconURL, map) {
-
-  //   var markerCenter = new window.google.maps.LatLng(lat, lng);
-  //   var marker = new window.google.maps.Marker({
-  //     position: markerCenter,
-  //     icon: {
-  //       url: iconURL,
-  //       scaledSize: new window.google.maps.Size(70, 70)
-  //     }
-  //   });
-  //   // marker.addListener('click', () => {
-  //   //   scrollResult(this.map);
-  //   // });
-  //   marker.setMap(this.map);
-  //   this.markers.push(marker);
-  //   return marker;
-  // }
-  // changeMapCenter(marker) {
-  //   var latLng = marker.getPosition();
-  //   this.map.setCenter(latLng);
-  // }
-
   render() {
+
     this.map = this.props.map;
     this.markers = [];
+    let image = 'https://img.icons8.com/ultraviolet/50/000000/flex-biceps.png';
 
     return (
       this.state.places.map(element => {
         let marker = new window.google.maps.Marker({
           position: { lat: element.lat, lng: element.lng },
           icon: {
-            // url: iconURL,
-            scaledSize: new window.google.maps.Size(70, 70)
+            url: image,
+            scaledSize: new window.google.maps.Size(50, 50)
           }
         });
         marker.setMap(this.map);
         this.markers.push(marker);
+        this.map.setZoom(12);
         return (
-          <MapItem key = { element.id } location = { element } setView = { this.props.setView } />
+          <MapItem key = { element.id } location = { element } setView = { this.props.setView } placesServiceObj = {this.placesServiceObj}/>
         );
       })
     );
