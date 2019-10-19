@@ -1,24 +1,45 @@
 import React from 'react';
+// import { resolve } from 'path';
+import Header from './header';
 
 export default class GymView extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-
-  //   };
-  // needs MORE details from Map ==> getDetails()
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      map: null
+    };
+  }
   render() {
-    // const location = this.props.view.params;
-    // console.log(location);
-    // console.log(this.props.gym);
-    // if (this.props.gym) {
-    //   let address = this.props.gym.address;
-    //   let hours = this.props.gym.hours();
-    //   let peakHours = this.props.gym;
-    // }
+    const combinedMapObject = this.props.view.params;
+
+    // console.log(combinedMapObject);
+
+    let request = {
+      placeId: combinedMapObject.currentLocation.id,
+      fields: ['photo', 'name', 'place_id', 'formatted_address', 'opening_hours', 'rating']
+    };
+
+    combinedMapObject.googleMap.getDetails(request, function (place, status) {
+      if (status !== 'OK') {
+        return false;
+      }
+      // console.log(place);
+      return place;
+    });
+
     return (
-      <div>Testing</div>
+      <div className="main__container">
+        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} isLoggedIn={this.props.isLoggedIn} />
+        <div className="main__body">
+          <div className="gym__view-container">
+            <div className="gym__view-photos"> classphotos</div>
+            <div className="gym__view-address">gym address</div>
+            <div className="gym__view-hours">gym hours</div>
+            <div className="gym__view-peak-hours">peak hours</div>
+            <button className="gym__view-button">Add Gym</button>
+          </div>
+        </div>
+      </div>
     );
   }
 }

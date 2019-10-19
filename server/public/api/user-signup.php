@@ -41,8 +41,6 @@
 
 
 
-
-
     // $signUpQuery = "SELECT * FROM `user-signup`";
 
     // $signUpResult = mysqli_query( $conn, $signUpQuery );
