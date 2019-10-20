@@ -10,6 +10,7 @@ class Header extends React.Component {
     const signUpView = () => this.props.setView('signup', 'home', {});
     const loginView = () => this.props.setView('login', 'home', {});
     const profileView = () => this.props.setView('profile', 'home', {});
+    const homeView = () => this.props.setView('home', 'map', {});
 
     let leftButton, title, rightButton;
 
@@ -23,7 +24,7 @@ class Header extends React.Component {
         }
         break;
       case 'map':
-        leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
+        leftButton = <button className="btn map__button" onClick={homeView}>Back</button>;
         title = <div className="main__header-title">GYM BUDDY</div>;
         if (isLoggedIn) {
           rightButton = <button className="icon__container" onClick={profileView}><i className="icon fas fa-user"></i></button>;
