@@ -8,7 +8,15 @@ set_exception_handler('error_handler');
 
 switch($_SERVER['REQUEST_METHOD']){
     case 'POST':
-        require_once('user-add.php');
+        // POST is used to add user to database
+        //      [x] 1 - check if user exist
+        //      [ ] 2 - if user DNE, query to add user to database
+        //      [ ] 3 - if user user exist, THROW AN ERROR
+        // require_once('user-add.php');    
+        // require_once('user-get.php');
+        $userToAdd = 'LeonOnirac';
+        require_once('user-check.php');
+        print("user.php - " . $num_rows);
         break;
     case 'GET':
         require_once('user-get.php');
