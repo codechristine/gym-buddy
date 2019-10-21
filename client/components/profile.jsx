@@ -1,13 +1,43 @@
 import React from 'react';
 import Header from './header';
+import BuddyList from './buddy-list';
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      view: 'buddies',
+      buddiesArr: [],
+      params: {}
+    };
+  }
+  componentDidMount() {
+    this.id = this.props.currentUser.id;
+    this.getBuddies();
+  }
+  getBuddies() {
+    fetch(`/api/friends.php?id=${this.id}`)
+      .then(result => result.json())
+      .then(result => {
+        this.setState({ buddiesArr: result });
+      });
+  }
   render() {
     const firstName = this.props.currentUser.firstname;
     const lastName = this.props.currentUser.lastname;
     const age = this.props.currentUser.age;
     let gym = this.props.currentUser.gym;
     let photo = this.props.currentUser.photo;
+
+    const { view } = this.state;
+    let element;
+
+    switch (view) {
+      case 'buddies':
+        element = this.state.buddiesArr.map(element => {
+          return <BuddyList key={element.id} buddyInfo = {element} />;
+        });
+    }
 
     if (!gym) {
       gym = 'Not a Gym Member';
@@ -35,6 +65,7 @@ class Profile extends React.Component {
               </div>
             </div>
             <div className="profile__container-bottom">
+              { element }
             </div>
           </div>
         </div>
