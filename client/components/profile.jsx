@@ -38,6 +38,9 @@ class Profile extends React.Component {
     const age = this.props.currentUser.age;
     let gym = this.props.currentUser.gym;
     let photo = this.props.currentUser.photo;
+    let buddiesClass = 'btn profile__button';
+    let expertiseClass = 'btn profile__button';
+    let scheduleClass = 'btn profile__button';
     const toggleBuddy = () => this.toggleView('buddies');
     const toggleExpertise = () => this.toggleView('expertise');
 
@@ -46,6 +49,7 @@ class Profile extends React.Component {
 
     switch (view) {
       case 'buddies':
+        buddiesClass = 'btn profile__button selected';
         if (!buddiesArr.length) {
           element = <div className="buddy__none">
             <img src="https://cdn4.iconfinder.com/data/icons/faces-10/96/sadness-512.png" alt="no friends" className="buddy__card-photo"/>
@@ -63,6 +67,7 @@ class Profile extends React.Component {
         }
         break;
       case 'expertise':
+        expertiseClass = 'btn profile__button selected';
         element = <Expertise currentUser = {this.props.currentUser} />;
         break;
     }
@@ -91,9 +96,9 @@ class Profile extends React.Component {
                 <div className="profile__info-gym">{gym}</div>
               </div>
               <div className="profile__buttons-bottom">
-                <button className="btn profile__button selected" onClick={toggleBuddy}> Buddies </button>
-                <button className="btn profile__button" onClick={toggleExpertise}> Expertise </button>
-                <button className="btn profile__button"> Schedule </button>
+                <button className={buddiesClass} onClick={toggleBuddy}> Buddies </button>
+                <button className={expertiseClass} onClick={toggleExpertise}> Expertise </button>
+                <button className={scheduleClass}> Schedule </button>
               </div>
             </div>
             <div className="profile__container-bottom">
