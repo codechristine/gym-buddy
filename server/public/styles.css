@@ -716,21 +716,89 @@ body {
 /**************************************
               GYM-VIEW
 **************************************/
+/* main__body */
 .gym__view-container {
+  height: 95%;
+  width: 100%;
+  margin-top: 1%;
+}
 
+.gym__view-info-container {
+  border: 2px solid  #233567;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #233567;
+  margin-top: 0px;
+  font-size: 15px;
+}
+
+.gym__view-slideshow-container{
+  position: relative;
 }
 .gym__view-photos {
-
+  height: 30rem;
+  width: 100%;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2%;
 }
-.gym__view-address {
 
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
-.gym__view-hours {
 
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
-.gym__view-peak-hours{
 
+.gym__view-dot-container {
+  text-align: center;
 }
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.gym__view-info-name-and-button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2%;
+}
+
+.gym__view-info-address-and-hours-container {
+  margin: 2%;
+}
+
 .gym__view-button {
-
+  border-radius: 2.5rem;
+  background-color: #233567;
+  color: #fff;
+  font-size: 2rem;
+  padding: 10px;
 }
