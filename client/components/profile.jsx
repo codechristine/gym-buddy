@@ -29,14 +29,22 @@ class Profile extends React.Component {
     let gym = this.props.currentUser.gym;
     let photo = this.props.currentUser.photo;
 
-    const { view } = this.state;
+    const { view, buddiesArr } = this.state;
     let element;
 
     switch (view) {
       case 'buddies':
-        element = this.state.buddiesArr.map(element => {
-          return <BuddyList key={element.id} buddyInfo = {element} />;
-        });
+        if (!buddiesArr.length) {
+          element = <div className="buddy__none">
+            <img src="https://cdn4.iconfinder.com/data/icons/faces-10/96/sadness-512.png" alt="no friends" className="buddy__card-photo"/>
+            No Friends
+          </div>;
+        } else {
+          element = buddiesArr.map(element => {
+            return <BuddyList key={element.id} buddyInfo={element} />;
+          });
+        }
+        break;
     }
 
     if (!gym) {
