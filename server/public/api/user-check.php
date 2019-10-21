@@ -9,7 +9,8 @@
     $output = [];
     $num_rows = mysqli_num_rows($result);
 
-    if($num_rows === 0) throw new Exception("Invalid");
+    if($num_rows === 0) throw new Exception("UserName Is Available!!");
+    // if($num_rows !== 0) throw new Exception("UserName is Not Available!");
 
     while($row = mysqli_fetch_assoc($result)){
         array_push($output,$row);
@@ -17,5 +18,4 @@
 
     $json_version = json_encode($output);
     print($json_version);
-
 ?>
