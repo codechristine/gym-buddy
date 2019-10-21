@@ -14,9 +14,10 @@ switch($_SERVER['REQUEST_METHOD']){
         //      [ ] 3 - if user user exist, THROW AN ERROR
         // require_once('user-add.php');    
         // require_once('user-get.php');
-        $userToAdd = 'LeonOnirac';
+        $userToAdd = $_GET['user-name'];
         require_once('user-check.php');
         print("user.php - " . $num_rows);
+        print('check 1');
         break;
     case 'GET':
         require_once('user-get.php');
