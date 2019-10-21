@@ -60,13 +60,17 @@ class Profile extends React.Component {
         <div className="main__body">
           <div className="profile__container">
             <div className="profile__container-top">
+              <div className="profile__buttons-top">
+                <button className="btn profile__button"> Sign Out </button>
+                <button className="btn profile__button"> Edit </button>
+              </div>
               <img src={photo} alt="profile photo" className="profile__photo"/>
               <div className="profile__info">
                 <div className="profile__info-name">{ `${firstName} ${lastName}` }</div>
                 <div className="profile__info-age">{age}</div>
                 <div className="profile__info-gym">{gym}</div>
               </div>
-              <div className="profile__buttons">
+              <div className="profile__buttons-bottom">
                 <button className="btn profile__button selected"> Buddies </button>
                 <button className="btn profile__button"> Expertise </button>
                 <button className="btn profile__button"> Schedule </button>

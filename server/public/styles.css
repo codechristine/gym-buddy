@@ -304,14 +304,19 @@ body {
   color: #315b96;
 }
 
-.profile__buttons {
-  height: 22.5%;
+.profile__buttons-top,
+.profile__buttons-bottom {
+  height: 10%;
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
+.profile__buttons-top {
+  justify-content: space-between;
+  padding: 1rem;
+}
 
 .profile__container-bottom {
   height: 48.5%;
