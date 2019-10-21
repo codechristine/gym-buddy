@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './header';
 import BuddyList from './buddy-list';
+import Expertise from './expertise';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -37,6 +38,8 @@ class Profile extends React.Component {
     const age = this.props.currentUser.age;
     let gym = this.props.currentUser.gym;
     let photo = this.props.currentUser.photo;
+    const toggleBuddy = () => this.toggleView('buddies');
+    const toggleExpertise = () => this.toggleView('expertise');
 
     const { view, buddiesArr } = this.state;
     let element;
@@ -49,10 +52,18 @@ class Profile extends React.Component {
             No Friends
           </div>;
         } else {
-          element = buddiesArr.map(element => {
-            return <BuddyList key={element.id} buddyInfo={element} />;
-          });
+          element =
+          <div className="buddy__container">
+            {
+              buddiesArr.map(element => {
+                return <BuddyList key={element.id} buddyInfo={element} />;
+              })
+            }
+          </div>;
         }
+        break;
+      case 'expertise':
+        element = <Expertise currentUser = {this.props.currentUser} />;
         break;
     }
 
@@ -80,8 +91,8 @@ class Profile extends React.Component {
                 <div className="profile__info-gym">{gym}</div>
               </div>
               <div className="profile__buttons-bottom">
-                <button className="btn profile__button selected"> Buddies </button>
-                <button className="btn profile__button"> Expertise </button>
+                <button className="btn profile__button selected" onClick={toggleBuddy}> Buddies </button>
+                <button className="btn profile__button" onClick={toggleExpertise}> Expertise </button>
                 <button className="btn profile__button"> Schedule </button>
               </div>
             </div>

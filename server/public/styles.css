@@ -323,7 +323,6 @@ body {
   width: 100%;
   border-radius: 5px;
   border: 2px solid #315b96;
-  overflow: scroll;
   background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
 }
 
@@ -533,6 +532,12 @@ body {
               BUDDY LIST
 **************************************/
 
+.buddy__container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
 .buddy__card {
   width: 100%;
   height: 10rem;
@@ -580,6 +585,38 @@ body {
   font-size: 3rem;
   color: #fff;
 }
+
+/**************************************
+           EXPERTISE LIST
+**************************************/
+
+.expertise__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expertise__card {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.expertise__card-name,
+.expertise__card-value {
+  height: 100%;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+}
+
 
 /**************************************
               CALENDAR
