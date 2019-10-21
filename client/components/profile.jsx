@@ -10,6 +10,8 @@ class Profile extends React.Component {
       buddiesArr: [],
       params: {}
     };
+    this.toggleView = this.toggleView.bind(this);
+    this.logOutUser = this.logOutUser.bind(this);
   }
   componentDidMount() {
     this.id = this.props.currentUser.id;
@@ -21,6 +23,13 @@ class Profile extends React.Component {
       .then(result => {
         this.setState({ buddiesArr: result });
       });
+  }
+  toggleView(view) {
+    this.setState({ view: view });
+  }
+  logOutUser() {
+    this.props.setView('home', '', {});
+    this.props.logOutUser();
   }
   render() {
     const firstName = this.props.currentUser.firstname;
@@ -61,7 +70,7 @@ class Profile extends React.Component {
           <div className="profile__container">
             <div className="profile__container-top">
               <div className="profile__buttons-top">
-                <button className="btn profile__button"> Sign Out </button>
+                <button className="btn profile__button" onClick={this.logOutUser}> Sign Out </button>
                 <button className="btn profile__button"> Edit </button>
               </div>
               <img src={photo} alt="profile photo" className="profile__photo"/>

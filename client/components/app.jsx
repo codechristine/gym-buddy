@@ -23,6 +23,7 @@ export default class App extends React.Component {
     this.setLocation = this.setLocation.bind(this);
     this.createUser = this.createUser.bind(this);
     this.logInUser = this.logInUser.bind(this);
+    this.logOutUser = this.logOutUser.bind(this);
   }
   setView(name, prevName, params) {
     this.setState({
@@ -78,6 +79,9 @@ export default class App extends React.Component {
         }
       });
   }
+  logOutUser() {
+    this.setState({ isLoggedIn: false });
+  }
   setLocation(locationObj) {
     this.setState({ location: locationObj });
   }
@@ -101,7 +105,7 @@ export default class App extends React.Component {
         element = <LogIn setView={this.setView} view={this.state.view} logInUser={this.logInUser}/>;
         break;
       case 'profile':
-        element = <Profile setView={this.setView} view={this.state.view} currentUser={this.state.currentUser}/>;
+        element = <Profile setView={this.setView} view={this.state.view} currentUser={this.state.currentUser} logOutUser={this.logOutUser}/>;
         break;
     }
     return (
