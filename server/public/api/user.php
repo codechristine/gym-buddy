@@ -9,7 +9,6 @@
         case 'POST':
             require_once('user-check.php');
             require_once('user-signup.php');
-            // print $hello;
             break;
         case 'GET':
             require_once('user-get.php');

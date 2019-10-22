@@ -35,24 +35,20 @@ export default class App extends React.Component {
     });
   }
   createUser(userObj) {
-    // fetch('/api/user.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userObj) })
-    //   .then(result => {
-    //     this.setState({
-    //       view: {
-    //         name: 'login',
-    //         prevName: 'home',
-    //         params: {}
-    //       }
-    //     });
-    //   });
-    this.setState({
-      currentUser: userObj,
-      view: {
-        name: 'profile',
-        prevName: 'home',
-        params: {}
-      }
-    });
+    fetch('/api/user.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userObj) })
+      .then(result => result.json())
+      .then(result => {
+        if (result.error) {
+          this.setState({
+            view: {
+              name: 'signup',
+              prevName: 'home',
+              params: result
+            }
+          });
+        }
+      });
+
   }
   logInUser(userObj) {
     fetch(`/api/user.php?username=${userObj.username}`)

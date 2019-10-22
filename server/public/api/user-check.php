@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     $rawdata = getBodyData();
     $user_name = $rawdata["username"];
@@ -8,7 +8,8 @@
     $result = mysqli_query($conn, $query);
     $num_rows = mysqli_num_rows($result);
 
-    if($num_rows !== 0) throw new Exception("UserName is Not Available!");
+    if($num_rows !== 0) {
+        throw new Exception("Username is Not Available!");
+    }
 
 ?>
-
