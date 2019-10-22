@@ -934,9 +934,7 @@ body {
   width: 100%;
   border: 2px solid  #233567;
   border-radius: 5px;
-  background-color: #fff;
-  color: #233567;
-  font-size: 15px;
+  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
 }
 
 .gym__view-rating-container {
