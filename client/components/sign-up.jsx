@@ -63,14 +63,14 @@ class SignUp extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const userObj = {
-      userName: this.state.userName,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
+      username: this.state.userName,
+      firstname: this.state.firstName,
+      lastname: this.state.lastName,
       age: this.state.age,
-      weightLifting: this.state.weightLifting,
+      weightlifting: this.state.weightLifting,
       cardio: this.state.cardio,
       yoga: this.state.cardio,
-      bodyBuilding: this.state.bodyBuilding,
+      bodybuilding: this.state.bodyBuilding,
       swimming: this.state.swimming
     };
 

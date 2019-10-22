@@ -1,5 +1,6 @@
 <?php
 
+$userName = $_GET['username'];
 
 $query = "SELECT * FROM `user` WHERE `user`.`username` = '$userName' ";
 
