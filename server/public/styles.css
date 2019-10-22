@@ -363,7 +363,8 @@ body {
 }
 
 .signup__block {
-  height: 30%;
+  height: 25%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -389,6 +390,15 @@ body {
 
 .signup__block-input:focus {
   outline: none;
+}
+
+.signup__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  height: 10%;
+  font-size: 1.5rem;
 }
 
 .stats__title {

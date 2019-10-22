@@ -46,9 +46,16 @@ export default class App extends React.Component {
               params: result
             }
           });
+        } else {
+          this.setState({
+            view: {
+              name: 'login',
+              prevName: 'signup',
+              params: result
+            }
+          });
         }
       });
-
   }
   logInUser(userObj) {
     fetch(`/api/user.php?username=${userObj.username}`)

@@ -60,6 +60,20 @@ class SignUp extends React.Component {
     }
   }
 
+  clearInputs() {
+    this.setState({
+      userName: '',
+      firstName: '',
+      lastName: '',
+      age: '',
+      weightLifting: '',
+      cardio: '',
+      yoga: '',
+      bodyBuilding: '',
+      swimming: ''
+    });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const userObj = {
@@ -75,10 +89,16 @@ class SignUp extends React.Component {
     };
 
     this.props.createUser(userObj);
+    this.clearInputs();
   }
 
   render() {
-    const { userName, firstName, lastName, Age, weightLifting, cardio, yoga, bodyBuilding, swimming } = this.state;
+    const { userName, firstName, lastName, age, weightLifting, cardio, yoga, bodyBuilding, swimming } = this.state;
+    let errorMessage;
+
+    if (this.props.view.params.error) {
+      errorMessage = this.props.view.params.error;
+    }
 
     return (
       <div className="main__container">
@@ -90,6 +110,7 @@ class SignUp extends React.Component {
                 <h2 className="signup__block-name">User Name</h2>
                 <input value={userName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="User Name" required />
               </div>
+              <div className="signup__error">{errorMessage}</div>
               <div className="signup__block">
                 <h2 className="signup__block-name">First Name</h2>
                 <input value={firstName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="First Name" required/>
@@ -100,7 +121,7 @@ class SignUp extends React.Component {
               </div>
               <div className="signup__block">
                 <h2 className="signup__block-name">Age</h2>
-                <input value={Age} type="Number" onChange={this.handleChange} className="signup__block-input" placeholder="Age" min="0" required/>
+                <input value={age} type="Number" onChange={this.handleChange} className="signup__block-input" placeholder="Age" min="0" required/>
               </div>
             </div>
             <div className="signup__container-bottom">
