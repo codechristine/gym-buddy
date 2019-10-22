@@ -51,40 +51,37 @@ export default class MapList extends React.Component {
     this.map = this.props.map;
     this.markers = [];
     let image = 'https://img.icons8.com/ultraviolet/50/000000/flex-biceps.png';
+    let mapListRef = React.createRef();
 
     return (
-      this.state.places.map((element, index) => {
-        let marker = new window.google.maps.Marker({
-          position: { lat: element.lat, lng: element.lng },
-          icon: {
-            url: image,
-            scaledSize: new window.google.maps.Size(50, 50)
-          }
-        });
-        marker.setMap(this.map);
-        this.markers.push(marker);
-        this.map.setZoom(12);
+      <div className="map__list" ref={mapListRef}>{
+        this.state.places.map((element, index, ogArray) => {
+          let mapListItemRef = React.createRef();
+          let marker = new window.google.maps.Marker({
+            position: { lat: element.lat, lng: element.lng },
+            icon: {
+              url: image,
+              scaledSize: new window.google.maps.Size(50, 50)
+            }
+          });
+          marker.setMap(this.map);
+          this.markers.push(marker);
+          this.map.setZoom(12);
 
-        const infoWindow = new window.google.maps.InfoWindow({
-          content: element.name,
-          position: { lat: element.lat, lng: element.lng }
-        });
-        marker.addListener('click', e => {
-          infoWindow.open(this.map, marker);
-
-          // console.log(index);
-
-          // window.onScroll = {targetElement} => {
-          //   const targetElement = document.getElementsByClassName('map__list');
-          //   const targetElementTop = targetElement.getBoundingClientRect().top;
-          // }
-
-        });
-        infoWindow.close();
-        return (
-          <MapItem key = { element.id } location = { element } setView = { this.props.setView } placesServiceObj = {this.placesServiceObj}/>
-        );
-      })
+          const infoWindow = new window.google.maps.InfoWindow({
+            content: element.name,
+            position: { lat: element.lat, lng: element.lng }
+          });
+          marker.addListener('click', e => {
+            infoWindow.open(this.map, marker);
+            mapListRef.current.scrollTop = mapListItemRef.current.offsetTop - mapListRef.current.offsetTop;
+          });
+          infoWindow.close();
+          return (
+            <MapItem refForContainer={mapListItemRef} key = { element.id } location = { element } setView = { this.props.setView } placesServiceObj = {this.placesServiceObj}/>
+          );
+        })
+      }</div>
     );
   }
 }

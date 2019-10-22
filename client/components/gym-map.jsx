@@ -52,9 +52,7 @@ class GymMap extends React.Component {
               }}
             />
           </div>
-          <div className="map__list">
-            { element }
-          </div>
+          { element }
         </div>
       </div>
     );
