@@ -9,6 +9,7 @@ export default class MapList extends React.Component {
       places: []
     };
     this.addResultsToList = this.addResultsToList.bind(this);
+    this.insertMapData = this.insertMapData.bind(this);
     this.map = null;
     this.placesServiceObj = null;
   }
@@ -21,6 +22,14 @@ export default class MapList extends React.Component {
       type: ['gym']
     };
     this.placesServiceObj.nearbySearch(request, this.addResultsToList);
+  }
+  insertMapData(placeObject) {
+    fetch('place-add.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(placeObject) })
+      .then(result => result.json())
+      .then(result => {
+        return result;
+      })
+      .catch(error => error.message);
   }
   addResultsToList(searchResults, searchStatus) {
     let placesArray = [];
@@ -40,6 +49,7 @@ export default class MapList extends React.Component {
           ? searchResults[i].photos[0].getUrl()
           : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/No_image_available_600_x_450.svg/1200px-No_image_available_600_x_450.svg.png'
       };
+      this.insertMapData(placesObject);
       placesArray.push(placesObject);
     }
     this.setState({
