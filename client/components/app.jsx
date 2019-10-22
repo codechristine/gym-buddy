@@ -96,7 +96,7 @@ export default class App extends React.Component {
         element = <GymMap setView={this.setView} view={ this.state.view } location={ this.state.location } isLoggedIn={this.state.isLoggedIn}/>;
         break;
       case 'gym':
-        element = <GymView setView={this.setView} view={this.state.view} />;
+        element = <GymView setView={this.setView} view={this.state.view} isLoggedIn={this.state.isLoggedIn}/>;
         break;
       case 'signup':
         element = <SignUp setView={this.setView} view={this.state.view} createUser={this.createUser} />;

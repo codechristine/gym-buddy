@@ -57,7 +57,6 @@ export default class GymView extends React.Component {
   render() {
 
     const { placeObject } = this.state;
-
     if (placeObject) {
       for (let i = 0; i < placeObject.photos.length; i++) {
         let photo = (placeObject.photos[i].getUrl());
@@ -68,7 +67,7 @@ export default class GymView extends React.Component {
     if (placeObject) {
       return (
         <div className="main__container">
-          <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} isLoggedIn={this.props.isLoggedIn} />
+          <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} gymName={placeObject.name} isLoggedIn={this.props.isLoggedIn} params={this.props.view.params}/>
           <div className="gym__view-container">
             <div className="gym__view-slideshow-container">
               <img className="gym__view-photos" src={this.photoArray} />
