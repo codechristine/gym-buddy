@@ -532,14 +532,21 @@ body {
   font-size: 1.5rem;
 }
 
-.login__error {
+.login__status {
   font-size: 1.5rem;
   height: 20%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.error {
   color: rgb(255, 0, 0);
+}
+
+.success {
+  color: rgb(0, 128, 0);
 }
 
 .login__card-input:focus {

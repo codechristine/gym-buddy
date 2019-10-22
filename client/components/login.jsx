@@ -33,9 +33,14 @@ class LogIn extends React.Component {
   render() {
     const { username } = this.state;
     let params = this.props.view.params;
-    let errorMessage;
+    let statusMessage;
+    let statusClass;
     if (params.error) {
-      errorMessage = params.error;
+      statusMessage = params.error;
+      statusClass = 'error';
+    } else if (params.success) {
+      statusMessage = 'Account created successfully!';
+      statusClass = 'success';
     }
 
     return (
@@ -50,7 +55,7 @@ class LogIn extends React.Component {
                     <div className="login__card-username">Username</div>
                     <input value={username} onChange={this.handleChange} type="text" name="username" className="login__card-input" autoComplete="off" required></input>
                   </div>
-                  <div className="login__error"> {errorMessage} </div>
+                  <div className={`login__status ${statusClass}`}> {statusMessage} </div>
                 </div>
                 <div className="login__card">
                   <div className="login__info">
