@@ -98,7 +98,7 @@ export default class GymView extends React.Component {
       );
     } else {
       return (
-        <div>no data...</div>
+        <div><div className="lds-ring"><div></div><div></div><div></div><div></div></div></div>
       );
     }
 
