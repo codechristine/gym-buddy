@@ -14,21 +14,6 @@ export default class GoogleMaps extends React.Component {
   componentDidMount() {
     this.onScriptLoad();
   }
-  // createInfoWindow(e, map) {
-  //   const infoWindow = new window.google.maps.InfoWindow({
-  //     content: '<div id="infoWindow" />',
-  //     position: { lat: e.latLng.lat(), lng: e.latLng.lng() }
-  //     // position: { lat: location.lat, lng: location.lng }
-  //   });
-  //   infoWindow.addListener('click', e => {
-  //     return (
-  //       function InfoWindow(props) {
-  //         // const { classes } = props;
-  //         return <div>{props}</div>;
-  //       });
-  //   });
-  //   infoWindow.open(map);
-  // }
   render() {
     return (
       <div className="map__view-map" id={this.props.id} />
