@@ -2,11 +2,11 @@
 
   $rawdata = getBodyData();
   $place_name = $rawdata["name"];
-  $place_id = $rawdata["place_id"];
+  $place_id = $rawdata["placeId"];
   $lat = $rawdata["lat"];
   $lng = $rawdata["lng"];
 
-  $query = " SELECT * FROM `gyms`";
+  $query = " SELECT * FROM `gyms` WHERE `gyms`.`placeid` = '$place_id' ";
   $gymQuery = " INSERT INTO `gyms` (`id`, `name`, `placeid`, `lat`, `lng`)
                 VALUES (NULL, '$place_name', '$place_id', '$lat', '$lng') ";
 

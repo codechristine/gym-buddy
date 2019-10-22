@@ -24,7 +24,7 @@ export default class MapList extends React.Component {
     this.placesServiceObj.nearbySearch(request, this.addResultsToList);
   }
   insertMapData(placeObject) {
-    fetch('place-add.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(placeObject) })
+    fetch('/api/gyms.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(placeObject) })
       .then(result => result.json())
       .then(result => {
         return result;
