@@ -50,7 +50,7 @@ export default class App extends React.Component {
           this.setState({
             view: {
               name: 'login',
-              prevName: 'signup',
+              prevName: 'home',
               params: result
             }
           });

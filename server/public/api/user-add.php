@@ -11,11 +11,12 @@
     $bodybuilding = $rawdata["bodybuilding"];
     $swimming = $rawdata["swimming"];
     $photo = '';
-    $gym = '';
+    $gymid = '';
+    $gymname = '';
 
     $query = "SELECT * FROM `user` WHERE `username` = '$user_name' ";
-    $signUpQuery = "INSERT INTO `user` (`id` ,`username`, `firstname`, `lastname`, `age`, `weightlifting`, `cardio`, `yoga`, `bodybuilding`, `swimming`, `photo`, `gym`)
-                    VALUES (NULL, '$user_name', '$first_name', '$last_name', '$age', '$weightlifting', '$cardio', '$yoga', '$bodybuilding', '$swimming', '$photo', '$gym')";
+    $signUpQuery = "INSERT INTO `user` (`id` ,`username`, `firstname`, `lastname`, `age`, `weightlifting`, `cardio`, `yoga`, `bodybuilding`, `swimming`, `photo`, `gymid`, `gymname`)
+                    VALUES (NULL, '$user_name', '$first_name', '$last_name', '$age', '$weightlifting', '$cardio', '$yoga', '$bodybuilding', '$swimming', '$photo', '$gymid', '$gymname')";
 
     $result = mysqli_query($conn, $query);
     $num_rows = mysqli_num_rows($result);
