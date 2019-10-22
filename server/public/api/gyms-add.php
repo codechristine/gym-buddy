@@ -7,7 +7,7 @@
   $lng = $rawdata["lng"];
 
   $query = " SELECT * FROM `gyms`";
-  $gymQuery = " INSERT INTO `gyms` (`id`, `name`, `placeId`, `lat`, `lng`)
+  $gymQuery = " INSERT INTO `gyms` (`id`, `name`, `placeid`, `lat`, `lng`)
                 VALUES (NULL, '$place_name', '$place_id', '$lat', '$lng') ";
 
   $result = mysqli_query($conn, $query);
