@@ -1,10 +1,5 @@
 <?php
 
-$userName = $_GET['username'];
-if (!$userName) {
-  throw new Exception('Username is invalid!');
-}
-
 
 $query = "SELECT * FROM `user` WHERE `user`.`username` = '$userName' ";
 
