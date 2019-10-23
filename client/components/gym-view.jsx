@@ -8,6 +8,7 @@ export default class GymView extends React.Component {
     this.state = {
       placeObject: null
     };
+    this.insertGymData = this.insertGymData.bind(this);
     this.photoArray = [];
   }
   componentDidMount() {
@@ -26,6 +27,14 @@ export default class GymView extends React.Component {
       }
     });
   }
+  insertGymData() {
+    fetch('/api/user.php', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(this.state.placeObject) })
+      .then(result => result.json())
+      .then(result => {
+        return result;
+      })
+      .catch(error => error.message);
+  }
   render() {
     const { placeObject } = this.state;
     if (placeObject) {
@@ -35,6 +44,10 @@ export default class GymView extends React.Component {
       }
     }
     if (placeObject) {
+      // console.log(placeObject);
+      // console.log(this.props.currentUser);
+      let addGym = this.insertGymData();
+
       return (
         <div className="main__container">
           <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} gymName={placeObject.name} isLoggedIn={this.props.isLoggedIn} params={this.props.view.params}/>
@@ -45,7 +58,7 @@ export default class GymView extends React.Component {
             <div className="gym__view-info-container">
               <div className="gym__view-info-name-and-button-container">
                 <h2 className="gym__view-name">{placeObject.name}</h2>
-                <button className="btn gym__button">Add Gym</button>
+                <button className="btn gym__button" onClick={addGym}>Add Gym</button>
               </div>
               <div className="gym__view-info-address-and-hours-container">
                 <h3>Address:</h3>
