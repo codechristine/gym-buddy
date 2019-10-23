@@ -752,7 +752,8 @@ body {
 
 .map__button,
 .profile__button,
-.gym__button {
+.gym__button,
+.buddy__button {
   height: 3rem;
   width: 8rem;
   font-size: 1.5rem;
@@ -997,4 +998,120 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 2rem;
+}
+
+/**************************************
+              BUDDIES
+**************************************/
+
+.buddy__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buddy__container-top {
+  height: 60%;
+  width: 100%;
+  background-color: #fff;
+  border: 2px solid #315b96;
+  border-radius: 5px;
+}
+
+.buddy__container-photo {
+  height: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.buddy__photo {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buddy__picture {
+  height: 12rem;
+  width: 12rem;
+  border-radius: 50%;
+}
+
+.buddy__info {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buddy__info-buttons {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buddy__info-name {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buddy__name {
+  font-size: 1.8rem;
+}
+
+.buddy__gym {
+  font-size: 2rem;
+  color: #315b96;
+  text-align: center;
+}
+
+.buddy__container-stats {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buddy__stats-header {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.buddy__stats-card {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buddy__stats-category,
+.buddy__stats-value {
+  font-size: 2rem;
+}
+
+
+.buddy__container-bottom {
+  height: 37.5%;
+  width: 100%;
+  background-color: #fff;
+  border: 2px solid #315b96;
+  border-radius: 5px;
 }
