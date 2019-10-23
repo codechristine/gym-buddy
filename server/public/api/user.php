@@ -12,6 +12,9 @@
         case 'GET':
             require_once('user-get.php');
             break;
+        case 'PATCH':
+            require_once('user-add-gym.php');
+            break;
     }
 
 ?>
