@@ -44,6 +44,7 @@ export default class GymView extends React.Component {
       let photo = (this.state.placeObject.photos[i].getUrl());
       this.photoArray.push(photo);
     }
+  }
 
   insertGymData() {
     fetch('/api/user.php', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(this.state.placeObject) })
@@ -52,28 +53,33 @@ export default class GymView extends React.Component {
         return result;
       })
       .catch(error => error.message);
-
-    }
+  }
   render() {
     const { placeObject, gymListArr } = this.state;
+    const isLoggedIn = this.props.isLoggedIn;
     let element;
+    let button = '';
+    let addGym = this.insertGymData();
 
-    if (!gymListArr.length) {
-      element = <div className="buddy__none">
-        <img src="https://cdn4.iconfinder.com/data/icons/faces-10/96/sadness-512.png" alt="no friends" className="buddy__card-photo" />
-        <div className="gym__view-message">No Gym Buddy Users</div>
-      </div>;
+    if (isLoggedIn) {
+      button = <button className="btn gym__button" onClick={addGym}>Add Gym</button>;
+      if (!gymListArr.length) {
+        element = <div className="buddy__none">
+          <img src="https://cdn4.iconfinder.com/data/icons/faces-10/96/sadness-512.png" alt="no friends" className="buddy__card-photo" />
+          <div className="gym__view-message">No Gym Buddy Users</div>
+        </div>;
+      } else {
+        element = gymListArr.map(element => {
+          return <GymUserListItem key={element.id} userInfo={element} />;
+        });
+      }
     } else {
-      element = gymListArr.map(element => {
-        return <GymUserListItem key={element.id} userInfo={element} />;
-      });
+      element = <div className="buddy__none">
+        <div className="gym__view-message">Log in to see Gym Buddies</div>
+      </div>;
     }
 
     if (placeObject) {
-      // console.log(placeObject);
-      // console.log(this.props.currentUser);
-      let addGym = this.insertGymData();
-
       return (
         <div className="main__container">
           <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} gymName={placeObject.name} isLoggedIn={this.props.isLoggedIn} params={this.props.view.params}/>
@@ -84,7 +90,7 @@ export default class GymView extends React.Component {
             <div className="gym__view-info-container">
               <div className="gym__view-info-name-and-button-container">
                 <h2 className="gym__view-name">{placeObject.name}</h2>
-                <button className="btn gym__button" onClick={addGym}>Add Gym</button>
+                { button }
               </div>
               <div className="gym__view-info-address-and-hours-container">
                 <h3>Address:</h3>
