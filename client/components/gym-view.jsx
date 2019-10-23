@@ -30,7 +30,6 @@ export default class GymView extends React.Component {
       }
     });
   }
-
   gymListRender() {
     fetch(`/api/gym-list.php?placeId=${this.state.placeObject.place_id}`)
       .then(result => result.json())
@@ -45,11 +44,17 @@ export default class GymView extends React.Component {
       this.photoArray.push(photo);
     }
   }
-
   insertGymData() {
-    fetch('/api/user.php', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(this.state.placeObject) })
+    const gymData = {
+      name: this.state.placeObject.name,
+      place_id: this.state.placeObject.place_id,
+      username: this.props.currentUser.username
+    };
+
+    fetch('/api/user.php', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(gymData) })
       .then(result => result.json())
       .then(result => {
+
         return result;
       })
       .catch(error => error.message);
@@ -90,7 +95,8 @@ export default class GymView extends React.Component {
             <div className="gym__view-info-container">
               <div className="gym__view-info-name-and-button-container">
                 <h2 className="gym__view-name">{placeObject.name}</h2>
-                { button }
+
+                <button className="btn gym__button" onClick={() => { this.insertGymData(); }}>Add Gym</button>
               </div>
               <div className="gym__view-info-address-and-hours-container">
                 <h3>Address:</h3>
