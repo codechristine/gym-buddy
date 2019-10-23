@@ -53,7 +53,7 @@ class Profile extends React.Component {
         if (!buddiesArr.length) {
           element = <div className="buddy__none">
             <img src="https://cdn4.iconfinder.com/data/icons/faces-10/96/sadness-512.png" alt="no friends" className="buddy__card-photo"/>
-            No Friends
+            No Gym Buddies Yet
           </div>;
         } else {
           element =
@@ -74,7 +74,6 @@ class Profile extends React.Component {
 
     if (!gym) {
       gym = 'Not a Gym Member';
-      goToGymMethod = '';
     } else {
       goToGymMethod = () => this.props.goToGym(gymid);
     }
