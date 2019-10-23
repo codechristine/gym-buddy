@@ -51,13 +51,7 @@ export default class GymView extends React.Component {
       username: this.props.currentUser.username
     };
 
-    fetch('/api/user.php', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(gymData) })
-      .then(result => result.json())
-      .then(result => {
-
-        return result;
-      })
-      .catch(error => error.message);
+    this.props.addGym(gymData);
   }
   render() {
     const { placeObject, gymListArr } = this.state;
@@ -66,7 +60,7 @@ export default class GymView extends React.Component {
     let button = '';
 
     if (isLoggedIn) {
-      button = <button className="btn gym__button" onClick={() => { this.insertGymData(); }}>Add Gym</button>;
+      button = <button className="btn gym__button" onClick={() => { this.insertGymData(); }}>Set Gym</button>;
       if (!gymListArr.length) {
         element = <div className="buddy__none">
           <img src="https://cdn4.iconfinder.com/data/icons/faces-10/96/sadness-512.png" alt="no friends" className="buddy__card-photo" />
@@ -94,8 +88,7 @@ export default class GymView extends React.Component {
             <div className="gym__view-info-container">
               <div className="gym__view-info-name-and-button-container">
                 <h2 className="gym__view-name">{placeObject.name}</h2>
-
-                <button className="btn gym__button" onClick={() => { this.insertGymData(); }}>Add Gym</button>
+                { button }
               </div>
               <div className="gym__view-info-address-and-hours-container">
                 <h3>Address:</h3>

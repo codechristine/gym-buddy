@@ -36,7 +36,7 @@ class Profile extends React.Component {
     const firstName = this.props.currentUser.firstname;
     const lastName = this.props.currentUser.lastname;
     const age = this.props.currentUser.age;
-    let gym = this.props.currentUser.gym;
+    let gym = this.props.currentUser.gymname;
     let photo = this.props.currentUser.photo;
     let buddiesClass = 'btn profile__button';
     let expertiseClass = 'btn profile__button';

@@ -9,7 +9,7 @@ class Header extends React.Component {
     const backMethod = () => this.props.setView(prevName, name, {});
     const signUpView = () => this.props.setView('signup', 'home', {});
     const loginView = () => this.props.setView('login', 'home', {});
-    const profileView = () => this.props.setView('profile', 'home', {});
+    const profileView = () => this.props.setView('profile', 'map', {});
     const profileViewFromGym = () => this.props.setView('profile', 'map', {});
     const homeView = () => this.props.setView('home', 'map', {});
 
