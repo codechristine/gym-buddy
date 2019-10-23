@@ -109,8 +109,8 @@ export default class App extends React.Component {
           currentUser: result[0],
           view: {
             name: 'profile',
-            prevName: 'map',
-         }
+            prevName: 'map'
+          }
         });
       });
   }

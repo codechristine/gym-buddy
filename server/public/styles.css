@@ -766,6 +766,10 @@ body {
   background-color: #315b96;
 }
 
+.remove {
+  background-color: red;
+}
+
 .selected {
   background-color: #233567;
 }

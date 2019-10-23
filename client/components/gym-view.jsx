@@ -70,9 +70,10 @@ export default class GymView extends React.Component {
 
     if (isLoggedIn) {
       button = <button className="btn gym__button" onClick={() => { this.insertGymData(); }}>Set Gym</button>;
-      if (placeObject) {
-        button = <button className="btn gym__button" onClick={() => { this.removeGymData(); }}>Remove Gym</button>;
+      if (placeObject && this.props.currentUser.gymid === placeObject.place_id) {
+        button = <button className="btn gym__button remove" onClick={() => { this.removeGymData(); }}>Remove</button>;
       }
+
       if (!gymListArr.length) {
         element = <div className="buddy__none">
           <img src="https://cdn4.iconfinder.com/data/icons/faces-10/96/sadness-512.png" alt="no friends" className="buddy__card-photo" />
