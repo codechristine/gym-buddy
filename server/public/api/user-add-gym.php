@@ -7,8 +7,8 @@
     echo json_encode($rawdata);
 
 
-    $query = "UPDATE `user` 
-                SET `gymid` = '$gymtoadd', `gymname` = '$gymid' 
+    $query = "UPDATE `user`
+                SET `gymid` = '$gymid', `gymname` = '$gymtoadd'
                     WHERE `user`.`username` = '$currentUser' ";
 
     $result = mysqli_query($conn, $query);
