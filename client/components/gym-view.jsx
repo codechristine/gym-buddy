@@ -64,10 +64,9 @@ export default class GymView extends React.Component {
     const isLoggedIn = this.props.isLoggedIn;
     let element;
     let button = '';
-    let addGym = this.insertGymData();
 
     if (isLoggedIn) {
-      button = <button className="btn gym__button" onClick={addGym}>Add Gym</button>;
+      button = <button className="btn gym__button" onClick={() => { this.insertGymData(); }}>Add Gym</button>;
       if (!gymListArr.length) {
         element = <div className="buddy__none">
           <img src="https://cdn4.iconfinder.com/data/icons/faces-10/96/sadness-512.png" alt="no friends" className="buddy__card-photo" />
