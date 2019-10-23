@@ -24,6 +24,7 @@ export default class App extends React.Component {
     this.createUser = this.createUser.bind(this);
     this.logInUser = this.logInUser.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
+    this.addGym = this.addGym.bind(this);
   }
   setView(name, prevName, params) {
     this.setState({
@@ -82,6 +83,21 @@ export default class App extends React.Component {
         }
       });
   }
+  addGym(gymObj) {
+    fetch('/api/user.php', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(gymObj) })
+      .then(result => result.json())
+      .then(result => {
+        this.setState({
+          currentUser: result[0],
+          view: {
+            name: 'profile',
+            prevName: 'map',
+            params: {}
+          }
+        });
+      })
+      .catch(error => error.message);
+  }
   logOutUser() {
     this.setState({ isLoggedIn: false });
   }
@@ -99,7 +115,7 @@ export default class App extends React.Component {
         element = <GymMap setView={this.setView} view={ this.state.view } location={ this.state.location } isLoggedIn={this.state.isLoggedIn}/>;
         break;
       case 'gym':
-        element = <GymView setView={this.setView} view={this.state.view} isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser}/>;
+        element = <GymView setView={this.setView} view={this.state.view} isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser} addGym={this.addGym}/>;
         break;
       case 'signup':
         element = <SignUp setView={this.setView} view={this.state.view} createUser={this.createUser} />;
