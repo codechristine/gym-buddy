@@ -1039,6 +1039,7 @@ body {
   height: 12rem;
   width: 12rem;
   border-radius: 50%;
+  border: 2px solid #315b96;
 }
 
 .buddy__info {
@@ -1104,6 +1105,10 @@ body {
 
 .buddy__stats-category,
 .buddy__stats-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
   font-size: 2rem;
 }
 

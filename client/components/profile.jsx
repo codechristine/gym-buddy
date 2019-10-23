@@ -60,7 +60,8 @@ class Profile extends React.Component {
           <div className="buddy__container">
             {
               buddiesArr.map(element => {
-                return <BuddyList key={element.id} buddyInfo={element} />;
+                const setViewMethod = () => this.props.setView('buddy', 'profile', element);
+                return <BuddyList key={element.id} buddyInfo={element} setViewMethod={setViewMethod}/>;
               })
             }
           </div>;

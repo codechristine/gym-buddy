@@ -1,90 +1,72 @@
 import React from 'react';
+import Header from './header';
 
 class GymBuddy extends React.Component {
   render() {
+    const user = this.props.view.params;
+    let photo = user.photo;
+    let gym = user.gymname;
+
+    if (!photo) {
+      photo = 'https://static.thenounproject.com/png/538846-200.png';
+    }
+
+    if (!gym) {
+      gym = 'Not a Gym Member';
+    }
+
     return (
-      <h1>test</h1>
+      <div className="main__container">
+        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} buddyUser={user}/>
+        <div className="main__body">
+          <div className="buddy__container">
+            <div className="buddy__container-top">
+              <div className="buddy__container-photo">
+                <div className="buddy__photo">
+                  <img src={photo} alt={`${user.firstname}'s photo`} className="buddy__picture" />
+                </div>
+                <div className="buddy__info">
+                  <div className="buddy__info-buttons">
+                    <button className="btn buddy__button">Add</button>
+                  </div>
+                  <div className="buddy__info-name">
+                    <div className="buddy__name">{`${user.firstname} ${user.lastname}`}</div>
+                    <div className="buddy__gym">{gym}</div>
+                  </div>
+                </div>
+              </div>
+              <div className="buddy__container-stats">
+                <div className="buddy__stats-header">
+                  STATS
+                </div>
+                <div className="buddy__stats-card">
+                  <div className="buddy__stats-category">WeightLifting:</div>
+                  <div className="buddy__stats-value">{user.weightlifting}</div>
+                </div>
+                <div className="buddy__stats-card">
+                  <div className="buddy__stats-category">Cardio:</div>
+                  <div className="buddy__stats-value">{user.cardio}</div>
+                </div>
+                <div className="buddy__stats-card">
+                  <div className="buddy__stats-category">Yoga:</div>
+                  <div className="buddy__stats-value">{user.yoga}</div>
+                </div>
+                <div className="buddy__stats-card">
+                  <div className="buddy__stats-category">Body Building:</div>
+                  <div className="buddy__stats-value">{user.bodybuilding}</div>
+                </div>
+                <div className="buddy__stats-card">
+                  <div className="buddy__stats-category">Swimming:</div>
+                  <div className="buddy__stats-value">{user.swimming}</div>
+                </div>
+              </div>
+            </div>
+            <div className="buddy__container-bottom"></div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
 export default GymBuddy;
-/*
-<div class="main">
-      <div class="main__container">
-        <div class="main__header">
-          <button class="btn main__button">Sign Up</button>
-          <button class="btn main__button">Log In</button>
-        </div>
-        <div class="main__body">
-          <div class="buddy__container">
-            <div class="buddy__container-top">
-              <div class="buddy__container-photo">
-                <div class="buddy__photo">
-                  <img src="https://static.thenounproject.com/png/538846-200.png" class="buddy__picture" />
-                </div>
-                <div class="buddy__info">
-                   <div class="buddy__info-buttons">
-                      <button class="btn buddy__button">Add</button>
-                   </div>
-                   <div class="buddy__info-name">
-                      <div class="buddy__name">Aaron Domingo</div>
-                      <div class="buddy__gym">Merage Jewish Community Center of Orange County</div>
-                   </div>
-                </div>
-              </div>
-              <div class="buddy__container-stats">
-                <div class="buddy__stats-header">
-                  Stats
-                </div>
-                <div class="buddy__stats-card">
-                  <div class="buddy__stats-category">
-                    WeightLifting:
-                  </div>
-                  <div class="buddy__stats-value">
-                    Intermediate
-                  </div>
-                </div>
-                <div class="buddy__stats-card">
-                  <div class="buddy__stats-category">
-                    WeightLifting:
-                  </div>
-                  <div class="buddy__stats-value">
-                    Intermediate
-                  </div>
-                </div>
-                <div class="buddy__stats-card">
-                  <div class="buddy__stats-category">
-                    WeightLifting:
-                  </div>
-                  <div class="buddy__stats-value">
-                    Intermediate
-                  </div>
-                </div>
-                <div class="buddy__stats-card">
-                  <div class="buddy__stats-category">
-                    WeightLifting:
-                  </div>
-                  <div class="buddy__stats-value">
-                    Intermediate
-                  </div>
-                </div>
-                <div class="buddy__stats-card">
-                  <div class="buddy__stats-category">
-                    WeightLifting:
-                  </div>
-                  <div class="buddy__stats-value">
-                    Intermediate
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="buddy__container-bottom">
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-*/
