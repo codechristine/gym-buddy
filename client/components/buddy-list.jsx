@@ -10,7 +10,7 @@ class BuddyList extends React.Component {
     }
 
     return (
-      <div className="buddy__card">
+      <div className="buddy__card" onClick={this.props.setViewMethod}>
         <div className="buddy__card-picture">
           <img src={photo} alt={buddyInfo.firstname} className="buddy__card-photo"/>
         </div>

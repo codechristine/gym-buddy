@@ -60,7 +60,8 @@ class Profile extends React.Component {
           <div className="buddy__container">
             {
               buddiesArr.map(element => {
-                return <BuddyList key={element.id} buddyInfo={element} />;
+                const setViewMethod = () => this.props.setView('buddy', 'profile', { element });
+                return <BuddyList key={element.id} buddyInfo={element} setViewMethod={setViewMethod}/>;
               })
             }
           </div>;
@@ -83,7 +84,7 @@ class Profile extends React.Component {
     }
     return (
       <div className="main__container">
-        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser}/>
+        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser} placeObject={this.props.view.params}/>
         <div className="main__body">
           <div className="profile__container">
             <div className="profile__container-top">

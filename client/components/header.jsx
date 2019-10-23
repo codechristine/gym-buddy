@@ -6,11 +6,15 @@ class Header extends React.Component {
     const name = this.props.name;
     const prevName = this.props.prevName;
     const currentUser = this.props.currentUser;
+    const buddyUser = this.props.buddyUser;
+    const placeObject = this.props.placeObject;
     const backMethod = () => this.props.setView(prevName, name, {});
     const signUpView = () => this.props.setView('signup', 'home', {});
     const loginView = () => this.props.setView('login', 'home', {});
     const profileView = () => this.props.setView('profile', 'map', {});
-    const profileViewFromGym = () => this.props.setView('profile', 'map', {});
+    const profileViewToHome = () => this.props.setView('profile', 'home', {});
+    const profileViewFromGym = () => this.props.setView('profile', 'gym', placeObject);
+    const gymView = () => this.props.setView('gym', 'map', placeObject);
     const homeView = () => this.props.setView('home', 'map', {});
 
     let leftButton, title, rightButton;
@@ -51,6 +55,16 @@ class Header extends React.Component {
       case 'profile':
         leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
         title = <div className="main__header-username">{currentUser.username}</div>;
+        if (prevName === 'gym') {
+          leftButton = <button className="btn map__button" onClick={gymView}>Back</button>;
+        }
+        break;
+      case 'buddy':
+        leftButton = <button className="btn map__button" onClick={profileViewToHome}>Back</button>;
+        title = <div className="main__header-username">{buddyUser.username}</div>;
+        if (prevName === 'gym') {
+          leftButton = <button className="btn map__button" onClick={gymView}>Back</button>;
+        }
     }
 
     return (

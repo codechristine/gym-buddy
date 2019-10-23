@@ -5,6 +5,7 @@ import SignUp from './sign-up';
 import GymView from './gym-view';
 import LogIn from './login';
 import Profile from './profile';
+import GymBuddy from './gym-buddy';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -159,6 +160,8 @@ export default class App extends React.Component {
       case 'profile':
         element = <Profile setView={this.setView} view={this.state.view} currentUser={this.state.currentUser} logOutUser={this.logOutUser} goToGym={this.goToGym}/>;
         break;
+      case 'buddy':
+        element = <GymBuddy setView={this.setView} view={this.state.view} currentUser={this.state.currentUser} goToGym={this.goToGym} />;
     }
     return (
       <div className="main">
