@@ -15,6 +15,9 @@
         case 'PATCH':
             require_once('user-add-gym.php');
             break;
+        case 'DELETE':
+            require_once('user-delete-gym.php');
+            break;
     }
 
 ?>
