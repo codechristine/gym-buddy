@@ -3,7 +3,7 @@ import Header from './header';
 
 class GymBuddy extends React.Component {
   render() {
-    const user = this.props.view.params;
+    const user = this.props.view.params.element;
     let photo = user.photo;
     let gym = user.gymname;
 
@@ -17,7 +17,7 @@ class GymBuddy extends React.Component {
 
     return (
       <div className="main__container">
-        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} buddyUser={user}/>
+        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} buddyUser={user} placeObject={this.props.view.params.placeObject}/>
         <div className="main__body">
           <div className="buddy__container">
             <div className="buddy__container-top">

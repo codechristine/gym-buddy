@@ -15,7 +15,6 @@ export default class GymView extends React.Component {
   }
   componentDidMount() {
     const combinedMapObject = this.props.view.params;
-
     let request = {
       placeId: combinedMapObject.currentLocation.placeId,
       fields: ['photo', 'name', 'place_id', 'formatted_address', 'opening_hours', 'rating']
@@ -68,7 +67,9 @@ export default class GymView extends React.Component {
         </div>;
       } else {
         element = gymListArr.map(element => {
-          return <GymUserListItem key={element.id} userInfo={element} />;
+          const placeObject = this.props.view.params;
+          const setViewMethod = () => this.props.setView('buddy', 'gym', { element, placeObject });
+          return <GymUserListItem key={element.id} userInfo={element} setViewMethod={setViewMethod}/>;
         });
       }
     } else {
@@ -80,7 +81,7 @@ export default class GymView extends React.Component {
     if (placeObject) {
       return (
         <div className="main__container">
-          <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} gymName={placeObject.name} isLoggedIn={this.props.isLoggedIn} params={this.props.view.params}/>
+          <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} gymName={placeObject.name} isLoggedIn={this.props.isLoggedIn} placeObject={this.props.view.params}/>
           <div className="gym__view-container">
             <div className="gym__view-carousel-container">
               <GymCarousel photoArray = {this.photoArray} />
