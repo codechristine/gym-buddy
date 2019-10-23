@@ -612,6 +612,47 @@ body {
 }
 
 /**************************************
+              GYM USER
+**************************************/
+
+.gymuser__card {
+  width: 100%;
+  height: 7.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #315b96;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.gymuser__card-picture {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gymuser__card-photo {
+  height: 6.5rem;
+  width: 6.5rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: #fff;
+}
+
+.gymuser__card-name {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #000000;
+}
+
+/**************************************
            EXPERTISE LIST
 **************************************/
 
@@ -934,9 +975,8 @@ body {
   width: 100%;
   border: 2px solid  #233567;
   border-radius: 5px;
-  background-color: #fff;
-  color: #233567;
-  font-size: 15px;
+  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
+  overflow: auto;
 }
 
 .gym__view-rating-container {

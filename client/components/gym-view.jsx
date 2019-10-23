@@ -1,12 +1,14 @@
 import React from 'react';
 import Header from './header';
 import GymCarousel from './gymcarousel';
+import GymUserListItem from './gym-user-list';
 
 export default class GymView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      placeObject: null
+      placeObject: null,
+      gymListArr: []
     };
     this.insertGymData = this.insertGymData.bind(this);
     this.photoArray = [];
@@ -24,9 +26,25 @@ export default class GymView extends React.Component {
         return false;
       } else {
         this.setState({ placeObject: place });
+        this.gymListRender();
       }
     });
   }
+
+  gymListRender() {
+    fetch(`/api/gym-list.php?placeId=${this.state.placeObject.place_id}`)
+      .then(result => result.json())
+      .then(result => {
+        this.setState({
+          gymListArr: result
+        });
+      });
+
+    for (let i = 0; i < this.state.placeObject.photos.length; i++) {
+      let photo = (this.state.placeObject.photos[i].getUrl());
+      this.photoArray.push(photo);
+    }
+
   insertGymData() {
     fetch('/api/user.php', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(this.state.placeObject) })
       .then(result => result.json())
@@ -34,15 +52,23 @@ export default class GymView extends React.Component {
         return result;
       })
       .catch(error => error.message);
-  }
-  render() {
-    const { placeObject } = this.state;
-    if (placeObject) {
-      for (let i = 0; i < placeObject.photos.length; i++) {
-        let photo = (placeObject.photos[i].getUrl());
-        this.photoArray.push(photo);
-      }
+
     }
+  render() {
+    const { placeObject, gymListArr } = this.state;
+    let element;
+
+    if (!gymListArr.length) {
+      element = <div className="buddy__none">
+        <img src="https://cdn4.iconfinder.com/data/icons/faces-10/96/sadness-512.png" alt="no friends" className="buddy__card-photo" />
+        <div className="gym__view-message">No Gym Buddy Users</div>
+      </div>;
+    } else {
+      element = gymListArr.map(element => {
+        return <GymUserListItem key={element.id} userInfo={element} />;
+      });
+    }
+
     if (placeObject) {
       // console.log(placeObject);
       // console.log(this.props.currentUser);
@@ -77,7 +103,7 @@ export default class GymView extends React.Component {
               </div>
             </div>
             <div className="gym__view-list">
-
+              { element }
             </div>
           </div>
         </div>
