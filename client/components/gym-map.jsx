@@ -18,7 +18,7 @@ class GymMap extends React.Component {
     let element;
     const location = this.props.location;
     if (!this.state.map) {
-      element = <div>Loading...</div>;
+      element = <div className="lds-ring"><div></div><div></div><div></div><div></div></div>;
     } else {
       element = <MapList map={this.state.map} location={location} setView={this.props.setView}/>;
     }

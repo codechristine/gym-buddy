@@ -263,17 +263,17 @@ body {
 **************************************/
 
 .profile__container {
-  height: 95%;
+  height: 100%;
   width: 100%;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
 .profile__container-top {
-  height: 48.5%;
+  height: 49%;
   width: 100%;
   border-radius: 5px;
   background-color: #fff;
@@ -285,8 +285,8 @@ body {
 }
 
 .profile__photo {
-  height: 45%;
-  width: 45%;
+  height: 15rem;
+  width: 15rem;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
@@ -294,7 +294,7 @@ body {
 }
 
 .profile__info {
-  height: 22.5%;
+  height: 35%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -310,11 +310,12 @@ body {
 .profile__info-gym {
   font-size: 3rem;
   color: #315b96;
+  text-align: center;
 }
 
 .profile__buttons-top,
 .profile__buttons-bottom {
-  height: 10%;
+  height: 8.5%;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -327,7 +328,7 @@ body {
 }
 
 .profile__container-bottom {
-  height: 48.5%;
+  height: 49%;
   width: 100%;
   border-radius: 5px;
   border: 2px solid #315b96;
