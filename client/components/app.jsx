@@ -26,6 +26,7 @@ export default class App extends React.Component {
     this.logOutUser = this.logOutUser.bind(this);
     this.addGym = this.addGym.bind(this);
     this.deleteGym = this.deleteGym.bind(this);
+    this.goToGym = this.goToGym.bind(this);
   }
   setView(name, prevName, params) {
     this.setState({
@@ -108,6 +109,23 @@ export default class App extends React.Component {
           view: {
             name: 'profile',
             prevName: 'map',
+         }
+        });
+      });
+  }
+  goToGym(gymId) {
+    fetch(`/api/gyms.php?placeId=${gymId}`)
+      .then(result => result.json())
+      .then(result => {
+        this.setState({
+          location: {
+            placeId: result[0].placeid,
+            lat: parseFloat(result[0].lat),
+            lng: parseFloat(result[0].lng)
+          },
+          view: {
+            name: 'map',
+            prevName: 'home',
             params: {}
           }
         });
@@ -139,7 +157,7 @@ export default class App extends React.Component {
         element = <LogIn setView={this.setView} view={this.state.view} logInUser={this.logInUser}/>;
         break;
       case 'profile':
-        element = <Profile setView={this.setView} view={this.state.view} currentUser={this.state.currentUser} logOutUser={this.logOutUser}/>;
+        element = <Profile setView={this.setView} view={this.state.view} currentUser={this.state.currentUser} logOutUser={this.logOutUser} goToGym={this.goToGym}/>;
         break;
     }
     return (
