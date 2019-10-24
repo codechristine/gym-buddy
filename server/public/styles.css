@@ -1037,6 +1037,23 @@ body {
   font-size: 2rem;
 }
 
+.gym__view-message {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  font-size: 2.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.gym__view-buttons {
+  width: 60%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /**************************************
               BUDDIES
 **************************************/
