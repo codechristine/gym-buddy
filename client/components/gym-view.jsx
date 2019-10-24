@@ -105,7 +105,7 @@ export default class GymView extends React.Component {
       }
 
       if (!placeObject.rating) {
-        rating = <h3>No Raitings </h3>;
+        rating = <h3>No Ratings </h3>;
       } else {
         rating = <h3>Rating: {placeObject.rating.toFixed(1)}</h3>;
       }
