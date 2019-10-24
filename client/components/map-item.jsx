@@ -13,7 +13,9 @@ class MapItem extends React.Component {
 
     return (
       <div className="map__list-item" onClick={setView} ref={this.props.refForContainer}>
-        <img src={location.image} alt="Gym Photo" className="map__list-photo"/>
+        <div className="map__list-photo">
+          <img src={location.image} alt="Gym Photo" className="map__list-picture" />
+        </div>
         <h2 className="map__list-name">{ location.name }</h2>
       </div>
     );

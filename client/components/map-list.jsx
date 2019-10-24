@@ -18,7 +18,8 @@ export default class MapList extends React.Component {
     let locationObjToSearch = new window.google.maps.LatLng(this.props.location.lat, this.props.location.lng);
     let request = {
       location: locationObjToSearch,
-      radius: '15000',
+      // radius: '5000',
+      rankBy: window.google.maps.places.RankBy.DISTANCE,
       type: ['gym']
     };
     this.placesServiceObj.nearbySearch(request, this.addResultsToList);
@@ -76,7 +77,7 @@ export default class MapList extends React.Component {
           });
           marker.setMap(this.map);
           this.markers.push(marker);
-          this.map.setZoom(12);
+          this.map.setZoom(14);
 
           const infoWindow = new window.google.maps.InfoWindow({
             content: element.name,

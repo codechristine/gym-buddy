@@ -248,6 +248,13 @@ body {
   border-radius: 5px;
 }
 
+.map__list-picture {
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+}
+
 .map__list-name {
   width: 45%;
   font-size: 2rem;

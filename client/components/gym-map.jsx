@@ -30,7 +30,7 @@ class GymMap extends React.Component {
             <GoogleMaps id="myMap" className = "map__view-map"
               options={{
                 center: { lat: location.lat, lng: location.lng },
-                zoom: 12.5
+                zoom: 15
               }}
               onMapLoad={mapObject => {
                 const marker = new window.google.maps.Marker({
