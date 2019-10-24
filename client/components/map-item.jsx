@@ -10,8 +10,7 @@ class MapItem extends React.Component {
     };
     let distance = this.props.distance ? <div className="map__list-distance">{`${this.props.distance} miles`}</div> : '';
     let name = this.props.location.name;
-
-    if (name.length > 18) {
+    if (name.length > 18 && window.matchMedia('(max-width: 450px)').matches) {
       name = `${name.substring(0, 18)}...`;
     }
 
