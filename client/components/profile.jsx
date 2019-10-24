@@ -76,6 +76,7 @@ class Profile extends React.Component {
       case 'schedule':
         scheduleClass = 'btn profile__button selected';
         element = <Schedule currentUser = {this.props.currentUser} />;
+        break;
     }
 
     if (!gym) {

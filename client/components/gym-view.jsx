@@ -31,7 +31,7 @@ export default class GymView extends React.Component {
     });
   }
   gymListRender() {
-    fetch(`/api/gym-list.php?placeId=${this.state.placeObject.place_id}`)
+    fetch(`/api/gym-list.php?placeId=${this.state.placeObject.place_id}&userName=${this.props.currentUser.username}`)
       .then(result => result.json())
       .then(result => {
         this.setState({
@@ -85,7 +85,7 @@ export default class GymView extends React.Component {
         element = gymListArr.map(element => {
           const placeObject = this.props.view.params;
           const setViewMethod = () => this.props.setView('buddy', 'gym', { element, placeObject });
-          return <GymUserListItem key={element.id} userInfo={element} setViewMethod={setViewMethod}/>;
+          return <GymUserListItem key={element.id} userInfo={element} setViewMethod={setViewMethod} />;
         });
       }
     } else {

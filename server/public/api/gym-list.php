@@ -5,8 +5,9 @@
   set_exception_handler('error_handler');
 
   $gymID = $_GET['placeId'];
+  $userName = $_GET['userName'];
 
-  $query = "SELECT * FROM `user` WHERE `user`.`gymid` = '$gymID' ";
+  $query = "SELECT * FROM `user` WHERE `user`.`gymid` = '$gymID' AND `user`.`username` != '$userName' ";
 
   $getResult = mysqli_query($conn, $query);
   $getOutput = [];

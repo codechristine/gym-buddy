@@ -246,10 +246,10 @@ body {
   height: 90%;
   border: 2px solid #315b96;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .map__list-picture {
-  height: 100%;
   width: 100%;
   background-size: contain;
   background-position: center;
@@ -769,7 +769,8 @@ body {
 .login__button,
 .signup__button,
 .profile__button,
-.gym__button {
+.gym__button,
+.buddy__button {
   background-color: #315b96;
 }
 
