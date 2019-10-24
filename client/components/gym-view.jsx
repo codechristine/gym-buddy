@@ -66,6 +66,7 @@ export default class GymView extends React.Component {
   }
   render() {
     const { placeObject, gymListArr } = this.state;
+    const username = this.props.currentUser.username;
     const isLoggedIn = this.props.isLoggedIn;
     let element, hours, rating, photos;
     let button = '';
@@ -76,16 +77,18 @@ export default class GymView extends React.Component {
         button = <button className="btn gym__button remove" onClick={() => { this.removeGymData(); }}>Remove</button>;
       }
 
-      if (!gymListArr.length) {
+      if (!gymListArr.length || (gymListArr.length === 1 && username === gymListArr[0].username)) {
         element = <div className="buddy__none">
           <img src="https://cdn4.iconfinder.com/data/icons/faces-10/96/sadness-512.png" alt="no friends" className="buddy__card-photo" />
           <div className="gym__view-message">No Gym Buddy Users</div>
         </div>;
       } else {
         element = gymListArr.map(element => {
-          const placeObject = this.props.view.params;
-          const setViewMethod = () => this.props.setView('buddy', 'gym', { element, placeObject });
-          return <GymUserListItem key={element.id} userInfo={element} setViewMethod={setViewMethod}/>;
+          if (username !== element.username) {
+            const placeObject = this.props.view.params;
+            const setViewMethod = () => this.props.setView('buddy', 'gym', { element, placeObject });
+            return <GymUserListItem key={element.id} userInfo={element} setViewMethod={setViewMethod} />;
+          }
         });
       }
     } else {

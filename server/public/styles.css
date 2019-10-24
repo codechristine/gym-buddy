@@ -769,7 +769,8 @@ body {
 .login__button,
 .signup__button,
 .profile__button,
-.gym__button {
+.gym__button,
+.buddy__button {
   background-color: #315b96;
 }
 
