@@ -20,7 +20,8 @@ class GymMap extends React.Component {
     if (!this.state.map) {
       element = <div className="lds-ring"><div></div><div></div><div></div><div></div></div>;
     } else {
-      element = <MapList map={this.state.map} location={location} setView={this.props.setView}/>;
+      const center = this.state.map.getCenter();
+      element = <MapList map={this.state.map} location={location} setView={this.props.setView} center={center}/>;
     }
     return (
       <div className="main__container">

@@ -80,9 +80,11 @@ export default class MapList extends React.Component {
           marker.setMap(this.map);
           this.markers.push(marker);
           this.map.setZoom(14);
-
+          const markerLatLng = marker.getPosition();
+          const distance = window.google.maps.geometry.spherical.computeDistanceBetween(this.props.center, markerLatLng);
+          const distanceInMiles = (distance / 1609.344).toFixed(2);
           const infoWindow = new window.google.maps.InfoWindow({
-            content: element.name,
+            content: `${element.name}, Distance: ${distanceInMiles} miles`,
             position: { lat: element.lat, lng: element.lng }
           });
           marker.addListener('click', e => {

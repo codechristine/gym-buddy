@@ -6,7 +6,7 @@ if (!$id) {
 }
 
 
-$query = "SELECT * FROM `friends` JOIN `user` ON `friends`.`receiver` = `user`.`id` WHERE `sender` = $id";
+$query = "SELECT * FROM `friends` JOIN `user` ON `friends`.`receiver` = `user`.`id` WHERE `friends`.`sender` = $id";
 
 $getResult = mysqli_query($conn, $query);
 $getOutput = [];
