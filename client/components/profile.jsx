@@ -59,14 +59,10 @@ class Profile extends React.Component {
           </div>;
         } else {
           element =
-          <div className="buddy__container">
-            {
               buddiesArr.map(element => {
                 const setViewMethod = () => this.props.setView('buddy', 'profile', { element });
                 return <BuddyList key={element.id} buddyInfo={element} setViewMethod={setViewMethod}/>;
-              })
-            }
-          </div>;
+              });
         }
         break;
       case 'expertise':
