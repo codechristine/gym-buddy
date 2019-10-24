@@ -1146,3 +1146,25 @@ body {
   border: 2px solid #315b96;
   border-radius: 5px;
 }
+
+/**************************************
+              SCHEDULE
+**************************************/
+
+.schedule__weekdays {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+}
+
+.tablink {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
