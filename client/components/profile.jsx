@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './header';
 import BuddyList from './buddy-list';
 import Expertise from './expertise';
+import Schedule from './schedule';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class Profile extends React.Component {
     let scheduleClass = 'btn profile__button';
     const toggleBuddy = () => this.toggleView('buddies');
     const toggleExpertise = () => this.toggleView('expertise');
+    const toggleSchedule = () => this.toggleView('schedule');
     const { view, buddiesArr } = this.state;
     let element, goToGymMethod;
 
@@ -71,6 +73,9 @@ class Profile extends React.Component {
         expertiseClass = 'btn profile__button selected';
         element = <Expertise currentUser = {this.props.currentUser} />;
         break;
+      case 'schedule':
+        scheduleClass = 'btn profile__button selected';
+        element = <Schedule currentUser = {this.props.currentUser} />;
     }
 
     if (!gym) {
@@ -101,7 +106,7 @@ class Profile extends React.Component {
               <div className="profile__buttons-bottom">
                 <button className={buddiesClass} onClick={toggleBuddy}> Buddies </button>
                 <button className={expertiseClass} onClick={toggleExpertise}> Expertise </button>
-                <button className={scheduleClass}> Schedule </button>
+                <button className={scheduleClass} onClick={toggleSchedule}> Schedule </button>
               </div>
             </div>
             <div className="profile__container-bottom">
