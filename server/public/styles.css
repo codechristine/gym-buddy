@@ -248,6 +248,13 @@ body {
   border-radius: 5px;
 }
 
+.map__list-picture {
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+}
+
 .map__list-name {
   width: 45%;
   font-size: 2rem;
@@ -926,10 +933,13 @@ body {
 .gym__view-carousel-container {
   height: 28%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .gym__view-info-container {
-  height: 40%;
+  height: 42.5%;
   width: 100%;
   border: 2px solid  #233567;
   border-radius: 5px;
@@ -998,9 +1008,21 @@ body {
 
 .gym__view-rating {
   width: 40%;
+  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  font-size: 2rem;
+}
+
+.gym__view-link {
+  font-size: 2rem;
+  text-decoration: none;
+  color: #315b96;
+}
+
+.gym__view-nophotos {
   font-size: 2rem;
 }
 
