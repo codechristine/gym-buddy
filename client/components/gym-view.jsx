@@ -52,7 +52,6 @@ export default class GymView extends React.Component {
       place_id: this.state.placeObject.place_id,
       username: this.props.currentUser.username
     };
-
     this.props.addGym(gymData);
   }
   removeGymData() {
@@ -67,6 +66,8 @@ export default class GymView extends React.Component {
   render() {
     const { placeObject, gymListArr } = this.state;
     const isLoggedIn = this.props.isLoggedIn;
+    const signUp = () => this.props.setView('signup', 'home', {});
+    const logIn = () => this.props.setView('login', 'home', {});
     let element, hours, rating, photos;
     let button = '';
 
@@ -90,7 +91,11 @@ export default class GymView extends React.Component {
       }
     } else {
       element = <div className="buddy__none">
-        <div className="gym__view-message">Log in to see Gym Buddies</div>
+        <div className="gym__view-message">Log in to see Gym Buddy Users</div>
+        <div className="gym__view-buttons">
+          <button className="btn gym__button" onClick={signUp}> Sign Up </button>
+          <button className="btn gym__button" onClick={logIn}> Log In </button>
+        </div>
       </div>;
     }
 

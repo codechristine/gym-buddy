@@ -5,10 +5,11 @@
   $place_id = $rawdata["placeId"];
   $lat = $rawdata["lat"];
   $lng = $rawdata["lng"];
+  $gymname = str_replace("'","\'", $place_name);
 
   $query = " SELECT * FROM `gyms` WHERE `gyms`.`placeid` = '$place_id' ";
   $gymQuery = " INSERT INTO `gyms` (`id`, `name`, `placeid`, `lat`, `lng`)
-                VALUES (NULL, '$place_name', '$place_id', '$lat', '$lng') ";
+                VALUES (NULL, '$gymname', '$place_id', '$lat', '$lng') ";
 
   $result = mysqli_query($conn, $query);
   $num_rows = mysqli_num_rows($result);

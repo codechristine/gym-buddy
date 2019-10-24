@@ -3,10 +3,10 @@
     $gymtoadd = $rawdata["name"];
     $gymid = $rawdata["place_id"];
     $currentUser = $rawdata["username"];
-
+    $gymname = str_replace("'","\'", $gymtoadd);
 
     $query = "UPDATE `user`
-                SET `gymid` = '$gymid', `gymname` = '$gymtoadd'
+                SET `gymid` = '$gymid', `gymname` = '$gymname'
                     WHERE `user`.`username` = '$currentUser' ";
 
     $result = mysqli_query($conn, $query);
