@@ -29,7 +29,7 @@ class Header extends React.Component {
         }
         break;
       case 'map':
-        leftButton = <button className="btn map__button" onClick={homeView}>Back</button>;
+        leftButton = <button className="btn map__button" onClick={homeView}><i className="fas fa-arrow-left"></i></button>;
         title = <div className="main__header-title">GYM BUDDY</div>;
         if (isLoggedIn) {
           rightButton = <button className="icon__container" onClick={profileView}><i className="icon fas fa-user"></i></button>;
@@ -37,15 +37,15 @@ class Header extends React.Component {
         }
         break;
       case 'signup':
-        leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
+        leftButton = <button className="btn map__button" onClick={backMethod}><i className="fas fa-arrow-left"></i></button>;
         title = <div className="main__header-title">GYM BUDDY</div>;
         break;
       case 'login':
-        leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
+        leftButton = <button className="btn map__button" onClick={backMethod}><i className="fas fa-arrow-left"></i></button>;
         title = <div className="main__header-title">GYM BUDDY</div>;
         break;
       case 'gym':
-        leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
+        leftButton = <button className="btn map__button" onClick={backMethod}><i className="fas fa-arrow-left"></i></button>;
         title = <div className="main__header-title">GYM BUDDY</div>;
         if (isLoggedIn) {
           rightButton = <button className="icon__container" onClick={profileViewFromGym}><i className="icon fas fa-user"></i></button>;
@@ -53,14 +53,14 @@ class Header extends React.Component {
         }
         break;
       case 'profile':
-        leftButton = <button className="btn map__button" onClick={backMethod}>Back</button>;
+        leftButton = <button className="btn map__button" onClick={backMethod}><i className="fas fa-arrow-left"></i></button>;
         title = <div className="main__header-username">{currentUser.username}</div>;
         if (prevName === 'gym') {
-          leftButton = <button className="btn map__button" onClick={gymView}>Back</button>;
+          leftButton = <button className="btn map__button" onClick={gymView}><i className="fas fa-arrow-left"></i></button>;
         }
         break;
       case 'buddy':
-        leftButton = <button className="btn map__button" onClick={profileViewToHome}>Back</button>;
+        leftButton = <button className="btn map__button" onClick={profileViewToHome}><i className="fas fa-arrow-left"></i></button>;
         title = <div className="main__header-username">{buddyUser.username}</div>;
         if (prevName === 'gym') {
           leftButton = <button className="btn map__button" onClick={gymView}>Back</button>;

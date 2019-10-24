@@ -630,6 +630,10 @@ body {
   color: #fff;
 }
 
+.buddy__message {
+  color: #233567;
+}
+
 /**************************************
               GYM USER
 **************************************/
@@ -1143,6 +1147,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.buddy__stats-message {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
 }
 
 .buddy__stats-header {
