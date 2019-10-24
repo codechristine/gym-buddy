@@ -6,7 +6,6 @@ class GymBuddy extends React.Component {
     const user = this.props.view.params.element;
     let photo = user.photo;
     let gym = user.gymname;
-
     if (!photo) {
       photo = 'https://static.thenounproject.com/png/538846-200.png';
     }

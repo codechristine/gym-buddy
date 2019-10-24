@@ -7,7 +7,8 @@
   $gymID = $_GET['placeId'];
   $userName = $_GET['userName'];
 
-  $query = "SELECT * FROM `user` WHERE `user`.`gymid` = '$gymID' AND `user`.`username` != '$userName' ";
+  $query = "SELECT * from `user` as u LEFT JOIN (SELECT receiver ,sender FROM friends) AS f ON f.receiver = u.id
+            WHERE u.gymid='$gymID' AND u.`username` != '$userName'";
 
   $getResult = mysqli_query($conn, $query);
   $getOutput = [];
