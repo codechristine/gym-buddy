@@ -38,20 +38,22 @@ export default class MapList extends React.Component {
     if (searchStatus !== 'OK') {
       return false;
     }
-    for (let i = 0; i < 10; i++) {
-      let placesObject = {
-        id: searchResults[i].id,
-        placeId: searchResults[i].place_id,
-        name: searchResults[i].name,
-        lat: searchResults[i].geometry.location.lat(),
-        lng: searchResults[i].geometry.location.lng(),
-        rating: searchResults[i].rating,
-        image: typeof searchResults[i].photos !== 'undefined'
-          ? searchResults[i].photos[0].getUrl()
-          : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/No_image_available_600_x_450.svg/1200px-No_image_available_600_x_450.svg.png'
-      };
-      this.insertMapData(placesObject);
-      placesArray.push(placesObject);
+    for (let i = 0; i < 15; i++) {
+      if (searchResults[i].photos) {
+        let placesObject = {
+          id: searchResults[i].id,
+          placeId: searchResults[i].place_id,
+          name: searchResults[i].name,
+          lat: searchResults[i].geometry.location.lat(),
+          lng: searchResults[i].geometry.location.lng(),
+          rating: searchResults[i].rating,
+          image: typeof searchResults[i].photos !== 'undefined'
+            ? searchResults[i].photos[0].getUrl()
+            : 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/No_image_available_600_x_450.svg/1200px-No_image_available_600_x_450.svg.png'
+        };
+        this.insertMapData(placesObject);
+        placesArray.push(placesObject);
+      }
     }
     this.setState({
       places: placesArray

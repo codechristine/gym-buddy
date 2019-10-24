@@ -18,7 +18,7 @@ export default class GymView extends React.Component {
     const combinedMapObject = this.props.view.params;
     let request = {
       placeId: combinedMapObject.currentLocation.placeId,
-      fields: ['photo', 'name', 'place_id', 'formatted_address', 'opening_hours', 'rating']
+      fields: ['photo', 'name', 'place_id', 'formatted_address', 'formatted_phone_number', 'opening_hours', 'rating', 'website']
     };
 
     combinedMapObject.googleMap.getDetails(request, (place, status) => {
@@ -39,9 +39,11 @@ export default class GymView extends React.Component {
         });
       });
 
-    for (let i = 0; i < this.state.placeObject.photos.length; i++) {
-      let photo = (this.state.placeObject.photos[i].getUrl());
-      this.photoArray.push(photo);
+    if (this.state.placeObject.photos) {
+      for (let i = 0; i < this.state.placeObject.photos.length; i++) {
+        let photo = (this.state.placeObject.photos[i].getUrl());
+        this.photoArray.push(photo);
+      }
     }
   }
   insertGymData() {
@@ -65,7 +67,7 @@ export default class GymView extends React.Component {
   render() {
     const { placeObject, gymListArr } = this.state;
     const isLoggedIn = this.props.isLoggedIn;
-    let element;
+    let element, hours, rating, photos;
     let button = '';
 
     if (isLoggedIn) {
@@ -93,12 +95,39 @@ export default class GymView extends React.Component {
     }
 
     if (placeObject) {
+      let website;
+      if (!placeObject.opening_hours) {
+        hours = <h3>No Schedule Available</h3>;
+      } else {
+        hours = placeObject.opening_hours.weekday_text.map((opening, index) => {
+          return <div key={index} opening={opening}>{opening} </div>;
+        });
+      }
+
+      if (!placeObject.rating) {
+        rating = <h3>No Raitings </h3>;
+      } else {
+        rating = <h3>Rating: {placeObject.rating.toFixed(1)}</h3>;
+      }
+
+      if (!this.photoArray.length) {
+        photos = <h3 className="gym__view-nophotos" >No Photos Available </h3>;
+      } else {
+        photos = <GymCarousel photoArray={this.photoArray} />;
+      }
+
+      if (!placeObject.website) {
+        website = 'No Website';
+      } else {
+        website = 'Visit Website';
+      }
+
       return (
         <div className="main__container">
           <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} gymName={placeObject.name} isLoggedIn={this.props.isLoggedIn} placeObject={this.props.view.params}/>
           <div className="gym__view-container">
             <div className="gym__view-carousel-container">
-              <GymCarousel photoArray = {this.photoArray} />
+              { photos }
             </div>
             <div className="gym__view-info-container">
               <div className="gym__view-info-name-and-button-container">
@@ -108,15 +137,16 @@ export default class GymView extends React.Component {
               <div className="gym__view-info-address-and-hours-container">
                 <h3>Address:</h3>
                 <div className="gym__view-address">{placeObject.formatted_address}</div>
+                <h3>Phone Number:</h3>
+                <div className="gym__view-address">{placeObject.formatted_phone_number}</div>
                 <div className="gym__view-rating-container">
                   <div className="gym__view-hours">
                     <h3>Hours:</h3>
-                    {placeObject.opening_hours.weekday_text.map((opening, index) => {
-                      return <div key={index} opening={opening}>{opening} </div>;
-                    })}
+                    { hours }
                   </div>
                   <div className="gym__view-rating">
-                    <h3>Rating: {placeObject.rating.toFixed(1)}</h3>
+                    { rating }
+                    <a className="gym__view-link" rel="noopener noreferrer" target="_BLANK" href={placeObject.website}>{website}</a>
                   </div>
                 </div>
               </div>
