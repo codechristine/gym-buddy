@@ -56,7 +56,8 @@ class GymBuddy extends React.Component {
     const user = this.props.view.params.element;
     let photo = user.photo;
     let gym = user.gymname;
-    let button, statusMessage;
+    const gymId = user.gymid;
+    let button, statusMessage, goToGymMethod;
 
     if (!photo) {
       photo = 'https://static.thenounproject.com/png/538846-200.png';
@@ -64,6 +65,8 @@ class GymBuddy extends React.Component {
 
     if (!gym) {
       gym = 'Not a Gym Member';
+    } else {
+      goToGymMethod = () => this.props.goToGym(gymId);
     }
 
     if (isFriends) {
@@ -92,7 +95,7 @@ class GymBuddy extends React.Component {
                   </div>
                   <div className="buddy__info-name">
                     <div className="buddy__name">{`${user.firstname} ${user.lastname}`}</div>
-                    <div className="buddy__gym">{gym}</div>
+                    <div className="buddy__gym" onClick={goToGymMethod}>{gym}</div>
                   </div>
                 </div>
               </div>
