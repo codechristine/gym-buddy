@@ -8,6 +8,11 @@ class MapItem extends React.Component {
       currentLocation: location,
       googleMap: placesServiceObject
     };
+    let distance = this.props.distance ? <div className="map__list-distance">{`${this.props.distance} miles`}</div> : '';
+
+    if (this.props.distance === '0.00') {
+      distance = '';
+    }
 
     const setView = () => this.props.setView('gym', 'map', combinedMap);
 
@@ -16,7 +21,10 @@ class MapItem extends React.Component {
         <div className="map__list-photo">
           <img src={location.image} alt="Gym Photo" className="map__list-picture" />
         </div>
-        <h2 className="map__list-name">{ location.name }</h2>
+        <div className="map__list-info">
+          <div className="map__list-name">{ location.name }</div>
+          { distance }
+        </div>
       </div>
     );
   }

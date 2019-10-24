@@ -93,7 +93,7 @@ export default class MapList extends React.Component {
           });
           infoWindow.close();
           return (
-            <MapItem refForContainer={mapListItemRef} key = { element.id } location = { element } setView = { this.props.setView } placesServiceObj = {this.placesServiceObj}/>
+            <MapItem refForContainer={mapListItemRef} key = { element.id } location = { element } setView = { this.props.setView } placesServiceObj = {this.placesServiceObj} distance={distanceInMiles}/>
           );
         })
       }</div>
