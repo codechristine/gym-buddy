@@ -9,6 +9,11 @@ class MapItem extends React.Component {
       googleMap: placesServiceObject
     };
     let distance = this.props.distance ? <div className="map__list-distance">{`${this.props.distance} miles`}</div> : '';
+    let name = this.props.location.name;
+
+    if (name.length > 18) {
+      name = `${name.substring(0, 18)}...`;
+    }
 
     if (this.props.distance === '0.00') {
       distance = '';
@@ -22,7 +27,7 @@ class MapItem extends React.Component {
           <img src={location.image} alt="Gym Photo" className="map__list-picture" />
         </div>
         <div className="map__list-info">
-          <div className="map__list-name">{ location.name }</div>
+          <div className="map__list-name">{ name }</div>
           { distance }
         </div>
       </div>
