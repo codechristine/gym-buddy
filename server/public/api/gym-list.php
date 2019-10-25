@@ -7,8 +7,8 @@
   $gymID = $_GET['placeId'];
   $userName = $_GET['userName'];
 
-  $query = "SELECT * from `user` as u LEFT JOIN (SELECT receiver, sender FROM friends JOIN `user` WHERE sender = `user`.id  ) AS f ON f.receiver = u.id
-            WHERE u.gymid='$gymID' AND u.`username` != '$userName' ";
+  $query = "SELECT * from `user` as u LEFT JOIN (SELECT sender, GROUP_CONCAT(receiver) as friends FROM `friends` GROUP BY sender) AS f ON f.sender = u.id
+            WHERE u.gymid='$gymID' AND u.`username` != '$userName'";
 
   $getResult = mysqli_query($conn, $query);
   $getOutput = [];
@@ -16,6 +16,7 @@
   if ($getResult) {
     if (mysqli_num_rows($getResult) > 0) {
       while ($row = mysqli_fetch_assoc($getResult)) {
+        $row['friends'] = explode(',', $row['friends']);
         $getOutput[] = $row;
       }
       $json_get = json_encode($getOutput);

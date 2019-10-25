@@ -13,7 +13,7 @@ class GymBuddy extends React.Component {
     this.removeBuddy = this.removeBuddy.bind(this);
   }
   componentDidMount() {
-    if (this.props.view.params.element.sender === this.props.currentUser.id) {
+    if (this.props.view.params.element.friends.includes(this.props.currentUser.id)) {
       this.setState({
         isFriends: true
       });
@@ -59,7 +59,6 @@ class GymBuddy extends React.Component {
     let gym = user.gymname;
     const gymId = user.gymid;
     let button, statusMessage, goToGymMethod;
-
     if (!photo) {
       photo = 'https://static.thenounproject.com/png/538846-200.png';
     }
