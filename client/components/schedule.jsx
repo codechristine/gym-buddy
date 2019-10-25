@@ -24,6 +24,26 @@ export default class Schedule extends React.Component {
         });
       });
   }
+  findNumbersInBetween(array) {
+    let newArray = [];
+    for (let i = array[0]; i <= array[array.length - 1]; i++) {
+      newArray.push(i);
+    }
+    return newArray;
+  }
+  filterArray(array) {
+    let newArray = [];
+    if (array) {
+      for (let i = 0; i < array.length; i++) {
+        let tempResult = this.findNumbersInBetween(array[i]);
+        let numbers = tempResult.map(e => parseInt(e));
+        for (let j = 0; j < numbers.length; j++) {
+          newArray.push(numbers[j]);
+        }
+      }
+      return newArray;
+    }
+  }
   toggleTab(view) {
     this.setState({
       view: view
@@ -44,31 +64,31 @@ export default class Schedule extends React.Component {
     switch (view) {
       case 'sunday':
         sundayClass = 'tab__selected';
-        passedInData = scheduleObj.sunday;
+        passedInData = this.filterArray(scheduleObj.sunday);
         break;
       case 'monday':
         mondayClass = 'tab__selected';
-        passedInData = scheduleObj.monday;
+        passedInData = this.filterArray(scheduleObj.monday);
         break;
       case 'tuesday':
         tuesdayClass = 'tab__selected';
-        passedInData = scheduleObj.tuesday;
+        passedInData = this.filterArray(scheduleObj.tuesday);
         break;
       case 'wednesday':
         wednesdayClass = 'tab__selected';
-        passedInData = scheduleObj.wednesday;
+        passedInData = this.filterArray(scheduleObj.wednesday);
         break;
       case 'thursday':
         thursdayClass = 'tab__selected';
-        passedInData = scheduleObj.thursday;
+        passedInData = this.filterArray(scheduleObj.thursday);
         break;
       case 'friday':
         fridayClass = 'tab__selected';
-        passedInData = scheduleObj.friday;
+        passedInData = this.filterArray(scheduleObj.friday);
         break;
       case 'saturday':
         saturdayClass = 'tab__selected';
-        passedInData = scheduleObj.saturday;
+        passedInData = this.filterArray(scheduleObj.saturday);
         break;
     }
 
