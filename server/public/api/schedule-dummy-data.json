@@ -1,9 +1,9 @@
 {
   "sunday": [],
-  "monday": [7, 8, 17, 18],
+  "monday": [[7, 8], [17, 18]],
   "tuesday": [],
-  "wednesday": [9, 11],
-  "thursday": [12, 16],
+  "wednesday": [[9, 11]],
+  "thursday": [[12, 16]],
   "friday": [],
-  "saturday": [6, 10]
+  "saturday": [[6, 10]]
 }

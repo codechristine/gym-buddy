@@ -25,7 +25,7 @@ class Header extends React.Component {
         rightButton = <button className="btn main__button" onClick={loginView} >Log In</button>;
         if (isLoggedIn) {
           leftButton = '';
-          rightButton = <button className="btn main__button icon__home" onClick={profileView}><i className="icon__main fas fa-user"></i></button>;
+          rightButton = <button className="btn main__button icon__home" onClick={profileViewToHome}><i className="icon__main fas fa-user"></i></button>;
         }
         break;
       case 'map':

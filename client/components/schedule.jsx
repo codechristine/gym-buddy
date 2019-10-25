@@ -1,15 +1,48 @@
 import React from 'react';
-import DayContent from './day-content';
+import Hour from './hour';
 
 export default class Schedule extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'currentDay'
+      view: 'sunday',
+      scheduleObj: {}
     };
-    // proprerty will have schedule of hours with an object w/ nested arrays for each day
-
+    // this.timeArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+    this.timeArray = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     this.toggleTab = this.toggleTab.bind(this);
+  }
+  componentDidMount() {
+    this.getHours();
+  }
+  getHours() {
+    fetch('/api/schedule.php')
+      .then(result => result.json())
+      .then(result => {
+        this.setState({
+          scheduleObj: result
+        });
+      });
+  }
+  findNumbersInBetween(array) {
+    let newArray = [];
+    for (let i = array[0]; i <= array[array.length - 1]; i++) {
+      newArray.push(i);
+    }
+    return newArray;
+  }
+  filterArray(array) {
+    let newArray = [];
+    if (array) {
+      for (let i = 0; i < array.length; i++) {
+        let tempResult = this.findNumbersInBetween(array[i]);
+        let numbers = tempResult.map(e => parseInt(e));
+        for (let j = 0; j < numbers.length; j++) {
+          newArray.push(numbers[j]);
+        }
+      }
+      return newArray;
+    }
   }
   toggleTab(view) {
     this.setState({
@@ -24,71 +57,49 @@ export default class Schedule extends React.Component {
     const toggleTabThursday = () => this.toggleTab('thursday');
     const toggleTabFriday = () => this.toggleTab('friday');
     const toggleTabSaturday = () => this.toggleTab('saturday');
-    let sundayClass = 'weekday__tablink';
-    let mondayClass = 'weekday__tablink';
-    let tuesdayClass = 'weekday__tablink';
-    let wednesdayClass = 'weekday__tablink';
-    let thursdayClass = 'weekday__tablink';
-    let fridayClass = 'weekday__tablink';
-    let saturdayClass = 'weekday__tablink';
-    const { view } = this.state;
-    let element;
-    // let hourlySchedule = {
-    //   [
-    //     time: null;
-    //   ]
-    // };
+    const { view, scheduleObj } = this.state;
+    const scheduleKeys = Object.keys(scheduleObj);
+    let sundayClass, mondayClass, tuesdayClass, wednesdayClass, thursdayClass, fridayClass, saturdayClass, passedInData;
 
     switch (view) {
       case 'sunday':
-        sundayClass = 'weekday__tablink selected';
-        element =
-        <div className="test1">
-          <DayContent hourlySchedule={this.props.hourlySchedule} />
-        </div>;
+        sundayClass = 'tab__selected';
+        passedInData = this.filterArray(scheduleObj.sunday);
         break;
       case 'monday':
-        mondayClass = 'weekday__tablink selected';
-        element =
-          <div className="test2">
-            <DayContent hourlySchedule={this.props.hourlySchedule} />
-          </div>;
+        mondayClass = 'tab__selected';
+        passedInData = this.filterArray(scheduleObj.monday);
         break;
       case 'tuesday':
-        tuesdayClass = 'weekday__tablink selected';
-        element =
-          <div className="test1">
-            <DayContent hourlySchedule={this.props.hourlySchedule} />
-          </div>;
+        tuesdayClass = 'tab__selected';
+        passedInData = this.filterArray(scheduleObj.tuesday);
         break;
       case 'wednesday':
-        wednesdayClass = 'weekday__tablink selected';
-        element =
-          <div className="test2">
-            <DayContent hourlySchedule={this.props.hourlySchedule} />
-          </div>;
+        wednesdayClass = 'tab__selected';
+        passedInData = this.filterArray(scheduleObj.wednesday);
         break;
       case 'thursday':
-        thursdayClass = 'weekday__tablink selected';
-        element =
-          <div className="test1">
-            <DayContent hourlySchedule={this.props.hourlySchedule} />
-          </div>;
+        thursdayClass = 'tab__selected';
+        passedInData = this.filterArray(scheduleObj.thursday);
         break;
       case 'friday':
-        fridayClass = 'weekday__tablink selected';
-        element =
-          <div className="test2">
-            <DayContent hourlySchedule={this.props.hourlySchedule} />
-          </div>;
+        fridayClass = 'tab__selected';
+        passedInData = this.filterArray(scheduleObj.friday);
         break;
       case 'saturday':
-        saturdayClass = 'weekday__tablink selected';
-        element =
-          <div className="test1">
-            <DayContent hourlySchedule={this.props.hourlySchedule} />
-          </div>;
+        saturdayClass = 'tab__selected';
+        passedInData = this.filterArray(scheduleObj.saturday);
         break;
+    }
+
+    if (!scheduleKeys.length) {
+      return (
+        <div className="schedule__container">
+          <div className="schedule__none">
+            No Schedule Set
+          </div>
+        </div>
+      );
     }
 
     return (
@@ -103,8 +114,11 @@ export default class Schedule extends React.Component {
           <button className={saturdayClass} onClick={toggleTabSaturday}> SA </button>
         </div>
         <div className="schedule__content-container">
-          {/* <DayContent /> */}
-          {element}
+          {
+            this.timeArray.map((element, index) => {
+              return <Hour key={index} time={this.timeArray[index]} index={index} data={passedInData} />;
+            })
+          }
         </div>
       </div>
     );
