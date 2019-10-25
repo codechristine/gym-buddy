@@ -38,6 +38,7 @@ export default class Schedule extends React.Component {
     const toggleTabFriday = () => this.toggleTab('friday');
     const toggleTabSaturday = () => this.toggleTab('saturday');
     const { view, scheduleObj } = this.state;
+    const scheduleKeys = Object.keys(scheduleObj);
     let sundayClass, mondayClass, tuesdayClass, wednesdayClass, thursdayClass, fridayClass, saturdayClass, passedInData;
 
     switch (view) {
@@ -69,6 +70,16 @@ export default class Schedule extends React.Component {
         saturdayClass = 'tab__selected';
         passedInData = scheduleObj.saturday;
         break;
+    }
+
+    if (!scheduleKeys.length) {
+      return (
+        <div className="schedule__container">
+          <div className="schedule__none">
+            No Schedule Set
+          </div>
+        </div>
+      );
     }
 
     return (

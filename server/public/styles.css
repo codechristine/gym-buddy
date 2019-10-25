@@ -1217,6 +1217,16 @@ body {
   overflow: scroll;
 }
 
+.schedule__none {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #fff;
+}
+
 .weekday__tablink > * {
   font-size: 1.5rem;
   height: 100%;
@@ -1246,6 +1256,7 @@ body {
 
 .hour__selected {
   background-color: rgb(0, 128, 0);
+  color: #fff;
 }
 
 .hour__card-number {
