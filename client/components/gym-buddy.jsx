@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './header';
+import Schedule from './schedule';
 
 class GymBuddy extends React.Component {
   constructor(props) {
@@ -128,7 +129,9 @@ class GymBuddy extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="buddy__container-bottom"></div>
+            <div className="buddy__container-bottom">
+              <Schedule />
+            </div>
           </div>
         </div>
       </div>
