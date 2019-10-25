@@ -1203,7 +1203,7 @@ body {
 
 .weekday__tablink {
   background-color: inherit;
-  height: 4rem;
+  height: 10%;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -1212,7 +1212,9 @@ body {
 }
 
 .schedule__content-container {
-  overflow: auto;
+  height: 90%;
+  width: 100%;
+  overflow: scroll;
 }
 
 .weekday__tablink > * {
