@@ -10,7 +10,7 @@ class GymUserListItem extends React.Component {
       photo = 'https://static.thenounproject.com/png/538846-200.png';
     }
 
-    if (this.props.currentUser.id === userInfo.sender) {
+    if (userInfo.friends.includes(this.props.currentUser.id)) {
       cardClass = 'friends';
     }
 

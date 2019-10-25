@@ -60,6 +60,7 @@ class Profile extends React.Component {
         } else {
           element =
               buddiesArr.map(element => {
+                element.friends = [element.sender];
                 const setViewMethod = () => this.props.setView('buddy', 'profile', { element });
                 return <BuddyList key={element.id} buddyInfo={element} setViewMethod={setViewMethod}/>;
               });
