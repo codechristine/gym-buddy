@@ -22,7 +22,6 @@ export default class App extends React.Component {
     };
     this.setView = this.setView.bind(this);
     this.setLocation = this.setLocation.bind(this);
-    this.createUser = this.createUser.bind(this);
     this.logInUser = this.logInUser.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
     this.addGym = this.addGym.bind(this);
@@ -37,29 +36,6 @@ export default class App extends React.Component {
         params: params
       }
     });
-  }
-  createUser(userObj) {
-    fetch('/api/user.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userObj) })
-      .then(result => result.json())
-      .then(result => {
-        if (result.error) {
-          this.setState({
-            view: {
-              name: 'signup',
-              prevName: 'home',
-              params: result
-            }
-          });
-        } else {
-          this.setState({
-            view: {
-              name: 'login',
-              prevName: 'home',
-              params: result
-            }
-          });
-        }
-      });
   }
   logInUser(userObj) {
     fetch(`/api/user.php?username=${userObj.username}`)
@@ -152,7 +128,7 @@ export default class App extends React.Component {
         element = <GymView setView={this.setView} view={this.state.view} isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser} addGym={this.addGym} deleteGym={this.deleteGym}/>;
         break;
       case 'signup':
-        element = <SignUp setView={this.setView} view={this.state.view} createUser={this.createUser} />;
+        element = <SignUp setView={this.setView} view={this.state.view} />;
         break;
       case 'login':
         element = <LogIn setView={this.setView} view={this.state.view} logInUser={this.logInUser}/>;

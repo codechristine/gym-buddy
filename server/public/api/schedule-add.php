@@ -3,9 +3,13 @@
     $rawdata = getBodyData();
     $user_name = $rawdata["username"];
     $day = $rawdata["day"];
-    $starttime = $rawdata["starttime"];
-    $endtime = $rawdata["endtime"];
+    $starttime = $rawdata["startTime"];
+    $endtime = $rawdata["endTime"];
 
+    // print($user_name);
+    // print($day);
+    // print($starttime);
+    // print($endtime);
 
     $insertQuery = "INSERT INTO `schedule` (`id`,`username`,`day`,`starttime`,`endtime`)
                       VALUES (NULL, '$user_name','$day','$starttime','$endtime') ";
@@ -21,3 +25,5 @@
         $json_output = json_encode($output);
         print($json_output);
     }
+
+?>
