@@ -16,7 +16,8 @@ export default class Schedule extends React.Component {
     this.getHours();
   }
   getHours() {
-    fetch('/api/schedule.php')
+    const username = this.props.user.username;
+    fetch(`/api/schedule.php?username=${username}`)
       .then(result => result.json())
       .then(result => {
         this.setState({
@@ -31,32 +32,23 @@ export default class Schedule extends React.Component {
     }
     return newArray;
   }
-  chunkArray(array, size) {
+  removeZero(array) {
     let newArray = [];
     if (array) {
       for (let i = 0; i < array.length; i++) {
-        const last = newArray[newArray.length - 1];
-        if (!last || last.length === size) {
-          newArray.push([array[i]]);
-        } else {
-          last.push(array[i]);
-        }
+        let tempArray = array[i].toString().split('');
+        let withoutZero = tempArray.slice(0, tempArray.length - 2);
+        let numStr = withoutZero.join('');
+        newArray.push(parseInt(numStr));
       }
     }
     return newArray;
   }
   filterArray(array) {
-    const chunkedArray = this.chunkArray(array, 2);
-    let newArray = [];
+    const filteredArr = this.removeZero(array);
     if (array) {
-      for (let i = 0; i < chunkedArray.length; i++) {
-        let tempResult = this.findNumbersInBetween(chunkedArray[i]);
-        let numbers = tempResult.map(e => parseInt(e));
-        for (let j = 0; j < numbers.length; j++) {
-          newArray.push(numbers[j]);
-        }
-      }
-      return newArray;
+      const numArray = this.findNumbersInBetween(filteredArr);
+      return numArray;
     }
   }
   toggleTab(view) {
@@ -73,49 +65,48 @@ export default class Schedule extends React.Component {
     const toggleTabFriday = () => this.toggleTab('friday');
     const toggleTabSaturday = () => this.toggleTab('saturday');
     const { view, scheduleObj } = this.state;
-    const scheduleKeys = Object.keys(scheduleObj);
     let sundayClass, mondayClass, tuesdayClass, wednesdayClass, thursdayClass, fridayClass, saturdayClass, passedInData, element;
 
     switch (view) {
       case 'sunday':
         sundayClass = 'tab__selected';
-        passedInData = this.filterArray(scheduleObj.sunday);
+        passedInData = this.filterArray(scheduleObj.Sunday);
         break;
       case 'monday':
         mondayClass = 'tab__selected';
-        passedInData = this.filterArray(scheduleObj.monday);
+        passedInData = this.filterArray(scheduleObj.Monday);
         break;
       case 'tuesday':
         tuesdayClass = 'tab__selected';
-        passedInData = this.filterArray(scheduleObj.tuesday);
+        passedInData = this.filterArray(scheduleObj.Tuesday);
         break;
       case 'wednesday':
         wednesdayClass = 'tab__selected';
-        passedInData = this.filterArray(scheduleObj.wednesday);
+        passedInData = this.filterArray(scheduleObj.Wednesday);
         break;
       case 'thursday':
         thursdayClass = 'tab__selected';
-        passedInData = this.filterArray(scheduleObj.thursday);
+        passedInData = this.filterArray(scheduleObj.Thursday);
         break;
       case 'friday':
         fridayClass = 'tab__selected';
-        passedInData = this.filterArray(scheduleObj.friday);
+        passedInData = this.filterArray(scheduleObj.Friday);
         break;
       case 'saturday':
         saturdayClass = 'tab__selected';
-        passedInData = this.filterArray(scheduleObj.saturday);
+        passedInData = this.filterArray(scheduleObj.Saturday);
         break;
     }
 
-    if (!scheduleKeys.length) {
-      return (
-        <div className="schedule__container">
-          <div className="schedule__none">
-            No Schedule Set
-          </div>
-        </div>
-      );
-    }
+    // if (!scheduleKeys.length) {
+    //   return (
+    //     <div className="schedule__container">
+    //       <div className="schedule__none">
+    //         No Schedule Set
+    //       </div>
+    //     </div>
+    //   );
+    // }
 
     if (typeof passedInData === 'object') {
       if (!passedInData.length) {

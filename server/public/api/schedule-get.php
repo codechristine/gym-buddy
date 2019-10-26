@@ -1,12 +1,11 @@
 <?php
 
-    $rawdata = getBodyData();
-    $currentuser = $rawdata["username"];
+    $currentuser = $_GET["username"];
 
     $query = "SELECT DISTINCT `schedule`.`username` as user,`schedule`.`day` as week_day,
     (
-        SELECT 
-        GROUP_CONCAT(DISTINCT `schedule`.`starttime`, ' ', `schedule`.`endtime` SEPARATOR ' ')  
+        SELECT
+        GROUP_CONCAT(DISTINCT `schedule`.`starttime`, ' ', `schedule`.`endtime` SEPARATOR ' ')
         FROM `schedule`
         WHERE `schedule`.`day` = week_day AND `schedule`.`username` = user
     ) as `schedule`
