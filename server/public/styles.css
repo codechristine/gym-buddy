@@ -18,6 +18,7 @@ font-family: 'Source Sans Pro', sans-serif;
 html {
   font-size: 62.5%; /* 10px  */
   font-family: 'Source Sans Pro', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -362,18 +363,20 @@ body {
   border-radius: 5px;
   background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
   margin-top: 0.5rem;
+  overflow: scroll;
 }
 
 .signup__container-top {
-  height: 40%;
+  height: 30rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
+.signup__container-middle,
 .signup__container-bottom {
-  height: 60%;
+  height: 40rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -424,7 +427,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgba(251, 193, 188);
+  color: #fff;
 }
 
 .stats__header,
@@ -462,7 +465,8 @@ body {
   align-items: center;
 }
 
-.stats__block-options {
+.stats__block-options,
+.time__block-options {
   font-size: 1.15rem;
   display: flex;
   width: 60%;
@@ -471,14 +475,41 @@ body {
   justify-content: center;
 }
 
-.stats__block-dropdown {
+.stats__block-dropdown,
+.time__block-dropdown {
   width: 100%;
+  overflow: scroll;
   border-radius: 5px;
   background-color: #fff;
 }
 
 .stats__block-dropdown:focus {
   outline: none;
+}
+
+.time__block-options {
+  width: 30%;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.time__block-options > *:focus {
+  outline: none !important;
+}
+
+.react-time-picker__wrapper {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.react-time-picker__inputGroup__input,
+.react-time-picker__inputGroup__hour,
+.react-time-picker__inputGroup__amPm {
+  width: 50% !important;
+}
+
+.react-time-picker__inputGroup__input:focus {
+  outline: none !important;
 }
 
 /**************************************
@@ -1217,7 +1248,8 @@ body {
   overflow: scroll;
 }
 
-.schedule__none {
+.schedule__none,
+.schedule__skip {
   height: 100%;
   width: 100%;
   display: flex;
@@ -1225,6 +1257,12 @@ body {
   align-items: center;
   font-size: 3rem;
   color: #fff;
+}
+
+.schedule__skip {
+  background-color: #fff;
+  color: #315b96;
+  font-size: 2.5rem;
 }
 
 .weekday__tablink > * {
