@@ -427,7 +427,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: rgba(251, 193, 188);
 }
 
 .stats__header,
@@ -457,7 +457,7 @@ body {
 }
 
 .stats__block-title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   width: 30%;
   color: #fff;
   display: flex;
@@ -489,6 +489,7 @@ body {
 
 .time__block-options {
   width: 30%;
+  height: 60%;
   background-color: #fff;
   border-radius: 5px;
 }

@@ -360,7 +360,7 @@ class SignUp extends React.Component {
             </div>
             <div className="signup__container-bottom">
               <div className="stats__title">
-                <h3> Schedule </h3>
+                Schedule
               </div>
               <div className="stats__header">
                 <div className="stats__header-title">
