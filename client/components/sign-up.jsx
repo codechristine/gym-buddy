@@ -35,6 +35,7 @@ class SignUp extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeDropDown = this.handleChangeDropDown.bind(this);
     this.handleScheduleChange = this.handleScheduleChange.bind(this);
+    this.insertSchedule = this.inserSchedule.bind(this);
   }
   handleChange(event) {
     let eventTarget = event.target.placeholder;
@@ -105,7 +106,7 @@ class SignUp extends React.Component {
           this.setState({ wednesdayTo: time });
           break;
         case 'thursdayFrom':
-          this.setState({ thursdayTo: time });
+          this.setState({ thursdayFrom: time });
           break;
         case 'thursdayTo':
           this.setState({ thursdayTo: time });
@@ -120,7 +121,7 @@ class SignUp extends React.Component {
           this.setState({ saturdayFrom: time });
           break;
         case 'saturdayTo':
-          this.setState({ saturdayto: time });
+          this.setState({ saturdayTo: time });
           break;
       }
     }
@@ -155,6 +156,72 @@ class SignUp extends React.Component {
     });
   }
 
+  inserSchedule(scheduleObj) {
+    fetch('/api/schedule.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(scheduleObj) })
+      .then(result => result.json())
+      .then(result => {
+        return result;
+      });
+  }
+
+  createUser(userObj) {
+    const dayArray = [
+      {
+        username: this.state.userName,
+        day: 'Sunday',
+        startTime: this.state.sundayFrom.split(':').join('') || '',
+        endTime: this.state.sundayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Monday',
+        startTime: this.state.mondayFrom.split(':').join('') || '',
+        endTime: this.state.mondayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Tuesday',
+        startTime: this.state.tuesdayFrom.split(':').join('') || '',
+        endTime: this.state.tuesdayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Wednesday',
+        startTime: this.state.wednesdayFrom.split(':').join('') || '',
+        endTime: this.state.wednesdayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Thursday',
+        startTime: this.state.thursdayFrom.split(':').join('') || '',
+        endTime: this.state.thursdayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Friday',
+        startTime: this.state.fridayFrom.split(':').join('') || '',
+        endTime: this.state.fridayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Saturday',
+        startTime: this.state.saturdayFrom.split(':').join('') || '',
+        endTime: this.state.saturdayTo.split(':').join('') || ''
+      }
+    ];
+
+    fetch('/api/user.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userObj) })
+      .then(result => result.json())
+      .then(result => {
+        if (result.error) {
+          this.props.setView('signup', 'home', result);
+        } else {
+          this.props.setView('login', 'home', result);
+          dayArray.forEach(e => this.insertSchedule(e));
+        }
+      });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const userObj = {
@@ -168,8 +235,7 @@ class SignUp extends React.Component {
       bodybuilding: this.state.bodyBuilding,
       swimming: this.state.swimming
     };
-
-    this.props.createUser(userObj);
+    this.createUser(userObj);
     this.clearInputs();
   }
 

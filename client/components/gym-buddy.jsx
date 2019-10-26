@@ -129,7 +129,7 @@ class GymBuddy extends React.Component {
               </div>
             </div>
             <div className="buddy__container-bottom">
-              <Schedule />
+              <Schedule user={user} />
             </div>
           </div>
         </div>
