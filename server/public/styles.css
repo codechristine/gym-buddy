@@ -18,6 +18,7 @@ font-family: 'Source Sans Pro', sans-serif;
 html {
   font-size: 62.5%; /* 10px  */
   font-family: 'Source Sans Pro', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -464,7 +465,8 @@ body {
   align-items: center;
 }
 
-.stats__block-options {
+.stats__block-options,
+.time__block-options {
   font-size: 1.15rem;
   display: flex;
   width: 60%;
@@ -473,14 +475,41 @@ body {
   justify-content: center;
 }
 
-.stats__block-dropdown {
+.stats__block-dropdown,
+.time__block-dropdown {
   width: 100%;
+  overflow: scroll;
   border-radius: 5px;
   background-color: #fff;
 }
 
 .stats__block-dropdown:focus {
   outline: none;
+}
+
+.time__block-options {
+  width: 30%;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.time__block-options > *:focus {
+  outline: none !important;
+}
+
+.react-time-picker__wrapper {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.react-time-picker__inputGroup__input,
+.react-time-picker__inputGroup__hour,
+.react-time-picker__inputGroup__amPm {
+  width: 50% !important;
+}
+
+.react-time-picker__inputGroup__input:focus {
+  outline: none !important;
 }
 
 /**************************************

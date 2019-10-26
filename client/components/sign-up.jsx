@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './header';
+import TimePicker from 'react-time-picker';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -13,13 +14,28 @@ class SignUp extends React.Component {
       cardio: '',
       yoga: '',
       bodyBuilding: '',
-      swimming: ''
+      swimming: '',
+      sundayFrom: '',
+      sundayTo: '',
+      mondayFrom: '',
+      mondayTo: '',
+      tuesdayFrom: '',
+      tuesdayTo: '',
+      wednesdayFrom: '',
+      wednesdayTo: '',
+      thursdayFrom: '',
+      thursdayTo: '',
+      fridayFrom: '',
+      fridayTo: '',
+      saturdayFrom: '',
+      saturdayTo: ''
     };
+    this.containerRef = React.createRef();
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeDropDown = this.handleChangeDropDown.bind(this);
+    this.handleScheduleChange = this.handleScheduleChange.bind(this);
   }
-
   handleChange(event) {
     let eventTarget = event.target.placeholder;
     switch (eventTarget) {
@@ -60,7 +76,58 @@ class SignUp extends React.Component {
     }
   }
 
+  handleScheduleChange(time, stateName) {
+    if (time) {
+      // const newTime = time.split(':')[0];
+      switch (stateName) {
+        case 'sundayFrom':
+          this.setState({ sundayFrom: time });
+          break;
+        case 'sundayTo':
+          this.setState({ sundayTo: time });
+          break;
+        case 'mondayFrom':
+          this.setState({ mondayFrom: time });
+          break;
+        case 'mondayTo':
+          this.setState({ mondayTo: time });
+          break;
+        case 'tuesdayFrom':
+          this.setState({ tuesdayFrom: time });
+          break;
+        case 'tuesdayTo':
+          this.setState({ tuesdayTo: time });
+          break;
+        case 'wednesdayFrom':
+          this.setState({ wednesdayFrom: time });
+          break;
+        case 'wednesdayTo':
+          this.setState({ wednesdayTo: time });
+          break;
+        case 'thursdayFrom':
+          this.setState({ thursdayTo: time });
+          break;
+        case 'thursdayTo':
+          this.setState({ thursdayTo: time });
+          break;
+        case 'fridayFrom':
+          this.setState({ fridayFrom: time });
+          break;
+        case 'fridayTo':
+          this.setState({ fridayTo: time });
+          break;
+        case 'saturdayFrom':
+          this.setState({ saturdayFrom: time });
+          break;
+        case 'saturdayTo':
+          this.setState({ saturdayto: time });
+          break;
+      }
+    }
+  }
+
   clearInputs() {
+    this.containerRef.current.scrollTop = 0;
     this.setState({
       userName: '',
       firstName: '',
@@ -70,7 +137,21 @@ class SignUp extends React.Component {
       cardio: '',
       yoga: '',
       bodyBuilding: '',
-      swimming: ''
+      swimming: '',
+      sundayFrom: '',
+      sundayTo: '',
+      mondayFrom: '',
+      mondayTo: '',
+      tuesdayFrom: '',
+      tuesdayTo: '',
+      wednesdayFrom: '',
+      wednesdayTo: '',
+      thursdayFrom: '',
+      thursdayTo: '',
+      fridayFrom: '',
+      fridayTo: '',
+      saturdayFrom: '',
+      saturdayTo: ''
     });
   }
 
@@ -93,18 +174,34 @@ class SignUp extends React.Component {
   }
 
   render() {
-    const { userName, firstName, lastName, age, weightLifting, cardio, yoga, bodyBuilding, swimming } = this.state;
+    const { userName, firstName, lastName, age, weightLifting,
+      cardio, yoga, bodyBuilding, swimming, sundayFrom, sundayTo,
+      mondayFrom, mondayTo, tuesdayFrom, tuesdayTo, wednesdayFrom,
+      wednesdayTo, thursdayFrom, thursdayTo, fridayFrom, fridayTo,
+      saturdayFrom, saturdayTo } = this.state;
     let errorMessage;
-
+    const sundayFromMethod = value => this.handleScheduleChange(value, 'sundayFrom');
+    const sundayToMethod = value => this.handleScheduleChange(value, 'sundayTo');
+    const mondayFromMethod = value => this.handleScheduleChange(value, 'mondayFrom');
+    const mondayToMethod = value => this.handleScheduleChange(value, 'mondayTo');
+    const tuesdayFromMethod = value => this.handleScheduleChange(value, 'tuesdayFrom');
+    const tuesdayToMethod = value => this.handleScheduleChange(value, 'tuesdayTo');
+    const wednesdayFromMethod = value => this.handleScheduleChange(value, 'wednesdayFrom');
+    const wednesdayToMethod = value => this.handleScheduleChange(value, 'wednesdayTo');
+    const thursdayFromMethod = value => this.handleScheduleChange(value, 'thursdayFrom');
+    const thursdayToMethod = value => this.handleScheduleChange(value, 'thursdayTo');
+    const fridayFromMethod = value => this.handleScheduleChange(value, 'fridayFrom');
+    const fridayToMethod = value => this.handleScheduleChange(value, 'fridayTo');
+    const saturdayFromMethod = value => this.handleScheduleChange(value, 'saturdayFrom');
+    const saturdayToMethod = value => this.handleScheduleChange(value, 'saturdayTo');
     if (this.props.view.params.error) {
       errorMessage = this.props.view.params.error;
     }
-
     return (
       <div className="main__container">
         <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} />
         <form className="main__body" onSubmit={this.handleSubmit}>
-          <div className="signup__container">
+          <div className="signup__container" ref={this.containerRef}>
             <div className="signup__container-top">
               <div className="stats__title">
                 User
@@ -209,14 +306,38 @@ class SignUp extends React.Component {
               </div>
               <div className="stats__block">
                 <div className="stats__block-title">Sunday</div>
-                <div className="stats__block-options">
-                  <select name="weightlifting" className="stats__block-dropdown" onChange={this.handleChangeDropDown} value={weightLifting} required>
-                    <option value=""></option>
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="Expert">Expert</option>
-                  </select>
-                </div>
+                <TimePicker hourPlaceholder="From" value={sundayFrom} onChange={sundayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+                <TimePicker hourPlaceholder="To" value={sundayTo} onChange={sundayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+              </div>
+              <div className="stats__block">
+                <div className="stats__block-title">Monday</div>
+                <TimePicker hourPlaceholder="From" value={mondayFrom} onChange={mondayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+                <TimePicker hourPlaceholder="To" value={mondayTo} onChange={mondayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+              </div>
+              <div className="stats__block">
+                <div className="stats__block-title">Tuesday</div>
+                <TimePicker hourPlaceholder="From" value={tuesdayFrom} onChange={tuesdayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+                <TimePicker hourPlaceholder="To" value={tuesdayTo} onChange={tuesdayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+              </div>
+              <div className="stats__block">
+                <div className="stats__block-title">Wednesday</div>
+                <TimePicker hourPlaceholder="From" value={wednesdayFrom} onChange={wednesdayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+                <TimePicker hourPlaceholder="To" value={wednesdayTo} onChange={wednesdayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+              </div>
+              <div className="stats__block">
+                <div className="stats__block-title">Thursday</div>
+                <TimePicker hourPlaceholder="From" value={thursdayFrom} onChange={thursdayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+                <TimePicker hourPlaceholder="To" value={thursdayTo} onChange={thursdayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+              </div>
+              <div className="stats__block">
+                <div className="stats__block-title">Friday</div>
+                <TimePicker hourPlaceholder="From" value={fridayFrom} onChange={fridayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+                <TimePicker hourPlaceholder="To" value={fridayTo} onChange={fridayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+              </div>
+              <div className="stats__block">
+                <div className="stats__block-title">Saturday</div>
+                <TimePicker hourPlaceholder="From" value={saturdayFrom} onChange={saturdayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
+                <TimePicker hourPlaceholder="To" value={saturdayTo} onChange={saturdayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
               </div>
             </div>
           </div>
