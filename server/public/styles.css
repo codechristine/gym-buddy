@@ -1219,7 +1219,8 @@ body {
   overflow: scroll;
 }
 
-.schedule__none {
+.schedule__none,
+.schedule__skip {
   height: 100%;
   width: 100%;
   display: flex;
@@ -1227,6 +1228,12 @@ body {
   align-items: center;
   font-size: 3rem;
   color: #fff;
+}
+
+.schedule__skip {
+  background-color: #fff;
+  color: #315b96;
+  font-size: 2.5rem;
 }
 
 .weekday__tablink > * {

@@ -59,7 +59,7 @@ export default class Schedule extends React.Component {
     const toggleTabSaturday = () => this.toggleTab('saturday');
     const { view, scheduleObj } = this.state;
     const scheduleKeys = Object.keys(scheduleObj);
-    let sundayClass, mondayClass, tuesdayClass, wednesdayClass, thursdayClass, fridayClass, saturdayClass, passedInData;
+    let sundayClass, mondayClass, tuesdayClass, wednesdayClass, thursdayClass, fridayClass, saturdayClass, passedInData, element;
 
     switch (view) {
       case 'sunday':
@@ -102,6 +102,20 @@ export default class Schedule extends React.Component {
       );
     }
 
+    if (typeof passedInData === 'object') {
+      if (!passedInData.length) {
+        element = <div className="schedule__container" >
+          <div className="schedule__skip">
+            Not working out on this day
+          </div>
+        </div>;
+      } else {
+        element = this.timeArray.map((element, index) => {
+          return <Hour key={index} time={this.timeArray[index]} index={index} data={passedInData} />;
+        });
+      }
+    }
+
     return (
       <div className="schedule__container">
         <div className="weekday__tablink">
@@ -114,11 +128,7 @@ export default class Schedule extends React.Component {
           <button className={saturdayClass} onClick={toggleTabSaturday}> SA </button>
         </div>
         <div className="schedule__content-container">
-          {
-            this.timeArray.map((element, index) => {
-              return <Hour key={index} time={this.timeArray[index]} index={index} data={passedInData} />;
-            })
-          }
+          { element }
         </div>
       </div>
     );
