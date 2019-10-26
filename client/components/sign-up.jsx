@@ -106,6 +106,9 @@ class SignUp extends React.Component {
         <form className="main__body" onSubmit={this.handleSubmit}>
           <div className="signup__container">
             <div className="signup__container-top">
+              <div className="stats__title">
+                User
+              </div>
               <div className="signup__block">
                 <h2 className="signup__block-name">User Name</h2>
                 <input value={userName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="User Name" required />
@@ -121,12 +124,12 @@ class SignUp extends React.Component {
               </div>
               <div className="signup__block">
                 <h2 className="signup__block-name">Age</h2>
-                <input value={age} type="Number" onChange={this.handleChange} className="signup__block-input" placeholder="Age" min="0" required/>
+                <input value={age} type="Number" onChange={this.handleChange} className="signup__block-input" placeholder="Age" min="18" max="100" required/>
               </div>
             </div>
-            <div className="signup__container-bottom">
+            <div className="signup__container-middle">
               <div className="stats__title">
-                STATS
+                Stats
               </div>
               <div className="stats__header">
                 <div className="stats__header-title">
@@ -184,6 +187,30 @@ class SignUp extends React.Component {
                 <div className="stats__block-title">Swimming</div>
                 <div className="stats__block-options">
                   <select name="swimming" className="stats__block-dropdown" onChange={this.handleChangeDropDown} value={swimming} required>
+                    <option value=""></option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Expert">Expert</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="signup__container-bottom">
+              <div className="stats__title">
+                Schedule
+              </div>
+              <div className="stats__header">
+                <div className="stats__header-title">
+                  Day
+                </div>
+                <div className="stats__header-options">
+                  Time
+                </div>
+              </div>
+              <div className="stats__block">
+                <div className="stats__block-title">Sunday</div>
+                <div className="stats__block-options">
+                  <select name="weightlifting" className="stats__block-dropdown" onChange={this.handleChangeDropDown} value={weightLifting} required>
                     <option value=""></option>
                     <option value="Beginner">Beginner</option>
                     <option value="Intermediate">Intermediate</option>

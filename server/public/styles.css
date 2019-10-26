@@ -362,18 +362,20 @@ body {
   border-radius: 5px;
   background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
   margin-top: 0.5rem;
+  overflow: scroll;
 }
 
 .signup__container-top {
-  height: 40%;
+  height: 30rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
+.signup__container-middle,
 .signup__container-bottom {
-  height: 60%;
+  height: 40rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -424,7 +426,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgba(251, 193, 188);
+  color: #fff;
 }
 
 .stats__header,
