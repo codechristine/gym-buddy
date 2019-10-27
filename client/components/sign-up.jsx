@@ -188,6 +188,14 @@ class SignUp extends React.Component {
       });
   }
 
+  deleteSchedule(userObj) {
+    fetch('/api/schedule.php', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userObj) })
+      .then(result => result.json())
+      .then(result => {
+        return result;
+      });
+  }
+
   createUser(userObj) {
     const dayArray = [
       {
@@ -246,6 +254,66 @@ class SignUp extends React.Component {
       });
   }
 
+  updateUser(userObj) {
+    const dayArray = [
+      {
+        username: this.state.userName,
+        day: 'Sunday',
+        startTime: this.state.sundayFrom.split(':').join('') || '',
+        endTime: this.state.sundayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Monday',
+        startTime: this.state.mondayFrom.split(':').join('') || '',
+        endTime: this.state.mondayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Tuesday',
+        startTime: this.state.tuesdayFrom.split(':').join('') || '',
+        endTime: this.state.tuesdayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Wednesday',
+        startTime: this.state.wednesdayFrom.split(':').join('') || '',
+        endTime: this.state.wednesdayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Thursday',
+        startTime: this.state.thursdayFrom.split(':').join('') || '',
+        endTime: this.state.thursdayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Friday',
+        startTime: this.state.fridayFrom.split(':').join('') || '',
+        endTime: this.state.fridayTo.split(':').join('') || ''
+      },
+      {
+        username: this.state.userName,
+        day: 'Saturday',
+        startTime: this.state.saturdayFrom.split(':').join('') || '',
+        endTime: this.state.saturdayTo.split(':').join('') || ''
+      }
+    ];
+
+    fetch('/api/user-edit.php', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userObj) })
+      .then(result => result.json())
+      .then(result => {
+        if (result.error) {
+          this.props.setView('signup', 'profile', result);
+        } else {
+          this.deleteSchedule(result[0]);
+          this.props.setUser(result[0]);
+          this.props.setView('profile', 'home', {});
+          dayArray.forEach(e => this.insertSchedule(e));
+        }
+      });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const userObj = {
@@ -278,7 +346,7 @@ class SignUp extends React.Component {
       id: this.props.view.params.id,
       prevname: this.props.view.params.userName
     };
-    this.props.updateUser(userObj);
+    this.updateUser(userObj);
     this.clearInputs();
   }
 
@@ -326,7 +394,7 @@ class SignUp extends React.Component {
               </div>
               <div className="signup__block">
                 <h2 className="signup__block-name">User Name</h2>
-                <input value={userName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="User Name" required />
+                <input value={userName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="User Name" maxLength="14" required />
               </div>
               <div className="signup__error">{errorMessage}</div>
               <div className="signup__block">
@@ -355,7 +423,7 @@ class SignUp extends React.Component {
                 </div>
               </div>
               <div className="stats__block">
-                <div className="stats__block-title">WeightLifting</div>
+                <div className="stats__block-title">Weight Lifting</div>
                 <div className="stats__block-options">
                   <select name="weightlifting" className="stats__block-dropdown" onChange={this.handleChangeDropDown} value={weightLifting} required>
                     <option value=""></option>

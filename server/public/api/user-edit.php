@@ -44,6 +44,7 @@
         if ($getResult) {
           if (mysqli_num_rows($getResult) > 0) {
             while ($row = mysqli_fetch_assoc($getResult)) {
+              $row["prevName"] = $prevname;
               $getOutput[] = $row;
             }
             $json_get = json_encode($getOutput);
@@ -74,6 +75,7 @@
             if ($getResult) {
               if (mysqli_num_rows($getResult) > 0) {
                 while ($row = mysqli_fetch_assoc($getResult)) {
+                  $row["prevName"] = $prevname;
                   $getOutput[] = $row;
                 }
                 $json_get = json_encode($getOutput);
