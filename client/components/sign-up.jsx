@@ -36,7 +36,8 @@ class SignUp extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeDropDown = this.handleChangeDropDown.bind(this);
     this.handleScheduleChange = this.handleScheduleChange.bind(this);
-    this.insertSchedule = this.inserSchedule.bind(this);
+    this.insertSchedule = this.insertSchedule.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
   componentDidUpdate(prevProps, prevState) {
     if (this.state.isEdit !== prevState.isEdit) {
@@ -153,33 +154,33 @@ class SignUp extends React.Component {
   clearInputs() {
     this.containerRef.current.scrollTop = 0;
     this.setState({
-      userName: '',
-      firstName: '',
-      lastName: '',
-      age: '',
-      weightLifting: '',
-      cardio: '',
-      yoga: '',
-      bodyBuilding: '',
-      swimming: '',
-      sundayFrom: '',
-      sundayTo: '',
-      mondayFrom: '',
-      mondayTo: '',
-      tuesdayFrom: '',
-      tuesdayTo: '',
-      wednesdayFrom: '',
-      wednesdayTo: '',
-      thursdayFrom: '',
-      thursdayTo: '',
-      fridayFrom: '',
-      fridayTo: '',
-      saturdayFrom: '',
-      saturdayTo: ''
+      userName: ''
+      // firstName: '',
+      // lastName: '',
+      // age: '',
+      // weightLifting: '',
+      // cardio: '',
+      // yoga: '',
+      // bodyBuilding: '',
+      // swimming: '',
+      // sundayFrom: '',
+      // sundayTo: '',
+      // mondayFrom: '',
+      // mondayTo: '',
+      // tuesdayFrom: '',
+      // tuesdayTo: '',
+      // wednesdayFrom: '',
+      // wednesdayTo: '',
+      // thursdayFrom: '',
+      // thursdayTo: '',
+      // fridayFrom: '',
+      // fridayTo: '',
+      // saturdayFrom: '',
+      // saturdayTo: ''
     });
   }
 
-  inserSchedule(scheduleObj) {
+  insertSchedule(scheduleObj) {
     fetch('/api/schedule.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(scheduleObj) })
       .then(result => result.json())
       .then(result => {
@@ -262,6 +263,25 @@ class SignUp extends React.Component {
     this.clearInputs();
   }
 
+  handleEdit(event) {
+    event.preventDefault();
+    const userObj = {
+      username: this.state.userName,
+      firstname: this.state.firstName,
+      lastname: this.state.lastName,
+      age: this.state.age,
+      weightlifting: this.state.weightLifting,
+      cardio: this.state.cardio,
+      yoga: this.state.cardio,
+      bodybuilding: this.state.bodyBuilding,
+      swimming: this.state.swimming,
+      id: this.props.view.params.id,
+      prevname: this.props.view.params.userName
+    };
+    this.props.updateUser(userObj);
+    this.clearInputs();
+  }
+
   render() {
     const { userName, firstName, lastName, age, weightLifting,
       cardio, yoga, bodyBuilding, swimming, sundayFrom, sundayTo,
@@ -286,12 +306,13 @@ class SignUp extends React.Component {
     if (this.props.view.params.error) {
       errorMessage = this.props.view.params.error;
     }
+
     if (isEdit) {
       buttonName = 'Update';
-      submitMethod = () => this.handleSubmit;
+      submitMethod = this.handleEdit;
     } else {
       buttonName = 'Confirm';
-      submitMethod = () => this.handleUpdate;
+      submitMethod = this.handleSubmit;
     }
 
     return (

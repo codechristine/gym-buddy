@@ -46,7 +46,8 @@ class Profile extends React.Component {
       cardio: user.cardio,
       yoga: user.yoga,
       bodyBuilding: user.bodybuilding,
-      swimming: user.swimming
+      swimming: user.swimming,
+      id: user.id
     };
     this.props.setView('signup', 'profile', userInfo);
   }
