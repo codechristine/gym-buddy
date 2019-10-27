@@ -355,7 +355,7 @@ class SignUp extends React.Component {
                 </div>
               </div>
               <div className="stats__block">
-                <div className="stats__block-title">WeightLifting</div>
+                <div className="stats__block-title">Weight Lifting</div>
                 <div className="stats__block-options">
                   <select name="weightlifting" className="stats__block-dropdown" onChange={this.handleChangeDropDown} value={weightLifting} required>
                     <option value=""></option>
