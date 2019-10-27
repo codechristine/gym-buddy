@@ -36,10 +36,14 @@ export default class Schedule extends React.Component {
     let newArray = [];
     if (array) {
       for (let i = 0; i < array.length; i++) {
-        let tempArray = array[i].toString().split('');
-        let withoutZero = tempArray.slice(0, tempArray.length - 2);
-        let numStr = withoutZero.join('');
-        newArray.push(parseInt(numStr));
+        if (array[i] === 0) {
+          newArray.push(array[i]);
+        } else {
+          let tempArray = array[i].toString().split('');
+          let withoutZero = tempArray.slice(0, tempArray.length - 2);
+          let numStr = withoutZero.join('');
+          newArray.push(parseInt(numStr));
+        }
       }
     }
     return newArray;
