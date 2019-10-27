@@ -299,7 +299,6 @@ class SignUp extends React.Component {
         endTime: this.state.saturdayTo.split(':').join('') || ''
       }
     ];
-
     fetch('/api/user-edit.php', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userObj) })
       .then(result => result.json())
       .then(result => {
