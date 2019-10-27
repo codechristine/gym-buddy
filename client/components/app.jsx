@@ -22,12 +22,12 @@ export default class App extends React.Component {
     };
     this.setView = this.setView.bind(this);
     this.setLocation = this.setLocation.bind(this);
+    this.setUser = this.setUser.bind(this);
     this.logInUser = this.logInUser.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
     this.addGym = this.addGym.bind(this);
     this.deleteGym = this.deleteGym.bind(this);
     this.goToGym = this.goToGym.bind(this);
-    this.updateUser = this.updateUser.bind(this);
   }
   setView(name, prevName, params) {
     this.setState({
@@ -38,30 +38,8 @@ export default class App extends React.Component {
       }
     });
   }
-  updateUser(userObj) {
-    fetch('/api/user-edit.php', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userObj) })
-      .then(result => result.json())
-      .then(result => {
-        if (result.error) {
-          this.setState({
-            view: {
-              name: 'signup',
-              prevName: 'profile',
-              params: result
-            }
-          });
-        } else {
-          this.setState({
-            currentUser: result[0],
-            isLoggedIn: true,
-            view: {
-              name: 'profile',
-              prevName: 'home',
-              params: {}
-            }
-          });
-        }
-      });
+  setUser(user) {
+    this.setState({ currentUser: user });
   }
   logInUser(userObj) {
     fetch(`/api/user.php?username=${userObj.username}`)
@@ -154,7 +132,7 @@ export default class App extends React.Component {
         element = <GymView setView={this.setView} view={this.state.view} isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser} addGym={this.addGym} deleteGym={this.deleteGym}/>;
         break;
       case 'signup':
-        element = <SignUp setView={this.setView} view={this.state.view} params={this.state.view.params} updateUser={this.updateUser}/>;
+        element = <SignUp setView={this.setView} view={this.state.view} params={this.state.view.params} updateUser={this.updateUser} setUser={this.setUser}/>;
         break;
       case 'login':
         element = <LogIn setView={this.setView} view={this.state.view} logInUser={this.logInUser}/>;

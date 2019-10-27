@@ -2,16 +2,11 @@
 
 
     $rawdata = getBodyData();
-    $username = $rawdata["username"];
-    $day = $rawdata["day"];
-    $starttime = $rawdata["starttime"];
-    $endtime = $rawdata["endtime"];
+    $username = $rawdata["prevName"];
 
     $queryCheck = "SELECT * FROM `schedule`
-                    WHERE `schedule`.`day` = '$day'
-                        AND `schedule`.`username` = '$username' 
-                          AND `schedule`.`starttime` = '$starttime'
-                            AND `schedule`.`endtime` = '$endtime'";
+                    WHERE `schedule`.`username` = '$username' ";
+
 
     $checkResult = mysqli_query($conn, $queryCheck);
 
@@ -19,13 +14,18 @@
         throw new Exception("Schedule Block DNE");
     } else {
         $queryDelete = "DELETE  FROM `schedule`
-                          WHERE `schedule`.`day` = '$day'
-                            AND `schedule`.`username` = '$username' 
-                              AND `schedule`.`starttime` = '$starttime'
-                                AND `schedule`.`endtime` = '$endtime'";
+                          WHERE `schedule`.`username` = '$username' ";
 
         $checkDelete = mysqli_query($conn,$queryDelete);
-        if(!$checkDelete) throw new Exception("Delete Schedule Failed");
+        if(!$checkDelete) {
+          throw new Exception("Delete Schedule Failed");
+        } else {
+          $output = [
+            "success" => true
+          ];
+          $json_output = json_encode($output);
+          print($json_output);
+        }
     }
 
 ?>
