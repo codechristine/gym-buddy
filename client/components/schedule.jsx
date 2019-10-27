@@ -101,26 +101,27 @@ export default class Schedule extends React.Component {
         break;
     }
 
-    // if (!scheduleKeys.length) {
-    //   return (
-    //     <div className="schedule__container">
-    //       <div className="schedule__none">
-    //         No Schedule Set
-    //       </div>
-    //     </div>
-    //   );
-    // }
-    if (typeof passedInData === 'object') {
-      if (!passedInData.length) {
-        element = <div className="schedule__container" >
-          <div className="schedule__skip">
-            Not working out on this day
-          </div>
-        </div>;
-      } else {
-        element = this.timeArray.map((element, index) => {
-          return <Hour key={index} time={this.timeArray[index]} index={index} data={passedInData} />;
-        });
+    const valArray = Object.values(scheduleObj).filter(e => e.length !== 0);
+
+    if (!valArray.length) {
+      element = <div className="schedule__container" >
+        <div className="schedule__none">
+          No Schedule Set Up
+        </div>
+      </div>;
+    } else {
+      if (typeof passedInData === 'object') {
+        if (!passedInData.length) {
+          element = <div className="schedule__container" >
+            <div className="schedule__skip">
+              Not working out on this day
+            </div>
+          </div>;
+        } else {
+          element = this.timeArray.map((element, index) => {
+            return <Hour key={index} time={this.timeArray[index]} index={index} data={passedInData} />;
+          });
+        }
       }
     }
 
