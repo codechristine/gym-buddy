@@ -10,10 +10,12 @@ class Profile extends React.Component {
     this.state = {
       view: 'buddies',
       buddiesArr: [],
+      schedule: {},
       params: {}
     };
     this.toggleView = this.toggleView.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
+    this.editUser = this.editUser.bind(this);
   }
   componentDidMount() {
     this.id = this.props.currentUser.id;
@@ -33,6 +35,21 @@ class Profile extends React.Component {
     this.props.setView('home', '', {});
     this.props.logOutUser();
   }
+  editUser() {
+    const user = this.props.currentUser;
+    const userInfo = {
+      userName: user.username,
+      firstName: user.firstname,
+      lastName: user.lastname,
+      age: user.age,
+      weightLifting: user.weightlifting,
+      cardio: user.cardio,
+      yoga: user.yoga,
+      bodyBuilding: user.bodybuilding,
+      swimming: user.swimming
+    };
+    this.props.setView('signup', 'profile', userInfo);
+  }
   render() {
     const firstName = this.props.currentUser.firstname;
     const lastName = this.props.currentUser.lastname;
@@ -48,7 +65,6 @@ class Profile extends React.Component {
     const toggleSchedule = () => this.toggleView('schedule');
     const { view, buddiesArr } = this.state;
     let element, goToGymMethod;
-
     switch (view) {
       case 'buddies':
         buddiesClass = 'btn profile__button selected';
@@ -93,7 +109,7 @@ class Profile extends React.Component {
             <div className="profile__container-top">
               <div className="profile__buttons-top">
                 <button className="btn profile__button" onClick={this.logOutUser}> Sign Out </button>
-                <button className="btn profile__button"> Edit </button>
+                <button className="btn profile__button" onClick={this.editUser}> Edit </button>
               </div>
               <img src={photo} alt="profile photo" className="profile__photo"/>
               <div className="profile__info">

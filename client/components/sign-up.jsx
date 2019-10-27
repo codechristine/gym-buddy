@@ -28,7 +28,8 @@ class SignUp extends React.Component {
       fridayFrom: '',
       fridayTo: '',
       saturdayFrom: '',
-      saturdayTo: ''
+      saturdayTo: '',
+      inEdit: false
     };
     this.containerRef = React.createRef();
     this.handleChange = this.handleChange.bind(this);
@@ -36,6 +37,28 @@ class SignUp extends React.Component {
     this.handleChangeDropDown = this.handleChangeDropDown.bind(this);
     this.handleScheduleChange = this.handleScheduleChange.bind(this);
     this.insertSchedule = this.inserSchedule.bind(this);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.isEdit !== prevState.isEdit) {
+      this.setState({
+        userName: this.props.view.params.userName,
+        firstName: this.props.view.params.firstName,
+        lastName: this.props.view.params.lastName,
+        age: this.props.view.params.age,
+        weightLifting: this.props.view.params.weightLifting,
+        cardio: this.props.view.params.cardio,
+        yoga: this.props.view.params.yoga,
+        bodyBuilding: this.props.view.params.bodyBuilding,
+        swimming: this.props.view.params.swimming
+      });
+    }
+  }
+  componentDidMount() {
+    if (this.props.view.prevName === 'profile') {
+      this.setState({
+        isEdit: true
+      });
+    }
   }
   handleChange(event) {
     let eventTarget = event.target.placeholder;
@@ -244,8 +267,8 @@ class SignUp extends React.Component {
       cardio, yoga, bodyBuilding, swimming, sundayFrom, sundayTo,
       mondayFrom, mondayTo, tuesdayFrom, tuesdayTo, wednesdayFrom,
       wednesdayTo, thursdayFrom, thursdayTo, fridayFrom, fridayTo,
-      saturdayFrom, saturdayTo } = this.state;
-    let errorMessage;
+      saturdayFrom, saturdayTo, isEdit } = this.state;
+    let errorMessage, buttonName, submitMethod;
     const sundayFromMethod = value => this.handleScheduleChange(value, 'sundayFrom');
     const sundayToMethod = value => this.handleScheduleChange(value, 'sundayTo');
     const mondayFromMethod = value => this.handleScheduleChange(value, 'mondayFrom');
@@ -263,10 +286,18 @@ class SignUp extends React.Component {
     if (this.props.view.params.error) {
       errorMessage = this.props.view.params.error;
     }
+    if (isEdit) {
+      buttonName = 'Update';
+      submitMethod = () => this.handleSubmit;
+    } else {
+      buttonName = 'Confirm';
+      submitMethod = () => this.handleUpdate;
+    }
+
     return (
       <div className="main__container">
         <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} />
-        <form className="main__body" onSubmit={this.handleSubmit}>
+        <form className="main__body" onSubmit={submitMethod}>
           <div className="signup__container" ref={this.containerRef}>
             <div className="signup__container-top">
               <div className="stats__title">
@@ -407,7 +438,7 @@ class SignUp extends React.Component {
               </div>
             </div>
           </div>
-          <button type="submit" className="btn signup__button">Confirm</button>
+          <button type="submit" className="btn signup__button">{buttonName}</button>
         </form>
       </div>
     );
