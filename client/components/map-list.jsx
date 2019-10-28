@@ -63,6 +63,7 @@ export default class MapList extends React.Component {
 
     this.map = this.props.map;
     this.markers = [];
+    this.infoWindow = null;
     let image = 'https://img.icons8.com/ultraviolet/50/000000/flex-biceps.png';
     let mapListRef = React.createRef();
 
@@ -83,15 +84,15 @@ export default class MapList extends React.Component {
           const markerLatLng = marker.getPosition();
           const distance = window.google.maps.geometry.spherical.computeDistanceBetween(this.props.center, markerLatLng);
           const distanceInMiles = (distance / 1609.344).toFixed(2);
-          const infoWindow = new window.google.maps.InfoWindow({
+          this.infoWindow = new window.google.maps.InfoWindow({
             content: `${element.name}, Distance: ${distanceInMiles} miles`,
             position: { lat: element.lat, lng: element.lng }
           });
           marker.addListener('click', e => {
-            infoWindow.open(this.map, marker);
+            this.infoWindow.close();
+            this.infoWindow.open(this.map, marker);
             mapListRef.current.scrollTop = mapListItemRef.current.offsetTop - mapListRef.current.offsetTop;
           });
-          infoWindow.close();
           return (
             <MapItem refForContainer={mapListItemRef} key = { element.id } location = { element } setView = { this.props.setView } placesServiceObj = {this.placesServiceObj} distance={distanceInMiles}/>
           );
