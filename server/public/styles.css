@@ -1278,10 +1278,12 @@ body {
   align-items: center;
   font-size: 3rem;
   color: #fff;
+  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
 }
 
 .schedule__skip {
   background-color: #fff;
+  background-image: none;
   color: #315b96;
   font-size: 2.5rem;
 }

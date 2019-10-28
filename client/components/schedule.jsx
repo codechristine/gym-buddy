@@ -102,7 +102,6 @@ export default class Schedule extends React.Component {
     }
 
     const valArray = Object.values(scheduleObj).filter(e => e.length !== 0);
-
     if (!valArray.length) {
       element = <div className="schedule__container" >
         <div className="schedule__none">
