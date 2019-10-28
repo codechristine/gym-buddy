@@ -834,6 +834,13 @@ body {
   background-color: #315b96;
 }
 
+.gym__button-filter {
+  height: 2rem;
+  width: 6rem;
+  font-size: 1.25rem;
+  background-color: #315b96;
+}
+
 .remove {
   background-color: red;
 }
@@ -1063,7 +1070,7 @@ body {
   border: 2px solid  #233567;
   border-radius: 5px;
   background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
-  overflow: auto;
+  overflow: scroll;
 }
 
 .gym__view-rating-container {
@@ -1112,6 +1119,26 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.gym__view-filter {
+  background-color: #fff;
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+
+.gym__view-filter > select {
+  text-align: center;
+  border: 1px solid #315b96;
+}
+
+.gym__view-filter > select:focus {
+  outline: none;
 }
 
 /**************************************
