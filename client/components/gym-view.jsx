@@ -8,10 +8,14 @@ export default class GymView extends React.Component {
     super(props);
     this.state = {
       placeObject: null,
-      gymListArr: []
+      gymListArr: [],
+      filterCategory: null,
+      filterValue: null
     };
     this.insertGymData = this.insertGymData.bind(this);
     this.removeGymData = this.removeGymData.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.photoArray = [];
   }
   componentDidMount() {
@@ -63,6 +67,29 @@ export default class GymView extends React.Component {
 
     this.props.deleteGym(gymData);
   }
+  handleChange(event) {
+    const eventTarget = event.target.name;
+    switch (eventTarget) {
+      case 'category':
+        this.setState({ filterCategory: event.target.value });
+        break;
+      case 'value':
+        this.setState({ filterValue: event.target.value });
+        break;
+    }
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+
+    fetch(`/api/gym-list.php?placeId=${this.state.placeObject.place_id}&userName=${this.props.currentUser.username}
+          &category=${this.state.filterCategory}&value=${this.state.filterValue}`)
+      .then(result => result.json())
+      .then(result => {
+        this.setState({
+          gymListArr: result
+        });
+      });
+  }
   render() {
     const { placeObject, gymListArr } = this.state;
     const isLoggedIn = this.props.isLoggedIn;
@@ -70,6 +97,7 @@ export default class GymView extends React.Component {
     const logIn = () => this.props.setView('login', 'home', {});
     let element, hours, rating, photos;
     let button = '';
+    let filterElement = '';
 
     if (isLoggedIn) {
       button = <button className="btn gym__button" onClick={() => { this.insertGymData(); }}>Set Gym</button>;
@@ -83,6 +111,24 @@ export default class GymView extends React.Component {
           <div className="gym__view-message">No Gym Buddy Users</div>
         </div>;
       } else {
+        filterElement =
+          <form className="gym__view-filter" onSubmit={this.handleSubmit}>
+            <select name="category" onChange={this.handleChange} >
+              <option value="">Filter</option>
+              <option value="weightlifting">Weight Lifting</option>
+              <option value="cardio">Cardio</option>
+              <option value="yoga">Yoga</option>
+              <option value="bodybuilding">Body Building</option>
+              <option value="swimming">Swimming</option>
+            </select>
+            <select name="value" onChange={this.handleChange} >
+              <option value="">by</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">intermediate</option>
+              <option value="expert">Expert</option>
+            </select>
+            <button className="btn gym__button-filter" type="submit">Filter</button>
+          </form>;
         element = gymListArr.map(element => {
           const placeObject = this.props.view.params;
           const setViewMethod = () => this.props.setView('buddy', 'gym', { element, placeObject });
@@ -157,6 +203,7 @@ export default class GymView extends React.Component {
               </div>
             </div>
             <div className="gym__view-list">
+              { filterElement }
               { element }
             </div>
           </div>

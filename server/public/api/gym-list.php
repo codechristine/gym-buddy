@@ -6,9 +6,15 @@
 
   $gymID = $_GET['placeId'];
   $userName = $_GET['userName'];
+  $andClause = '';
+  if (!(empty($_GET['category'])) && !empty($_GET['value'])) {
+    $category = $_GET['category'];
+    $value = $_GET['value'];
+    $andClause = "AND u.`$category` = '$value' ";
+  }
 
   $query = "SELECT * from `user` as u LEFT JOIN (SELECT sender, GROUP_CONCAT(receiver) as friends FROM `friends` GROUP BY sender) AS f ON f.sender = u.id
-            WHERE u.gymid='$gymID' AND u.`username` != '$userName'";
+            WHERE u.gymid='$gymID' AND u.`username` != '$userName' $andClause ";
 
   $getResult = mysqli_query($conn, $query);
   $getOutput = [];

@@ -834,6 +834,13 @@ body {
   background-color: #315b96;
 }
 
+.gym__button-filter {
+  height: 2rem;
+  width: 6rem;
+  font-size: 1.25rem;
+  background-color: #315b96;
+}
+
 .remove {
   background-color: red;
 }
@@ -1063,7 +1070,7 @@ body {
   border: 2px solid  #233567;
   border-radius: 5px;
   background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
-  overflow: auto;
+  overflow: scroll;
 }
 
 .gym__view-rating-container {
@@ -1112,6 +1119,27 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.gym__view-filter {
+  background-color: #fff;
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #315b96;
+}
+
+.gym__view-filter > select {
+  text-align: center;
+  border: 1px solid #315b96;
+}
+
+.gym__view-filter > select:focus {
+  outline: none;
 }
 
 /**************************************
@@ -1239,7 +1267,7 @@ body {
 .buddy__container-bottom {
   height: 37.5%;
   width: 100%;
-  background-color: #fff;
+  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
   border: 2px solid #315b96;
   border-radius: 5px;
 }
@@ -1253,7 +1281,8 @@ body {
   height: 100%;
 }
 
-.weekday__tablink {
+.weekday__tablink,
+.weekday__tablink-blank {
   background-color: inherit;
   height: 10%;
   width: 100%;
@@ -1278,10 +1307,12 @@ body {
   align-items: center;
   font-size: 3rem;
   color: #fff;
+  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
 }
 
 .schedule__skip {
   background-color: #fff;
+  background-image: none;
   color: #315b96;
   font-size: 2.5rem;
 }
@@ -1295,6 +1326,10 @@ body {
 
 .weekday__tablink > *:focus {
   outline: none;
+}
+
+.weekday__tablink-blank {
+  color: transparent;
 }
 
 .tab__selected {
