@@ -1130,6 +1130,7 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
+  border-bottom: 1px solid #315b96;
 }
 
 .gym__view-filter > select {
@@ -1266,7 +1267,7 @@ body {
 .buddy__container-bottom {
   height: 37.5%;
   width: 100%;
-  background-color: #fff;
+  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
   border: 2px solid #315b96;
   border-radius: 5px;
 }

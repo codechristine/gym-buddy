@@ -97,6 +97,7 @@ export default class GymView extends React.Component {
     const logIn = () => this.props.setView('login', 'home', {});
     let element, hours, rating, photos;
     let button = '';
+    let filterElement = '';
 
     if (isLoggedIn) {
       button = <button className="btn gym__button" onClick={() => { this.insertGymData(); }}>Set Gym</button>;
@@ -110,6 +111,24 @@ export default class GymView extends React.Component {
           <div className="gym__view-message">No Gym Buddy Users</div>
         </div>;
       } else {
+        filterElement =
+          <form className="gym__view-filter" onSubmit={this.handleSubmit}>
+            <select name="category" onChange={this.handleChange} >
+              <option value="">Filter</option>
+              <option value="weightlifting">Weight Lifting</option>
+              <option value="cardio">Cardio</option>
+              <option value="yoga">Yoga</option>
+              <option value="bodybuilding">Body Building</option>
+              <option value="swimming">Swimming</option>
+            </select>
+            <select name="value" onChange={this.handleChange} >
+              <option value="">by</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">intermediate</option>
+              <option value="expert">Expert</option>
+            </select>
+            <button className="btn gym__button-filter" type="submit">Filter</button>
+          </form>;
         element = gymListArr.map(element => {
           const placeObject = this.props.view.params;
           const setViewMethod = () => this.props.setView('buddy', 'gym', { element, placeObject });
@@ -184,23 +203,7 @@ export default class GymView extends React.Component {
               </div>
             </div>
             <div className="gym__view-list">
-              <form className="gym__view-filter" onSubmit={this.handleSubmit}>
-                <select name="category" onChange={this.handleChange} >
-                  <option value="">Filter</option>
-                  <option value="weightlifting">Weight Lifting</option>
-                  <option value="cardio">Cardio</option>
-                  <option value="yoga">Yoga</option>
-                  <option value="bodybuilding">Body Building</option>
-                  <option value="swimming">Swimming</option>
-                </select>
-                <select name="value" onChange={this.handleChange} >
-                  <option value="">by</option>
-                  <option value="beginner">Beginner</option>
-                  <option value="intermediate">intermediate</option>
-                  <option value="expert">Expert</option>
-                </select>
-                <button className="btn gym__button-filter" type="submit">Filter</button>
-              </form>
+              { filterElement }
               { element }
             </div>
           </div>
