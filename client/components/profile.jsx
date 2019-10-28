@@ -10,12 +10,13 @@ class Profile extends React.Component {
     this.state = {
       view: 'buddies',
       buddiesArr: [],
-      schedule: {},
+      photo: null,
       params: {}
     };
     this.toggleView = this.toggleView.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
     this.editUser = this.editUser.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
   }
   componentDidMount() {
     this.id = this.props.currentUser.id;
@@ -51,6 +52,25 @@ class Profile extends React.Component {
     };
     this.props.setView('signup', 'profile', userInfo);
   }
+  handleImageChange(event) {
+    const user = this.props.currentUser;
+    const fileArr = event.target.files;
+    const selectedFile = fileArr[0];
+    const photo = new FormData();
+    photo.append('photo', selectedFile, 'photo');
+    photo.append('userName', user.username);
+    fetch('/api/image.php', { method: 'POST', body: photo })
+      .then(result => result.json())
+      .then(result => {
+        if (result.error) {
+          this.props.setView('profile', 'home', result);
+        } else {
+          this.props.setUser(result[0]);
+          this.props.setView('profile', 'home', { success: result[0].status });
+        }
+      });
+
+  }
   render() {
     const firstName = this.props.currentUser.firstname;
     const lastName = this.props.currentUser.lastname;
@@ -65,7 +85,8 @@ class Profile extends React.Component {
     const toggleExpertise = () => this.toggleView('expertise');
     const toggleSchedule = () => this.toggleView('schedule');
     const { view, buddiesArr } = this.state;
-    let element, goToGymMethod;
+    const statusResponse = this.props.view.params;
+    let element, goToGymMethod, statusMessage, statusClass;
     switch (view) {
       case 'buddies':
         buddiesClass = 'btn profile__button selected';
@@ -102,6 +123,16 @@ class Profile extends React.Component {
     if (!photo) {
       photo = 'https://static.thenounproject.com/png/538846-200.png';
     }
+
+    if (statusResponse.success) {
+      statusMessage = statusResponse.success;
+      statusClass = 'success';
+    }
+
+    if (statusResponse.error) {
+      statusMessage = statusResponse.error;
+      statusClass = 'error';
+    }
     return (
       <div className="main__container">
         <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser} placeObject={this.props.view.params}/>
@@ -110,9 +141,16 @@ class Profile extends React.Component {
             <div className="profile__container-top">
               <div className="profile__buttons-top">
                 <button className="btn profile__button" onClick={this.logOutUser}> Sign Out </button>
+                <div className="upload__button">
+                  <button className="btn profile__button"><i className="fas fa-camera"></i></button>
+                  <input type="file" name="photo" className="btn profile__button" onChange={this.handleImageChange} accept="image/*"/>
+                </div>
                 <button className="btn profile__button" onClick={this.editUser}> Edit </button>
               </div>
               <img src={photo} alt="profile photo" className="profile__photo"/>
+              <div className={`profile__status ${statusClass}`}>
+                { statusMessage }
+              </div>
               <div className="profile__info">
                 <div className="profile__info-name">{ `${firstName} ${lastName}` }</div>
                 <div className="profile__info-age">{age}</div>

@@ -290,7 +290,7 @@ body {
 }
 
 .profile__container-top {
-  height: 49%;
+  height: 59%;
   width: 100%;
   border-radius: 5px;
   background-color: #fff;
@@ -311,11 +311,11 @@ body {
 }
 
 .profile__info {
-  height: 35%;
+  height: 40%;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -345,12 +345,21 @@ body {
 }
 
 .profile__container-bottom {
-  height: 49%;
+  height: 39%;
   width: 100%;
   overflow: scroll;
   border-radius: 5px;
   border: 2px solid #315b96;
   background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
+}
+
+.profile__status {
+  height: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
 }
 
 /**************************************
@@ -810,7 +819,8 @@ body {
 .map__button,
 .profile__button,
 .gym__button,
-.buddy__button {
+.buddy__button,
+.upload__button {
   height: 3rem;
   width: 8rem;
   font-size: 1.5rem;
@@ -832,6 +842,16 @@ body {
   background-color: #233567;
 }
 
+.upload__button {
+  position: relative;
+}
+
+.upload__button input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
 /**************************************
               ICONS
 **************************************/
