@@ -38,7 +38,7 @@ class GymMap extends React.Component {
                   position: { lat: location.lat, lng: location.lng },
                   map: mapObject,
                   icon: {
-                    url: 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
+                    url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
                   }
                 });
                 const infoWindow = new window.google.maps.InfoWindow({
