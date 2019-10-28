@@ -1253,7 +1253,8 @@ body {
   height: 100%;
 }
 
-.weekday__tablink {
+.weekday__tablink,
+.weekday__tablink-blank {
   background-color: inherit;
   height: 10%;
   width: 100%;
@@ -1297,6 +1298,10 @@ body {
 
 .weekday__tablink > *:focus {
   outline: none;
+}
+
+.weekday__tablink-blank {
+  color: transparent;
 }
 
 .tab__selected {

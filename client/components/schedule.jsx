@@ -69,7 +69,7 @@ export default class Schedule extends React.Component {
     const toggleTabFriday = () => this.toggleTab('friday');
     const toggleTabSaturday = () => this.toggleTab('saturday');
     const { view, scheduleObj } = this.state;
-    let sundayClass, mondayClass, tuesdayClass, wednesdayClass, thursdayClass, fridayClass, saturdayClass, passedInData, element;
+    let sundayClass, mondayClass, tuesdayClass, wednesdayClass, thursdayClass, fridayClass, saturdayClass, passedInData, element, tabLink;
     switch (view) {
       case 'sunday':
         sundayClass = 'tab__selected';
@@ -108,7 +108,18 @@ export default class Schedule extends React.Component {
           No Schedule Set Up
         </div>
       </div>;
+      tabLink = <div className="weekday__tablink-blank"></div>;
     } else {
+      tabLink =
+        <div className="weekday__tablink">
+          <button className={sundayClass} onClick={toggleTabSunday}> SU </button>
+          <button className={mondayClass} onClick={toggleTabMonday}> M </button>
+          <button className={tuesdayClass} onClick={toggleTabTuesday}> T </button>
+          <button className={wednesdayClass} onClick={toggleTabWednesday}> W </button>
+          <button className={thursdayClass} onClick={toggleTabThursday}> TH </button>
+          <button className={fridayClass} onClick={toggleTabFriday}> F </button>
+          <button className={saturdayClass} onClick={toggleTabSaturday}> SA </button>
+        </div>;
       if (typeof passedInData === 'object') {
         if (!passedInData.length) {
           element = <div className="schedule__container" >
@@ -126,15 +137,7 @@ export default class Schedule extends React.Component {
 
     return (
       <div className="schedule__container">
-        <div className="weekday__tablink">
-          <button className={sundayClass} onClick={toggleTabSunday}> SU </button>
-          <button className={mondayClass} onClick={toggleTabMonday}> M </button>
-          <button className={tuesdayClass} onClick={toggleTabTuesday}> T </button>
-          <button className={wednesdayClass} onClick={toggleTabWednesday}> W </button>
-          <button className={thursdayClass} onClick={toggleTabThursday}> TH </button>
-          <button className={fridayClass} onClick={toggleTabFriday}> F </button>
-          <button className={saturdayClass} onClick={toggleTabSaturday}> SA </button>
-        </div>
+        { tabLink }
         <div className="schedule__content-container">
           { element }
         </div>
