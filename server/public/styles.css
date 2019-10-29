@@ -832,7 +832,8 @@ body {
 .profile__button,
 .gym__button,
 .buddy__button,
-.upload__button {
+.upload__button,
+.message__button {
   height: 3rem;
   width: 8rem;
   font-size: 1.5rem;
@@ -1397,6 +1398,111 @@ body {
   border: 2px solid #111D2D;
   background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: scroll;
+}
+
+.message__card {
+  width: 100%;
+  height: 10rem;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-bottom: 1px solid #111D2D;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.message__photo {
+  width: 40%;
+  height: 100%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.message__picture {
+  height: 8.5rem;
+  width: 8.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid #fff;
+  background-color: #fff;
+}
+
+.message__info {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message__info-username {
+  font-size: 2rem;
+  height: 40%;
+  width: 100%;
+  color: #d84c00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message__info-last-message {
+  font-size: 1.25rem;
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message__empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #fff;
+}
+
+
+.conversation__container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.conversation__container-button {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+}
+
+.conversation__container-message {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgb(255, 255, 255, 0.6);
+  border-radius: 5px;
+}
+
+.conversation__container-input {
+  height: 20%;
+  width: 100%;
+  justify-content: space-around;
   align-items: center;
 }

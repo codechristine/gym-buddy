@@ -73,7 +73,7 @@ class SignUp extends React.Component {
       case 'Age':
         this.setState({ age: event.target.value });
         break;
-      case 'User Name':
+      case 'Username':
         this.setState({ userName: event.target.value });
         break;
     }

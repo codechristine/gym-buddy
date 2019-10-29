@@ -1,17 +1,63 @@
 import React from 'react';
 import Header from './header';
+import MessageOverview from './message-overview';
+import MessageConversation from './message-conversation';
 
 class MessageList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { messageArr: [] };
+    this.state = {
+      messageArr: [],
+      view: {
+        name: 'list',
+        params: {}
+      }
+    };
+    this.toggleView = this.toggleView.bind(this);
+  }
+  componentDidMount() {
+    fetch(`/api/message.php?userId=${this.props.currentUser.id}`)
+      .then(result => result.json())
+      .then(result => {
+        this.setState({ messageArr: result });
+      });
+  }
+  toggleView(name, params) {
+    this.setState({
+      view: {
+        name: name,
+        params: params
+      }
+    });
   }
   render() {
+    let element;
+    const { messageArr } = this.state;
+    const { name } = this.state.view;
+
+    switch (name) {
+      case 'list':
+        if (!messageArr.length) {
+          element =
+            <div className="message__empty">
+              Inbox Empty
+            </div>;
+        } else {
+          element = this.state.messageArr.slice(0).reverse().map((element, index) => {
+            return <MessageOverview key={index} friendInfo={element} toggleView={this.toggleView} />;
+          });
+        }
+        break;
+      case 'conversation':
+        element = <MessageConversation view={this.state.view} toggleView={this.toggleView}/>;
+    }
+
     return (
       <div className="main__container">
         <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser}/>
         <div className="main__body">
           <div className="message__container">
+            { element }
           </div>
         </div>
       </div>
@@ -20,7 +66,6 @@ class MessageList extends React.Component {
 }
 
 export default MessageList;
-
 /*
-SELECT m.receiverid AS currentUserId, m.senderid as friendId, u.username, GROUP_CONCAT(messageval) as totalMessage FROM `messages` as m LEFT JOIN (SELECT * FROM `user`) as u ON m.senderid = u.id WHERE m.receiverid = 1 GROUP BY senderid
+SELECT * FROM `messages` WHERE `senderid` = 1 AND `receiverid` = 3 OR `senderid` = 3 AND `receiverid` = 1
 */
