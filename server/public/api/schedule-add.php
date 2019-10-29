@@ -6,11 +6,6 @@
     $starttime = $rawdata["startTime"];
     $endtime = $rawdata["endTime"];
 
-    // print($user_name);
-    // print($day);
-    // print($starttime);
-    // print($endtime);
-
     $insertQuery = "INSERT INTO `schedule` (`id`,`username`,`day`,`starttime`,`endtime`)
                       VALUES (NULL, '$user_name','$day','$starttime','$endtime') ";
 
