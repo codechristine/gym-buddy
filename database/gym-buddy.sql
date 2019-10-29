@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 29, 2019 at 11:18 PM
+-- Generation Time: Oct 29, 2019 at 11:53 PM
 -- Server version: 5.7.27-0ubuntu0.18.04.1
 -- PHP Version: 7.2.19-0ubuntu0.18.04.2
 
@@ -302,7 +302,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `firstname`, `lastname`, `age`, `weightlifting`, `cardio`, `yoga`, `bodybuilding`, `swimming`, `photo`, `gymid`, `gymname`) VALUES
-(1, 'SunnyDayss', 'Aaron', 'Domingo', 25, 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
+(1, 'SunnyDayss', 'AJ', 'Domingo', 25, 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
 (2, 'CorgiChristine', 'Christine', 'Le', 28, 'Beginner', 'Beginner', 'Beginner', 'Beginner', 'Beginner', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
 (3, 'JanNaaasty', 'Jan', 'To-Ong', 30, 'Beginner', 'Beginner', 'Beginner', 'Beginner', 'Beginner', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
 (4, 'ChrisPeterson', 'Chris', 'Peterson', 30, 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', 'Expert', '', 'ChIJBdiv1lAp3YAR3qiPBNJWr5o', 'Planet Fitness'),
