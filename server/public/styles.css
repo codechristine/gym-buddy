@@ -1322,7 +1322,7 @@ body {
 }
 
 .schedule__skip {
-  background-color: #fff;
+  background-color: rgb(255, 255, 255, 0.8);
   background-image: none;
   color: #111D2D;
   font-size: 2.5rem;
