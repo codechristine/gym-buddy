@@ -49,7 +49,7 @@ class MessageList extends React.Component {
         }
         break;
       case 'conversation':
-        element = <MessageConversation view={this.state.view} toggleView={this.toggleView}/>;
+        element = <MessageConversation view={this.state.view} toggleView={this.toggleView} currentUser={this.props.currentUser}/>;
     }
 
     return (
