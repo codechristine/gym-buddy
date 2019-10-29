@@ -392,8 +392,8 @@ class SignUp extends React.Component {
                 User
               </div>
               <div className="signup__block">
-                <h2 className="signup__block-name">User Name</h2>
-                <input value={userName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="User Name" maxLength="14" required />
+                <h2 className="signup__block-name">Username</h2>
+                <input value={userName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="Username" maxLength="14" required />
               </div>
               <div className="signup__error">{errorMessage}</div>
               <div className="signup__block">
