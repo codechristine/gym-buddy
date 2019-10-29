@@ -34,7 +34,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to bottom ,rgba(251, 193, 188) 70%, rgba(255, 255, 255));
+  /* background-image: linear-gradient(to bottom ,rgba(251, 193, 188) 70%, rgba(255, 255, 255)); */
+  background-image: linear-gradient(to bottom right, #4F667C 50%, #111D2D 50%);
+  clip: polygon(0 60%, 0 100%, 100% 100%, 100% 12%);
 }
 
 .main__container {
@@ -64,7 +66,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #233567;
+  background-color: #d84c00;
   color: #fff;
   font-weight: 700;
   letter-spacing: 0.5rem;
@@ -78,7 +80,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #233567;
+  background-color: #d84c00;
   color: #fff;
   font-weight: 700;
   letter-spacing: 0.25rem;
@@ -91,7 +93,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #233567;
+  background-color: #d84c00;
   color: #fff;
   font-weight: 700;
   letter-spacing: 0.25rem;
@@ -138,6 +140,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 0.5rem;
+  border: 1px solid #fff;
 }
 
 .main__carousel-header {
@@ -152,7 +155,7 @@ body {
   width: 80%;
   font-size: 2.5rem;
   border-radius: 5rem;
-  background-color: #315b96;
+  background-color: #d84c00;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -178,15 +181,16 @@ body {
   font-size: 2rem;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid #233567;
+  border-bottom: 2px solid #4F667C;
   transition: all 0.2s;
   cursor: pointer;
+  color: #fff;
 }
 
 .main__search-field:focus {
   outline: none;
   width: 100%;
-  border-bottom: 2px solid #315b96;
+  border-bottom: 2px solid #54d39c;
 }
 
 .main__search-dropdown {
@@ -198,11 +202,12 @@ body {
   font-size: 1.25rem;
   font-weight: 300;
   cursor: pointer;
+  color: #fff;
 }
 
 .main__search-item-active {
   font-size: 1.25rem;
-  color: #233567;
+  color: #54d39c;
   cursor: pointer;
 }
 
@@ -219,15 +224,15 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  border: 2px solid #315b96;
+  border: 2px solid #4F667C;
 }
 
 .map__list {
   height: 37.5%;
   width: 100%;
   overflow: scroll;
-  background-color: #fff;
-  border: 2px solid #315b96;
+  background-color: rgb(255, 255, 255, 0.9);
+  border: 2px solid #111D2D;
   border-radius: 5px;
 }
 
@@ -238,13 +243,13 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 1px solid #315b96
+  border-bottom: 1px solid #4F667C;
 }
 
 .map__list-photo {
   width: 45%;
   height: 80%;
-  border: 2px solid #315b96;
+  border: 2px solid #000000;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -258,7 +263,6 @@ body {
 .map__list-info {
   width: 50%;
   height: 100%;
-  color: #233567;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -266,11 +270,13 @@ body {
 }
 
 .map__list-name {
+  color: #000000;
   font-size: 1.8rem;
   font-weight: 400;
 }
 
 .map__list-info {
+  color: #d84c00;
   font-size: 1.5rem;
   font-weight: 300;
 }
@@ -293,12 +299,12 @@ body {
   height: 59%;
   width: 100%;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255, 0.9);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid #315b96;
+  border: 2px solid #4F667C;
 }
 
 .profile__photo {
@@ -307,7 +313,7 @@ body {
   border-radius: 50%;
   background-size: cover;
   background-position: center;
-  border: 2px solid #315b96;
+  border: 2px solid #d84c00;
 }
 
 .profile__info {
@@ -326,7 +332,7 @@ body {
 
 .profile__info-gym {
   font-size: 3rem;
-  color: #315b96;
+  color: #54d39c;
   text-align: center;
 }
 
@@ -349,8 +355,8 @@ body {
   width: 100%;
   overflow: scroll;
   border-radius: 5px;
-  border: 2px solid #315b96;
-  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
+  border: 2px solid #111D2D;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
 }
 
 .profile__status {
@@ -370,9 +376,10 @@ body {
   width: 100%;
   height: 92.5%;
   border-radius: 5px;
-  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
   margin-top: 0.5rem;
   overflow: scroll;
+  border: 2px solid #111D2D;
 }
 
 .signup__container-top {
@@ -426,7 +433,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: red;
+  color: #d84c00;
   height: 10%;
   font-size: 1.5rem;
 }
@@ -436,7 +443,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgba(251, 193, 188);
+  color: #54d39c;
 }
 
 .stats__header,
@@ -528,10 +535,10 @@ body {
 
 .login__container {
   width: 100%;
-  height: 95%;
+  height: 90%;
   border-radius: 5px;
-  border: 2px solid #315b96;
-  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
+  border: 2px solid #111D2D;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -540,7 +547,7 @@ body {
 .login__box {
   height: 70%;
   width: 90%;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255, 0.8);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -580,13 +587,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #54d39c;
 }
 
 .login__card-input {
   width: 55%;
   height: 50%;
   border-radius: 5px;
-  background-color: rgb(255, 223, 223, 0.5);
+  background-color: rgb(79, 102, 124, 0.2);
   text-align: center;
   font-size: 1.5rem;
 }
@@ -601,11 +609,11 @@ body {
 }
 
 .error {
-  color: rgb(255, 0, 0);
+  color: #d84c00;
 }
 
 .success {
-  color: rgb(0, 128, 0);
+  color: #54d39c;
 }
 
 .login__card-input:focus {
@@ -624,10 +632,9 @@ body {
 
 .buddy__card {
   width: 100%;
-  height: 10rem;
-  /* background-color: #fff; */
-  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
-  border-bottom: 1px solid #315b96;
+  height: 9.75rem;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.6) 50%, rgb(17, 29, 45, 0.6));
+  border-bottom: 1px solid #111D2D;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -681,12 +688,11 @@ body {
 .gymuser__card {
   width: 100%;
   height: 7.5rem;
-  background-color: #fff;
-  border-bottom: 1px solid #315b96;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-bottom: 1px solid #111D2D;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 1px solid #233567;
 }
 
 
@@ -717,7 +723,7 @@ body {
 }
 
 .friends {
-  background-color: #315b96;
+  background-color: rgb(84, 211, 156, 0.8);
 }
 /**************************************
            EXPERTISE LIST
@@ -800,7 +806,7 @@ body {
 
 .btn {
   border-radius: 2.5rem;
-  background-color: #233567;
+  background-color: #d84c00;
   color: #fff;
 }
 
@@ -831,22 +837,22 @@ body {
 .profile__button,
 .gym__button,
 .buddy__button {
-  background-color: #315b96;
+  background-color: #d84c00;
 }
 
 .gym__button-filter {
   height: 2rem;
   width: 6rem;
   font-size: 1.25rem;
-  background-color: #315b96;
+  background-color: #d84c00;
 }
 
 .remove {
-  background-color: red;
+  background-color: #d84c00;
 }
 
 .selected {
-  background-color: #233567;
+  background-color: #54d39c;
 }
 
 .upload__button {
@@ -859,6 +865,10 @@ body {
   top: 0;
   opacity: 0;
 }
+
+.set {
+  background-color: #54d39c;
+}
 /**************************************
               ICONS
 **************************************/
@@ -870,7 +880,7 @@ body {
   height: 3rem;
   width: 8rem;
   border-radius: 2.5rem;
-  background-color: #233567;
+  background-color: #d84c00;
   color: #fff;
 }
 
@@ -967,10 +977,10 @@ body {
   width: 51px;
   height: 51px;
   margin: 6px;
-  border: 6px solid #315b96;
+  border: 6px solid #d84c00;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #315b96 transparent transparent transparent;
+  border-color: #d84c00 transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {
@@ -1019,10 +1029,10 @@ body {
 .gym__view-info-container {
   height: 42.5%;
   width: 100%;
-  border: 2px solid  #233567;
+  border: 2px solid  #111D2D;
   border-radius: 5px;
-  background-color: #fff;
-  color: #233567;
+  background-color: rgb(255, 255, 255, 0.9);
+  color: #000000;
   font-size: 1.5rem;
 }
 
@@ -1067,9 +1077,9 @@ body {
 .gym__view-list {
   height: 28%;
   width: 100%;
-  border: 2px solid  #233567;
+  border: 2px solid #111D2D;
   border-radius: 5px;
-  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
   overflow: scroll;
 }
 
@@ -1097,7 +1107,7 @@ body {
 .gym__view-link {
   font-size: 2rem;
   text-decoration: none;
-  color: #315b96;
+  color: #54d39c;
 }
 
 .gym__view-nophotos {
@@ -1135,7 +1145,9 @@ body {
 
 .gym__view-filter > select {
   text-align: center;
-  border: 1px solid #315b96;
+  border: 1px solid #111D2D;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
 .gym__view-filter > select:focus {
@@ -1158,7 +1170,7 @@ body {
 .buddy__container-top {
   height: 60%;
   width: 100%;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255, 0.9);
   border: 2px solid #315b96;
   border-radius: 5px;
 }
@@ -1181,7 +1193,7 @@ body {
   height: 12rem;
   width: 12rem;
   border-radius: 50%;
-  border: 2px solid #315b96;
+  border: 2px solid #d84c00;
 }
 
 .buddy__info {
@@ -1215,7 +1227,7 @@ body {
 
 .buddy__gym {
   font-size: 2rem;
-  color: #315b96;
+  color: #54d39c;
   text-align: center;
 }
 
@@ -1267,8 +1279,8 @@ body {
 .buddy__container-bottom {
   height: 37.5%;
   width: 100%;
-  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
-  border: 2px solid #315b96;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
+  border: 2px solid #111D2D;
   border-radius: 5px;
 }
 
@@ -1307,13 +1319,12 @@ body {
   align-items: center;
   font-size: 3rem;
   color: #fff;
-  background-image: linear-gradient(to bottom,rgba(35, 53, 103) 30%, rgba(49, 91, 150, 0.8));
 }
 
 .schedule__skip {
   background-color: #fff;
   background-image: none;
-  color: #315b96;
+  color: #111D2D;
   font-size: 2.5rem;
 }
 
@@ -1322,6 +1333,7 @@ body {
   height: 100%;
   width: 15%;
   border: none;
+  background-color: #fff;
 }
 
 .weekday__tablink > *:focus {
@@ -1333,7 +1345,7 @@ body {
 }
 
 .tab__selected {
-  background-color: #233567;
+  background-color: #111D2D;
   color: #fff;
 }
 
@@ -1344,12 +1356,12 @@ body {
   justify-content: flex-start;
   align-items: center;
   padding: 1rem;
-  background-color: #fff;
-  border-bottom: 1px solid #315b96;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-bottom: 1px solid #111D2D;
 }
 
 .hour__selected {
-  background-color: rgb(0, 128, 0);
+  background-color: rgb(84, 211, 156, 0.8);
   color: #fff;
 }
 
