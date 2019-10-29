@@ -1,5 +1,4 @@
 import React from 'react';
-// import ReactDom from 'react-dom';
 import MapItem from './map-item';
 
 export default class MapList extends React.Component {
@@ -10,19 +9,25 @@ export default class MapList extends React.Component {
     };
     this.addResultsToList = this.addResultsToList.bind(this);
     this.insertMapData = this.insertMapData.bind(this);
+    this.closeAllInfoWindows = this.closeAllInfoWindows.bind(this);
     this.map = null;
     this.placesServiceObj = null;
+    this.infoWindows = [];
   }
   componentDidMount() {
     this.placesServiceObj = new window.google.maps.places.PlacesService(this.map);
     let locationObjToSearch = new window.google.maps.LatLng(this.props.location.lat, this.props.location.lng);
     let request = {
       location: locationObjToSearch,
-      // radius: '5000',
       rankBy: window.google.maps.places.RankBy.DISTANCE,
       type: ['gym']
     };
     this.placesServiceObj.nearbySearch(request, this.addResultsToList);
+  }
+  closeAllInfoWindows() {
+    for (let i = 0; i < this.infoWindows.length; i++) {
+      this.infoWindows[i].close();
+    }
   }
   insertMapData(placeObject) {
     fetch('/api/gyms.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(placeObject) })
@@ -63,9 +68,6 @@ export default class MapList extends React.Component {
 
     this.map = this.props.map;
     this.markers = [];
-    this.infoWindow = null;
-    // let image = "<img src='server/public/images/icons8-muscle-40.png'>";
-    // let icon = image;
     let mapListRef = React.createRef();
 
     return (
@@ -85,13 +87,14 @@ export default class MapList extends React.Component {
           const markerLatLng = marker.getPosition();
           const distance = window.google.maps.geometry.spherical.computeDistanceBetween(this.props.center, markerLatLng);
           const distanceInMiles = (distance / 1609.344).toFixed(2);
-          this.infoWindow = new window.google.maps.InfoWindow({
+          const infoWindow = new window.google.maps.InfoWindow({
             content: `${element.name}, Distance: ${distanceInMiles} miles`,
             position: { lat: element.lat, lng: element.lng }
           });
+          this.infoWindows.push(infoWindow);
           marker.addListener('click', e => {
-            this.infoWindow.close();
-            this.infoWindow.open(this.map, marker);
+            this.closeAllInfoWindows();
+            infoWindow.open(this.map, marker);
             mapListRef.current.scrollTop = mapListItemRef.current.offsetTop - mapListRef.current.offsetTop;
           });
           return (
