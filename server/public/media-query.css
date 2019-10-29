@@ -1,0 +1,188 @@
+/**************************************
+              FONTS
+**************************************/
+
+/* small tablets to 768 pixels */
+@media only screen and (min-width: 600px) {
+  html {
+  font-size: 80%;
+  }
+}
+
+/* big tablets to 1024 pixels */
+@media only screen and (min-width: 801px) {
+  html {
+  font-size: 86%;
+  }
+}
+
+/* laptops*/
+@media only screen and (min-width: 1026px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/**************************************
+              BUTTONS
+**************************************/
+
+/* laptops*/
+@media only screen and (min-width: 1026px) {
+  .main__button,
+  .signup__button,
+  .login__button {
+    height: 4.5rem
+  }
+  .main__view {
+    width: 56%
+  }
+}
+
+/**************************************
+              MAIN
+**************************************/
+
+/* small tablets to 768 pixels */
+@media only screen and (min-width: 600px) {
+  .main__container {
+    height: 97.5%;
+    width: 90%;
+  }
+}
+
+/* big tablets to 1024 pixels */
+@media only screen and (min-width: 801px) {
+  .main__container {
+    height: 97.5%;
+    width: 87%;
+  }
+}
+
+/* laptops and Desktop */
+@media only screen and (min-width: 1026px) {
+  .main {
+    height: 100rem;
+  }
+  .main__container {
+    height: 90rem;
+    width: 50%;
+  }
+  .main__body {
+    height: 90rem
+  }
+}
+
+/**************************************
+              MAP VIEW
+**************************************/
+
+/* laptops and Desktop */
+@media only screen and (min-width: 1026px) {
+  .map__list {
+    height: 32.5rem;
+  }
+}
+
+/**************************************
+              GYM-VIEW
+**************************************/
+
+/* small tablets to 768 pixels */
+@media only screen and (min-width: 600px) {
+  .gym__view-info-container {
+    font-size: 1.3rem;
+  }
+  .gym__view-info-address-and-hours-container {
+    margin: 5%;
+  }
+}
+
+/* big tablets to 1024 pixels */
+@media only screen and (min-width: 801px) {
+  .gym__view-info-container {
+    font-size: 1.6rem;
+  }
+  .gym__view-info-address-and-hours-container {
+    margin: 6%;
+  }
+}
+
+/**************************************
+              PROFILE
+**************************************/
+
+/* small tablets to 768 pixels */
+@media only screen and (min-width: 600px) {
+  .profile__info-name,
+  .profile__info-age {
+    font-size: 2.5rem;
+  }
+  .profile__info-gym {
+    font-size: 3.4rem;
+  }
+  .map__button,
+  .profile__button,
+  .gym__button,
+  .buddy__button,
+  .upload__button {
+    height: 3.2rem;
+    width: 9rem;
+    font-size: 1.7rem;
+  }
+}
+
+/* big tablets to 1024 pixels */
+@media only screen and (min-width: 801px) {
+  .profile__info-name,
+  .profile__info-age {
+    font-size: 2.8rem;
+  }
+  .profile__info-gym {
+  font-size: 4rem;
+  }
+  .map__button,
+  .profile__button,
+  .gym__button,
+  .buddy__button,
+  .upload__button {
+    height: 3.8rem;
+    width: 10rem;
+    font-size: 2rem;
+  }
+}
+
+/* laptops and Desktop */
+@media only screen and (min-width: 1026px) {
+  .profile__container {
+    height: 90rem
+  }
+  .profile__container-bottom {
+    height: 35rem;
+    overflow: visable;
+  }
+}
+
+/**************************************
+              LOGIN
+**************************************/
+
+/* small tablets to 768 pixels */
+@media only screen and (min-width: 600px) {
+  .login__card-input {
+    font-size: 1.8rem;
+  }
+  .login__card-username {
+    font-size: 2.2rem;
+  }
+}
+
+/* big tablets to 1024 pixels */
+@media only screen and (min-width: 801px) {
+  .login__card-input {
+    font-size: 2rem;
+  }
+  .login__card-username {
+    font-size: 2.5rem;
+  }
+}
