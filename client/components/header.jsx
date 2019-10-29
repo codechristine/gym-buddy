@@ -67,6 +67,10 @@ class Header extends React.Component {
         if (prevName === 'gym') {
           leftButton = <button className="btn map__button" onClick={gymView}>Back</button>;
         }
+        break;
+      case 'message':
+        leftButton = <button className="btn map__button" onClick={backMethod}><i className="fas fa-arrow-left"></i></button>;
+        title = <div className="main__header-username">{currentUser.username}</div>;
     }
 
     return (
