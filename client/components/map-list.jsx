@@ -64,7 +64,8 @@ export default class MapList extends React.Component {
     this.map = this.props.map;
     this.markers = [];
     this.infoWindow = null;
-    let image = 'https://img.icons8.com/ultraviolet/50/000000/flex-biceps.png';
+    // let image = "<img src='server/public/images/icons8-muscle-40.png'>";
+    // let icon = image;
     let mapListRef = React.createRef();
 
     return (
@@ -74,7 +75,7 @@ export default class MapList extends React.Component {
           let marker = new window.google.maps.Marker({
             position: { lat: element.lat, lng: element.lng },
             icon: {
-              url: image,
+              url: 'images/muscle-icon.png',
               scaledSize: new window.google.maps.Size(50, 50)
             }
           });
