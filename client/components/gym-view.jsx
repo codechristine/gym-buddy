@@ -100,7 +100,7 @@ export default class GymView extends React.Component {
     let filterElement = '';
 
     if (isLoggedIn) {
-      button = <button className="btn gym__button" onClick={() => { this.insertGymData(); }}>Set Gym</button>;
+      button = <button className="btn gym__button set" onClick={() => { this.insertGymData(); }}>Set Gym</button>;
       if (placeObject && this.props.currentUser.gymid === placeObject.place_id) {
         button = <button className="btn gym__button remove" onClick={() => { this.removeGymData(); }}>Remove</button>;
       }

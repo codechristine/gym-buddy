@@ -45,7 +45,7 @@ class GymCarousel extends React.Component {
     this.photoArray = this.props.photoArray;
 
     return (
-      <div className={`gym__carousel`} style={{ backgroundImage: `url(${this.photoArray[index]})`, border: `2px solid #233567` }}>
+      <div className={`gym__carousel`} style={{ backgroundImage: `url(${this.photoArray[index]})`, border: `2px solid #4F667C` }}>
         <i className="icon__arrow fas fa-chevron-left" onClick={this.goLeft}></i>
         {
           this.photoArray.map((element, dotIndex) => {
