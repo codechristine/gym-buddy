@@ -30,7 +30,7 @@ class Header extends React.Component {
         break;
       case 'map':
         leftButton = <button className="btn map__button" onClick={homeView}><i className="fas fa-arrow-left"></i></button>;
-        title = <div className="main__header-title">GYM BUDDY</div>;
+        title = <div className="main__header-title">GYM BUDDY LIST</div>;
         if (isLoggedIn) {
           rightButton = <button className="icon__container" onClick={profileView}><i className="icon fas fa-user"></i></button>;
           title = <div className="main__header-sub">GYM BUDDY</div>;
