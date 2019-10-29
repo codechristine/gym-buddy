@@ -41,15 +41,10 @@ class GymMap extends React.Component {
                     url: 'images/icon-marker.png'
                   }
                 });
-                const infoWindow = new window.google.maps.InfoWindow({
-                  content: 'You are Here',
-                  position: { lat: location.lat, lng: location.lng }
-                });
                 this.setState({ map: mapObject });
                 marker.addListener(marker, 'click', e => {
                   this.map.close();
                 });
-                infoWindow.open(this.map, marker);
               }}
             />
           </div>
