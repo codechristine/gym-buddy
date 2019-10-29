@@ -70,9 +70,9 @@ class GymBuddy extends React.Component {
     }
 
     if (isFriends) {
-      button = <button className="btn buddy__button" onClick={this.removeBuddy}><i className="fas fa-user-minus"></i></button>;
+      button = <button className="btn buddy__button remove" onClick={this.removeBuddy}><i className="fas fa-user-minus"></i></button>;
     } else {
-      button = <button className="btn buddy__button" onClick={this.addBuddy}><i className="fas fa-user-plus"></i></button>;
+      button = <button className="btn buddy__button add" onClick={this.addBuddy}><i className="fas fa-user-plus"></i></button>;
     }
 
     if (status) {
