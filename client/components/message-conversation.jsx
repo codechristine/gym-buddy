@@ -24,7 +24,9 @@ class MessageConversation extends React.Component {
     animateScroll.scrollToBottom({ duration: 1000, containerId: 'messageContainer' });
   }
   getAllMessages() {
-    fetch(`/api/conversation.php?userId=${this.props.view.params.currentUserId}&friendId=${this.props.view.params.friendId}`)
+    const userId = this.props.currentUser.id;
+    const friendId = this.props.view.params.friendId || this.props.view.params.id;
+    fetch(`/api/conversation.php?userId=${userId}&friendId=${friendId}`)
       .then(result => result.json())
       .then(result => {
         this.setState({ messageArr: result });
@@ -40,8 +42,8 @@ class MessageConversation extends React.Component {
     event.preventDefault();
 
     const messageObj = {
-      senderId: this.props.view.params.currentUserId,
-      receiverId: this.props.view.params.friendId,
+      senderId: this.props.currentUser.id,
+      receiverId: this.props.view.params.friendId || this.props.view.params.id,
       messageVal: this.state.messageVal
     };
 
@@ -60,15 +62,18 @@ class MessageConversation extends React.Component {
     const { messageArr, messageVal } = this.state;
     const friendUserName = this.props.view.params.username;
     if (!messageArr.length) {
-      element = <div>No Conversation</div>;
+      element =
+      <div className="conversation__none">
+        No Conversaton yet. Start one!
+      </div>;
     } else {
       element = this.state.messageArr.map((element, index) => {
-        return <ConversationBubble key={index} messageInfo={element} params={this.props.view.params} currentUserPhoto={this.props.currentUser.photo} friendPhoto={this.props.view.params.photo} />;
+        return <ConversationBubble key={index} messageInfo={element} currentUser={this.props.currentUser} params={this.props.view.params} currentUserPhoto={this.props.currentUser.photo} friendPhoto={this.props.view.params.photo} />;
       });
     }
     return (
       <div className="main__container">
-        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser} />;
+        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser} element={this.props.view.params}/>;
         <div className="conversation__container">
           <div className="conversation__container-button">
             <div className="conversation__container-friend-username">
