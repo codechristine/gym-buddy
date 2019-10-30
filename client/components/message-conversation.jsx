@@ -77,7 +77,7 @@ class MessageConversation extends React.Component {
       </div>;
     } else {
       element = this.state.messageArr.map((element, index) => {
-        return <ConversationBubble key={index} messageInfo={element} currentUser={this.props.currentUser} params={this.props.view.params} currentUserPhoto={this.props.currentUser.photo} friendPhoto={this.props.view.params.photo} />;
+        return <ConversationBubble key={index} messageInfo={element} currentUser={this.props.currentUser} params={this.props.view.params} currentUserPhoto={this.props.currentUser.photo} friendPhoto={this.props.view.params.photo}/>;
       });
     }
 
@@ -88,7 +88,7 @@ class MessageConversation extends React.Component {
 
     return (
       <div className="main__container">
-        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser} element={this.props.view.params}/>;
+        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser} element={this.props.view.params} placeObject={this.props.view.params.placeObject}/>;
         <div className="conversation__container">
           <div className="conversation__container-button">
             <div className="conversation__container-friend-username">

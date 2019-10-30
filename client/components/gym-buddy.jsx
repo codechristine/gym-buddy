@@ -18,6 +18,12 @@ class GymBuddy extends React.Component {
         isFriends: true
       });
     }
+
+    if (this.props.view.prevName === 'conversation') {
+      this.setState({
+        isFriends: true
+      });
+    }
   }
   addBuddy() {
     const friendObj = {
@@ -55,6 +61,7 @@ class GymBuddy extends React.Component {
   render() {
     const { isFriends, status } = this.state;
     const user = this.props.view.params.element;
+    user.placeObject = this.props.view.params.placeObject;
     const viewMessages = () => this.props.setView('conversation', 'buddy', user);
     let photo = user.photo;
     let gym = user.gymname;
