@@ -110,7 +110,6 @@
   }
 
   .main__container {
-    height: 96rem;
     width: 50%;
   }
 
@@ -120,10 +119,6 @@
 
   .main__body {
     height: 90rem;
-  }
-
-  .main {
-    height: auto;
   }
 
   .profile__container {
