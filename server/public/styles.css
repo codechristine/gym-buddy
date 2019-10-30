@@ -1403,10 +1403,6 @@ body {
   border-radius: 5px;
   border: 2px solid #111D2D;
   background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   overflow: scroll;
 }
 
