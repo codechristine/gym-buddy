@@ -1,5 +1,6 @@
 import React from 'react';
 import ConversationBubble from './conversation-bubble';
+import Header from './header';
 import { animateScroll } from 'react-scroll';
 
 class MessageConversation extends React.Component {
@@ -57,7 +58,6 @@ class MessageConversation extends React.Component {
   render() {
     let element;
     const { messageArr, messageVal } = this.state;
-    const backMethod = () => this.props.toggleView('list', {});
     const friendUserName = this.props.view.params.username;
     if (!messageArr.length) {
       element = <div>No Conversation</div>;
@@ -67,21 +67,23 @@ class MessageConversation extends React.Component {
       });
     }
     return (
-      <div className="conversation__container">
-        <div className="conversation__container-button">
-          <i className="message__icon fas fa-chevron-left" onClick={backMethod}></i>
-          <div className="conversation__container-friend-username">
-            { friendUserName }
+      <div className="main__container">
+        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser} />;
+        <div className="conversation__container">
+          <div className="conversation__container-button">
+            <div className="conversation__container-friend-username">
+              {friendUserName}
+            </div>
           </div>
-        </div>
-        <div className="conversation__container-message" id="messageContainer">
-          { element }
-        </div>
-        <div className="conversation__container-input">
-          <form className="conversation__form" onSubmit={this.handleSubmit}>
-            <input value={messageVal} type="text" name="message" className="conversation__input" placeholder="Enter message here" onChange={this.handleChange}/>
-            <button type="submit" className="btn message__button"><i className="fas fa-reply"></i></button>
-          </form>
+          <div className="conversation__container-message" id="messageContainer">
+            {element}
+          </div>
+          <div className="conversation__container-input">
+            <form className="conversation__form" onSubmit={this.handleSubmit}>
+              <input value={messageVal} type="text" name="message" className="conversation__input" placeholder="Enter message here" onChange={this.handleChange} />
+              <button type="submit" className="btn message__button"><i className="fas fa-reply"></i></button>
+            </form>
+          </div>
         </div>
       </div>
     );
