@@ -55,10 +55,11 @@ class GymBuddy extends React.Component {
   render() {
     const { isFriends, status } = this.state;
     const user = this.props.view.params.element;
+    const viewMessages = () => this.props.setView('conversation', 'buddy', user);
     let photo = user.photo;
     let gym = user.gymname;
     const gymId = user.gymid;
-    let button, statusMessage, goToGymMethod;
+    let button, statusMessage, goToGymMethod, messageButton;
     if (!photo) {
       photo = 'https://static.thenounproject.com/png/538846-200.png';
     }
@@ -71,6 +72,7 @@ class GymBuddy extends React.Component {
 
     if (isFriends) {
       button = <button className="btn buddy__button remove" onClick={this.removeBuddy}><i className="fas fa-user-minus"></i></button>;
+      messageButton = <button className="btn buddy__button add" onClick={viewMessages}><i className="fas fa-comments"></i></button>;
     } else {
       button = <button className="btn buddy__button add" onClick={this.addBuddy}><i className="fas fa-user-plus"></i></button>;
     }
@@ -92,6 +94,7 @@ class GymBuddy extends React.Component {
                 <div className="buddy__info">
                   <div className="buddy__info-buttons">
                     { button }
+                    { messageButton }
                   </div>
                   <div className="buddy__info-name">
                     <div className="buddy__name">{`${user.firstname} ${user.lastname}`}</div>

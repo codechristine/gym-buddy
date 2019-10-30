@@ -1,19 +1,13 @@
 import React from 'react';
 import Header from './header';
 import MessageOverview from './message-overview';
-import MessageConversation from './message-conversation';
 
 class MessageList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      messageArr: [],
-      view: {
-        name: 'list',
-        params: {}
-      }
+      messageArr: []
     };
-    this.toggleView = this.toggleView.bind(this);
   }
   componentDidMount() {
     fetch(`/api/message.php?userId=${this.props.currentUser.id}`)
@@ -22,34 +16,19 @@ class MessageList extends React.Component {
         this.setState({ messageArr: result });
       });
   }
-  toggleView(name, params) {
-    this.setState({
-      view: {
-        name: name,
-        params: params
-      }
-    });
-  }
   render() {
     let element;
     const { messageArr } = this.state;
-    const { name } = this.state.view;
 
-    switch (name) {
-      case 'list':
-        if (!messageArr.length) {
-          element =
-            <div className="message__empty">
-              Inbox Empty
-            </div>;
-        } else {
-          element = this.state.messageArr.slice(0).reverse().map((element, index) => {
-            return <MessageOverview key={index} friendInfo={element} toggleView={this.toggleView} />;
-          });
-        }
-        break;
-      case 'conversation':
-        element = <MessageConversation view={this.state.view} toggleView={this.toggleView} currentUser={this.props.currentUser}/>;
+    if (!messageArr.length) {
+      element =
+        <div className="message__empty">
+          Inbox Empty
+        </div>;
+    } else {
+      element = this.state.messageArr.slice(0).reverse().map((element, index) => {
+        return <MessageOverview key={index} friendInfo={element} toggleView={this.toggleView} setView={this.props.setView}/>;
+      });
     }
 
     return (

@@ -7,6 +7,7 @@ import LogIn from './login';
 import Profile from './profile';
 import GymBuddy from './gym-buddy';
 import MessageList from './message-list';
+import MessageConverstaion from './message-conversation';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -146,6 +147,9 @@ export default class App extends React.Component {
         break;
       case 'message':
         element = <MessageList setView={this.setView} view={this.state.view} currentUser={this.state.currentUser} />;
+        break;
+      case 'conversation':
+        element = <MessageConverstaion setView={this.setView} view={this.state.view} currentUser={this.state.currentUser} />;
         break;
     }
     return (

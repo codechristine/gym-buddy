@@ -5,11 +5,10 @@ class ConversationBubble extends React.Component {
     let bubbleClass, imgSource, messageClass, imageClass;
     const messageInfo = this.props.messageInfo;
     const senderId = messageInfo.senderid;
-    const currentUserId = this.props.params.currentUserId;
+    const currentUserId = this.props.currentUser.id;
     const currentUserPhoto = this.props.currentUserPhoto;
     const friendPhoto = this.props.friendPhoto;
     const messageVal = messageInfo.messageval;
-
     if (senderId === currentUserId) {
       imgSource = currentUserPhoto;
       bubbleClass = 'bubble__user';

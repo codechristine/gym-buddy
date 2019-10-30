@@ -8,6 +8,7 @@ class Header extends React.Component {
     const currentUser = this.props.currentUser;
     const buddyUser = this.props.buddyUser;
     const placeObject = this.props.placeObject;
+    const element = this.props.element;
     const backMethod = () => this.props.setView(prevName, name, {});
     const signUpView = () => this.props.setView('signup', 'home', {});
     const loginView = () => this.props.setView('login', 'home', {});
@@ -16,6 +17,7 @@ class Header extends React.Component {
     const profileViewFromGym = () => this.props.setView('profile', 'gym', placeObject);
     const gymView = () => this.props.setView('gym', 'map', placeObject);
     const homeView = () => this.props.setView('home', 'map', {});
+    const buddyView = () => this.props.setView('buddy', 'profile', { element });
 
     let leftButton, title, rightButton;
 
@@ -73,6 +75,16 @@ class Header extends React.Component {
       case 'message':
         leftButton = <button className="btn map__button" onClick={backMethod}><i className="fas fa-arrow-left"></i></button>;
         title = <div className="main__header-username">{currentUser.username}</div>;
+        if (prevName === 'conversation') {
+          leftButton = <button className="btn map__button" onClick={profileViewToHome}><i className="fas fa-arrow-left"></i></button>;
+        }
+        break;
+      case 'conversation':
+        leftButton = <button className="btn map__button" onClick={backMethod}><i className="fas fa-arrow-left"></i></button>;
+        title = <div className="main__header-username">{currentUser.username}</div>;
+        if (prevName === 'buddy') {
+          leftButton = <button className="btn map__button" onClick={buddyView}><i className="fas fa-arrow-left"></i></button>;
+        }
     }
 
     return (
