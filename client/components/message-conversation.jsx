@@ -21,6 +21,9 @@ class MessageConversation extends React.Component {
   componentDidUpdate() {
     animateScroll.scrollToBottom({ duration: 1000, containerId: 'messageContainer' });
   }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
   scrollToBottom() {
     animateScroll.scrollToBottom({ duration: 1000, containerId: 'messageContainer' });
   }
@@ -74,7 +77,7 @@ class MessageConversation extends React.Component {
       </div>;
     } else {
       element = this.state.messageArr.map((element, index) => {
-        return <ConversationBubble key={index} messageInfo={element} currentUser={this.props.currentUser} params={this.props.view.params} currentUserPhoto={this.props.currentUser.photo} friendPhoto={this.props.view.params.photo} />;
+        return <ConversationBubble key={index} messageInfo={element} currentUser={this.props.currentUser} params={this.props.view.params} currentUserPhoto={this.props.currentUser.photo} friendPhoto={this.props.view.params.photo}/>;
       });
     }
 
@@ -85,7 +88,7 @@ class MessageConversation extends React.Component {
 
     return (
       <div className="main__container">
-        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser} element={this.props.view.params}/>;
+        <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser} element={this.props.view.params} placeObject={this.props.view.params.placeObject}/>;
         <div className="conversation__container">
           <div className="conversation__container-button">
             <div className="conversation__container-friend-username">
@@ -97,7 +100,7 @@ class MessageConversation extends React.Component {
           </div>
           <div className="conversation__container-input">
             <form className="conversation__form" onSubmit={this.handleSubmit}>
-              <input value={messageVal} type="text" name="message" className="conversation__input" placeholder="Enter message here" onChange={this.handleChange} autoComplete="off"/>
+              <input value={messageVal} type="text" name="message" className="conversation__input" placeholder="Enter message here" onChange={this.handleChange} autoComplete="off" maxLength="140" />
               <button type="submit" className="btn message__button"><i className="fas fa-reply"></i></button>
             </form>
           </div>

@@ -17,7 +17,7 @@ class Header extends React.Component {
     const profileViewFromGym = () => this.props.setView('profile', 'gym', placeObject);
     const gymView = () => this.props.setView('gym', 'map', placeObject);
     const homeView = () => this.props.setView('home', 'map', {});
-    const buddyView = () => this.props.setView('buddy', 'profile', { element });
+    const buddyView = () => this.props.setView('buddy', 'conversation', { element, placeObject });
 
     let leftButton, title, rightButton;
 
@@ -70,6 +70,11 @@ class Header extends React.Component {
         title = <div className="main__header-username">{buddyUser.username}</div>;
         if (prevName === 'gym') {
           leftButton = <button className="btn map__button" onClick={gymView}>Back</button>;
+        } else if (prevName === 'conversation') {
+          leftButton = <button className="btn map__button" onClick={profileViewToHome}>Back</button>;
+          if (placeObject) {
+            leftButton = <button className="btn map__button" onClick={gymView}>Back</button>;
+          }
         }
         break;
       case 'message':

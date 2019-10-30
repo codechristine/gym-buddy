@@ -18,6 +18,12 @@ class GymBuddy extends React.Component {
         isFriends: true
       });
     }
+
+    if (this.props.view.prevName === 'conversation') {
+      this.setState({
+        isFriends: true
+      });
+    }
   }
   addBuddy() {
     const friendObj = {
@@ -55,17 +61,19 @@ class GymBuddy extends React.Component {
   render() {
     const { isFriends, status } = this.state;
     const user = this.props.view.params.element;
+    user.placeObject = this.props.view.params.placeObject;
     const viewMessages = () => this.props.setView('conversation', 'buddy', user);
     let photo = user.photo;
     let gym = user.gymname;
     const gymId = user.gymid;
-    let button, statusMessage, goToGymMethod, messageButton;
+    let button, statusMessage, goToGymMethod, messageButton, gymClass;
     if (!photo) {
       photo = 'https://static.thenounproject.com/png/538846-200.png';
     }
 
     if (!gym) {
       gym = 'Not a Gym Member';
+      gymClass = 'noGym';
     } else {
       goToGymMethod = () => this.props.goToGym(gymId);
     }
@@ -98,7 +106,7 @@ class GymBuddy extends React.Component {
                   </div>
                   <div className="buddy__info-name">
                     <div className="buddy__name">{`${user.firstname} ${user.lastname}`}</div>
-                    <div className="buddy__gym" onClick={goToGymMethod}>{gym}</div>
+                    <div className={`buddy__gym ${gymClass}`} onClick={goToGymMethod}>{gym}</div>
                   </div>
                 </div>
               </div>
