@@ -114,7 +114,7 @@ export default class GymView extends React.Component {
         filterElement =
           <form className="gym__view-filter" onSubmit={this.handleSubmit}>
             <select name="category" onChange={this.handleChange} >
-              <option value="">Filter</option>
+              <option value="">Category</option>
               <option value="weightlifting">Weight Lifting</option>
               <option value="cardio">Cardio</option>
               <option value="yoga">Yoga</option>
@@ -122,7 +122,7 @@ export default class GymView extends React.Component {
               <option value="swimming">Swimming</option>
             </select>
             <select name="value" onChange={this.handleChange} >
-              <option value="">by</option>
+              <option value="">Skill</option>
               <option value="beginner">Beginner</option>
               <option value="intermediate">intermediate</option>
               <option value="expert">Expert</option>
