@@ -100,7 +100,7 @@ class MessageConversation extends React.Component {
           </div>
           <div className="conversation__container-input">
             <form className="conversation__form" onSubmit={this.handleSubmit}>
-              <input value={messageVal} type="text" name="message" className="conversation__input" placeholder="Enter message here" onChange={this.handleChange} autoComplete="off"/>
+              <input value={messageVal} type="text" name="message" className="conversation__input" placeholder="Enter message here" onChange={this.handleChange} autoComplete="off" maxLength="140" />
               <button type="submit" className="btn message__button"><i className="fas fa-reply"></i></button>
             </form>
           </div>
