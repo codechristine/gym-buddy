@@ -12,6 +12,7 @@ class MessageConversation extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.interval = null;
   }
   componentDidMount() {
     this.getAllMessages();
@@ -76,6 +77,12 @@ class MessageConversation extends React.Component {
         return <ConversationBubble key={index} messageInfo={element} currentUser={this.props.currentUser} params={this.props.view.params} currentUserPhoto={this.props.currentUser.photo} friendPhoto={this.props.view.params.photo} />;
       });
     }
+
+    clearInterval(this.interval);
+    this.interval = setInterval(() => {
+      this.getAllMessages();
+    }, 2000);
+
     return (
       <div className="main__container">
         <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser} element={this.props.view.params}/>;

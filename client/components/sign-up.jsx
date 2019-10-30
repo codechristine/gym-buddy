@@ -40,18 +40,105 @@ class SignUp extends React.Component {
     this.handleEdit = this.handleEdit.bind(this);
   }
   componentDidUpdate(prevProps, prevState) {
+    let sundayFrom, sundayTo, mondayFrom, mondayTo, tuesdayFrom, tuesdayTo,
+      wednesdayFrom, wednesdayTo, thursdayFrom, thursdayTo, fridayFrom,
+      fridayTo, saturdayFrom, saturdayTo;
+
     if (this.state.isEdit !== prevState.isEdit) {
-      this.setState({
-        userName: this.props.view.params.userName,
-        firstName: this.props.view.params.firstName,
-        lastName: this.props.view.params.lastName,
-        age: this.props.view.params.age,
-        weightLifting: this.props.view.params.weightLifting,
-        cardio: this.props.view.params.cardio,
-        yoga: this.props.view.params.yoga,
-        bodyBuilding: this.props.view.params.bodyBuilding,
-        swimming: this.props.view.params.swimming
-      });
+      fetch(`/api/schedule.php?username=${this.props.view.params.userName}`)
+        .then(result => result.json())
+        .then(result => {
+
+          if (result.Sunday.length) {
+            sundayFrom = result.Sunday[0].toString().split('');
+            sundayFrom.splice(sundayFrom.length - 2, 0, ':');
+            sundayFrom = sundayFrom.join('');
+            sundayTo = result.Sunday[1].toString().split('');
+            sundayTo.splice(sundayTo.length - 2, 0, ':');
+            sundayTo = sundayTo.join('');
+          }
+
+          if (result.Monday.length) {
+            mondayFrom = result.Monday[0].toString().split('');
+            mondayFrom.splice(mondayFrom.length - 2, 0, ':');
+            mondayFrom = mondayFrom.join('');
+            mondayTo = result.Monday[1].toString().split('');
+            mondayTo.splice(mondayTo.length - 2, 0, ':');
+            mondayTo = mondayTo.join('');
+          }
+
+          if (result.Tuesday.length) {
+            tuesdayFrom = result.Tuesday[0].toString().split('');
+            tuesdayFrom.splice(tuesdayFrom.length - 2, 0, ':');
+            tuesdayFrom = tuesdayFrom.join('');
+            tuesdayTo = result.Tuesday[1].toString().split('');
+            tuesdayTo.splice(tuesdayTo.length - 2, 0, ':');
+            tuesdayTo = tuesdayTo.join('');
+          }
+
+          if (result.Wednesday.length) {
+            wednesdayFrom = result.Wednesday[0].toString().split('');
+            wednesdayFrom.splice(wednesdayFrom.length - 2, 0, ':');
+            wednesdayFrom = wednesdayFrom.join('');
+            wednesdayTo = result.Wednesday[1].toString().split('');
+            wednesdayTo.splice(wednesdayTo.length - 2, 0, ':');
+            wednesdayTo = wednesdayTo.join('');
+          }
+
+          if (result.Thursday.length) {
+            thursdayFrom = result.Thursday[0].toString().split('');
+            thursdayFrom.splice(thursdayFrom.length - 2, 0, ':');
+            thursdayFrom = thursdayFrom.join('');
+            thursdayTo = result.Thursday[1].toString().split('');
+            thursdayTo.splice(thursdayTo.length - 2, 0, ':');
+            thursdayTo = thursdayTo.join('');
+          }
+
+          if (result.Friday.length) {
+            fridayFrom = result.Friday[0].toString().split('');
+            fridayFrom.splice(fridayFrom.length - 2, 0, ':');
+            fridayFrom = fridayFrom.join('');
+            fridayTo = result.Friday[1].toString().split('');
+            fridayTo.splice(fridayTo.length - 2, 0, ':');
+            fridayTo = fridayTo.join('');
+          }
+
+          if (result.Saturday.length) {
+            saturdayFrom = result.Saturday[0].toString().split('');
+            saturdayFrom.splice(saturdayFrom.length - 2, 0, ':');
+            saturdayFrom = saturdayFrom.join('');
+            saturdayTo = result.Saturday[1].toString().split('');
+            saturdayTo.splice(saturdayTo.length - 2, 0, ':');
+            saturdayTo = saturdayTo.join('');
+          }
+
+          this.setState({
+            userName: this.props.view.params.userName,
+            firstName: this.props.view.params.firstName,
+            lastName: this.props.view.params.lastName,
+            age: this.props.view.params.age,
+            weightLifting: this.props.view.params.weightLifting,
+            cardio: this.props.view.params.cardio,
+            yoga: this.props.view.params.yoga,
+            bodyBuilding: this.props.view.params.bodyBuilding,
+            swimming: this.props.view.params.swimming,
+            sundayFrom: sundayFrom || '',
+            sundayTo: sundayTo || '',
+            mondayFrom: mondayFrom || '',
+            mondayTo: mondayTo || '',
+            tuesdayFrom: tuesdayFrom || '',
+            tuesdayTo: tuesdayTo || '',
+            wednesdayFrom: wednesdayFrom || '',
+            wednesdayTo: wednesdayTo || '',
+            thursdayFrom: thursdayFrom || '',
+            thursdayTo: thursdayTo || '',
+            fridayFrom: fridayFrom || '',
+            fridayTo: fridayTo || '',
+            saturdayFrom: saturdayFrom || '',
+            saturdayTo: saturdayTo || ''
+          });
+
+        });
     }
   }
   componentDidMount() {
