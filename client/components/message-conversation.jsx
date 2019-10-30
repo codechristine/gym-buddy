@@ -40,7 +40,9 @@ class MessageConversation extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    if (!this.state.messageVal) {
+    const check = this.state.messageVal.trim();
+
+    if (!check) {
       return;
     }
 
