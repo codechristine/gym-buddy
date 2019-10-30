@@ -73,7 +73,7 @@ class SignUp extends React.Component {
       case 'Age':
         this.setState({ age: event.target.value });
         break;
-      case 'User Name':
+      case 'Username':
         this.setState({ userName: event.target.value });
         break;
     }
@@ -90,7 +90,7 @@ class SignUp extends React.Component {
         this.setState({ cardio: event.target.value });
         break;
       case 'yoga':
-        this.setState({ yoga: eventTarget.value });
+        this.setState({ yoga: event.target.value });
         break;
       case 'bodybuilding':
         this.setState({ bodyBuilding: event.target.value });
@@ -322,7 +322,7 @@ class SignUp extends React.Component {
       age: this.state.age,
       weightlifting: this.state.weightLifting,
       cardio: this.state.cardio,
-      yoga: this.state.cardio,
+      yoga: this.state.yoga,
       bodybuilding: this.state.bodyBuilding,
       swimming: this.state.swimming
     };
@@ -339,7 +339,7 @@ class SignUp extends React.Component {
       age: this.state.age,
       weightlifting: this.state.weightLifting,
       cardio: this.state.cardio,
-      yoga: this.state.cardio,
+      yoga: this.state.yoga,
       bodybuilding: this.state.bodyBuilding,
       swimming: this.state.swimming,
       id: this.props.view.params.id,
@@ -392,8 +392,8 @@ class SignUp extends React.Component {
                 User
               </div>
               <div className="signup__block">
-                <h2 className="signup__block-name">User Name</h2>
-                <input value={userName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="User Name" maxLength="14" required />
+                <h2 className="signup__block-name">Username</h2>
+                <input value={userName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="Username" maxLength="14" required />
               </div>
               <div className="signup__error">{errorMessage}</div>
               <div className="signup__block">

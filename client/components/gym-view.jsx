@@ -95,7 +95,7 @@ export default class GymView extends React.Component {
     const isLoggedIn = this.props.isLoggedIn;
     const signUp = () => this.props.setView('signup', 'home', {});
     const logIn = () => this.props.setView('login', 'home', {});
-    let element, hours, rating, photos;
+    let element, hours, rating, photos, websiteClass;
     let button = '';
     let filterElement = '';
 
@@ -169,6 +169,7 @@ export default class GymView extends React.Component {
 
       if (!placeObject.website) {
         website = 'No Website';
+        websiteClass = 'website__none';
       } else {
         website = 'Visit Website';
       }
@@ -197,7 +198,7 @@ export default class GymView extends React.Component {
                   </div>
                   <div className="gym__view-rating">
                     { rating }
-                    <a className="gym__view-link" rel="noopener noreferrer" target="_BLANK" href={placeObject.website}>{website}</a>
+                    <a className={`gym__view-link ${websiteClass}`} rel="noopener noreferrer" target="_BLANK" href={placeObject.website}>{website}</a>
                   </div>
                 </div>
               </div>

@@ -84,9 +84,10 @@ class Profile extends React.Component {
     const toggleBuddy = () => this.toggleView('buddies');
     const toggleExpertise = () => this.toggleView('expertise');
     const toggleSchedule = () => this.toggleView('schedule');
+    const viewMessages = () => this.props.setView('message', 'profile', {});
     const { view, buddiesArr } = this.state;
     const statusResponse = this.props.view.params;
-    let element, goToGymMethod, statusMessage, statusClass;
+    let element, goToGymMethod, statusMessage, statusClass, gymClass;
     switch (view) {
       case 'buddies':
         buddiesClass = 'btn profile__button selected';
@@ -116,6 +117,7 @@ class Profile extends React.Component {
 
     if (!gym) {
       gym = 'Not a Gym Member';
+      gymClass = 'gym__none';
     } else {
       goToGymMethod = () => this.props.goToGym(gymid);
     }
@@ -145,6 +147,7 @@ class Profile extends React.Component {
                   <button className="btn profile__button"><i className="fas fa-camera"></i></button>
                   <input type="file" name="photo" className="btn profile__button" onChange={this.handleImageChange} accept="image/*"/>
                 </div>
+                <button className="btn profile__button" onClick={viewMessages}><i className="far fa-envelope"></i></button>
                 <button className="btn profile__button" onClick={this.editUser}> Edit </button>
               </div>
               <img src={photo} alt="profile photo" className="profile__photo"/>
@@ -154,7 +157,7 @@ class Profile extends React.Component {
               <div className="profile__info">
                 <div className="profile__info-name">{ `${firstName} ${lastName}` }</div>
                 <div className="profile__info-age">{age}</div>
-                <div className="profile__info-gym" onClick={goToGymMethod}>{gym}</div>
+                <div className={`profile__info-gym ${gymClass}`} onClick={goToGymMethod}>{gym}</div>
               </div>
               <div className="profile__buttons-bottom">
                 <button className={buddiesClass} onClick={toggleBuddy}> Buddies </button>
