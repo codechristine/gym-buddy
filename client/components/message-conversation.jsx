@@ -40,6 +40,9 @@ class MessageConversation extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    if (!this.state.messageVal) {
+      return;
+    }
 
     const messageObj = {
       senderId: this.props.currentUser.id,
@@ -85,7 +88,7 @@ class MessageConversation extends React.Component {
           </div>
           <div className="conversation__container-input">
             <form className="conversation__form" onSubmit={this.handleSubmit}>
-              <input value={messageVal} type="text" name="message" className="conversation__input" placeholder="Enter message here" onChange={this.handleChange} />
+              <input value={messageVal} type="text" name="message" className="conversation__input" placeholder="Enter message here" onChange={this.handleChange} autoComplete="off"/>
               <button type="submit" className="btn message__button"><i className="fas fa-reply"></i></button>
             </form>
           </div>
