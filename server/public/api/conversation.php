@@ -7,7 +7,7 @@
 
     switch($_SERVER['REQUEST_METHOD']){
         case 'POST':
-            require_once('conversation-add.php');
+            require_once('conversation-post.php');
             break;
         case 'GET':
             require_once('conversation-get.php');

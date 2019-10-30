@@ -1498,13 +1498,13 @@ body {
 .conversation__container-message {
   height: 70%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
   background-color: rgb(255, 255, 255, 0.6);
   border-radius: 5px;
+  overflow: scroll;
+  padding: 1rem;
 }
+
 
 .conversation__container-input {
   height: 20%;
@@ -1528,7 +1528,7 @@ body {
 .bubble__container {
   height: 5rem;
   width: 90%;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem auto;
 }
 
 .bubble__image {

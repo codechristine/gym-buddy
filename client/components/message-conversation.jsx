@@ -1,5 +1,6 @@
 import React from 'react';
 import ConversationBubble from './conversation-bubble';
+import { animateScroll } from 'react-scroll';
 
 class MessageConversation extends React.Component {
   constructor(props) {
@@ -9,31 +10,55 @@ class MessageConversation extends React.Component {
       messageVal: ''
     };
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
+    this.getAllMessages();
+    this.scrollToBottom();
+  }
+  componentDidUpdate() {
+    animateScroll.scrollToBottom({ duration: 1000, containerId: 'messageContainer' });
+  }
+  scrollToBottom() {
+    animateScroll.scrollToBottom({ duration: 1000, containerId: 'messageContainer' });
+  }
+  getAllMessages() {
     fetch(`/api/conversation.php?userId=${this.props.view.params.currentUserId}&friendId=${this.props.view.params.friendId}`)
       .then(result => result.json())
       .then(result => {
         this.setState({ messageArr: result });
       });
   }
+  resetForm() {
+    this.setState({ messageVal: '' });
+  }
   handleChange(event) {
     this.setState({ messageVal: event.target.value });
   }
-  // handleSubmit(event) {
-  //   event.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault();
 
-  //   const messageObj = {
-  //     senderid:
-  //   }
-  // }
+    const messageObj = {
+      senderId: this.props.view.params.currentUserId,
+      receiverId: this.props.view.params.friendId,
+      messageVal: this.state.messageVal
+    };
+
+    fetch('/api/conversation.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(messageObj) })
+      .then(result => result.json())
+      .then(result => {
+        if (result.success) {
+          this.getAllMessages();
+          this.resetForm();
+        }
+      });
+
+  }
   render() {
     let element;
     const { messageArr, messageVal } = this.state;
     const backMethod = () => this.props.toggleView('list', {});
     const friendUserName = this.props.view.params.username;
-    // console.log(messageVal);
     if (!messageArr.length) {
       element = <div>No Conversation</div>;
     } else {
@@ -41,9 +66,6 @@ class MessageConversation extends React.Component {
         return <ConversationBubble key={index} messageInfo={element} params={this.props.view.params} currentUserPhoto={this.props.currentUser.photo} friendPhoto={this.props.view.params.photo} />;
       });
     }
-
-    // console.log(this.props.view.params);
-
     return (
       <div className="conversation__container">
         <div className="conversation__container-button">
@@ -52,11 +74,11 @@ class MessageConversation extends React.Component {
             { friendUserName }
           </div>
         </div>
-        <div className="conversation__container-message">
+        <div className="conversation__container-message" id="messageContainer">
           { element }
         </div>
         <div className="conversation__container-input">
-          <form className="conversation__form">
+          <form className="conversation__form" onSubmit={this.handleSubmit}>
             <input value={messageVal} type="text" name="message" className="conversation__input" placeholder="Enter message here" onChange={this.handleChange}/>
             <button type="submit" className="btn message__button"><i className="fas fa-reply"></i></button>
           </form>
