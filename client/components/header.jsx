@@ -59,6 +59,8 @@ class Header extends React.Component {
           leftButton = <button className="btn map__button" onClick={gymView}><i className="fas fa-arrow-left"></i></button>;
         } else if (prevName === 'signup') {
           leftButton = <button className="btn map__button" onClick={homeView}><i className="fas fa-arrow-left"></i></button>;
+        } else if (prevName === 'message') {
+          leftButton = <button className="btn map__button" onClick={homeView}><i className="fas fa-arrow-left"></i></button>;
         }
         break;
       case 'buddy':
