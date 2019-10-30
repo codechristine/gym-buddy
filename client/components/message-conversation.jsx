@@ -21,6 +21,9 @@ class MessageConversation extends React.Component {
   componentDidUpdate() {
     animateScroll.scrollToBottom({ duration: 1000, containerId: 'messageContainer' });
   }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
   scrollToBottom() {
     animateScroll.scrollToBottom({ duration: 1000, containerId: 'messageContainer' });
   }
