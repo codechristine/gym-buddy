@@ -687,6 +687,7 @@ body {
   color: #233567;
 }
 
+
 /**************************************
               GYM USER
 **************************************/
@@ -1253,6 +1254,10 @@ body {
   font-size: 2rem;
   color: #54d39c;
   text-align: center;
+}
+
+.noGym {
+  color: #000000;
 }
 
 .buddy__container-stats {
