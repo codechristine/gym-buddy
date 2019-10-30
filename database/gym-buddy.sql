@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 29, 2019 at 11:53 PM
+-- Generation Time: Oct 29, 2019 at 11:59 PM
 -- Server version: 5.7.27-0ubuntu0.18.04.1
 -- PHP Version: 7.2.19-0ubuntu0.18.04.2
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `friends`
 --
 
+DROP TABLE IF EXISTS `friends`;
 CREATE TABLE `friends` (
   `sender` smallint(6) NOT NULL,
   `receiver` smallint(6) NOT NULL,
@@ -64,6 +65,7 @@ INSERT INTO `friends` (`sender`, `receiver`, `id`) VALUES
 -- Table structure for table `gyms`
 --
 
+DROP TABLE IF EXISTS `gyms`;
 CREATE TABLE `gyms` (
   `id` smallint(6) NOT NULL,
   `name` varchar(200) NOT NULL,
@@ -192,6 +194,7 @@ INSERT INTO `gyms` (`id`, `name`, `placeid`, `lat`, `lng`) VALUES
 -- Table structure for table `messages`
 --
 
+DROP TABLE IF EXISTS `messages`;
 CREATE TABLE `messages` (
   `id` mediumint(8) UNSIGNED NOT NULL,
   `senderid` mediumint(8) UNSIGNED NOT NULL,
@@ -220,6 +223,7 @@ INSERT INTO `messages` (`id`, `senderid`, `receiverid`, `messageval`) VALUES
 -- Table structure for table `schedule`
 --
 
+DROP TABLE IF EXISTS `schedule`;
 CREATE TABLE `schedule` (
   `id` smallint(50) UNSIGNED NOT NULL,
   `username` varchar(100) CHARACTER SET utf8 NOT NULL,
@@ -281,6 +285,7 @@ INSERT INTO `schedule` (`id`, `username`, `day`, `starttime`, `endtime`) VALUES
 -- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` smallint(5) UNSIGNED NOT NULL,
   `username` varchar(20) NOT NULL,
