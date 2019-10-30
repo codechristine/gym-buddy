@@ -83,7 +83,8 @@
   .profile__button,
   .gym__button,
   .buddy__button,
-  .upload__button {
+  .upload__button,
+  .icon__container {
     height: 3.8rem;
     width: 10rem;
     font-size: 2rem;
@@ -114,57 +115,18 @@
   }
 
   .main__view {
-    width: 68%
-  }
-
-  .main {
-    height: 100rem;
+    width: 65%;
   }
 
   .main__body {
-    height: 90rem
+    height: 90rem;
   }
 
-  .map__list {
-    height: 35rem;
-    overflow: scroll;
-    }
-      ::-webkit-scrollbar {
-      width: 10px;
-      background: transparent;
-    }
-      ::-webkit-scrollbar-thumb {
-      background: transparent;
-  }
-
-  .gym__view-info-container {
-    overflow: scroll;
-    }
-      ::-webkit-scrollbar {
-      width: 10px;
-      background: transparent;
-    }
-      ::-webkit-scrollbar-thumb {
-      background: transparent;
-  }
-
-  .gym__view-list {
-    overflow: hidden;
-    }
-        ::-webkit-scrollbar {
-      width: 10px;
-      background: transparent;
-    }
-      ::-webkit-scrollbar-thumb {
-      background: transparent;
+  .main {
+    height: auto;
   }
 
   .profile__container {
-    height: 90rem
-  }
-
-  .profile__container-bottom {
-    height: 35rem;
-    overflow: visable;
+    height: 90rem;
   }
 }
