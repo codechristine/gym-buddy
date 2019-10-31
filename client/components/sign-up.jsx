@@ -38,6 +38,7 @@ class SignUp extends React.Component {
     this.handleScheduleChange = this.handleScheduleChange.bind(this);
     this.insertSchedule = this.insertSchedule.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.resetSchedule = this.resetSchedule.bind(this);
   }
   componentDidUpdate(prevProps, prevState) {
     let sundayFrom, sundayTo, mondayFrom, mondayTo, tuesdayFrom, tuesdayTo,
@@ -48,68 +49,109 @@ class SignUp extends React.Component {
       fetch(`/api/schedule.php?username=${this.props.view.params.userName}`)
         .then(result => result.json())
         .then(result => {
-
           if (result.Sunday.length) {
-            sundayFrom = result.Sunday[0].toString().split('');
-            sundayFrom.splice(sundayFrom.length - 2, 0, ':');
-            sundayFrom = sundayFrom.join('');
-            sundayTo = result.Sunday[1].toString().split('');
-            sundayTo.splice(sundayTo.length - 2, 0, ':');
-            sundayTo = sundayTo.join('');
+            sundayFrom = '0:00';
+            if (result.Sunday[0] !== 0) {
+              sundayFrom = result.Sunday[0].toString().split('');
+              sundayFrom.splice(sundayFrom.length - 2, 0, ':');
+              sundayFrom = sundayFrom.join('');
+            }
+            sundayTo = '0:00';
+            if (result.Sunday[1] !== 0) {
+              sundayTo = result.Sunday[1].toString().split('');
+              sundayTo.splice(sundayTo.length - 2, 0, ':');
+              sundayTo = sundayTo.join('');
+            }
           }
 
           if (result.Monday.length) {
-            mondayFrom = result.Monday[0].toString().split('');
-            mondayFrom.splice(mondayFrom.length - 2, 0, ':');
-            mondayFrom = mondayFrom.join('');
-            mondayTo = result.Monday[1].toString().split('');
-            mondayTo.splice(mondayTo.length - 2, 0, ':');
-            mondayTo = mondayTo.join('');
+            mondayFrom = '0:00';
+            if (result.Monday[0] !== 0) {
+              mondayFrom = result.Monday[0].toString().split('');
+              mondayFrom.splice(mondayFrom.length - 2, 0, ':');
+              mondayFrom = mondayFrom.join('');
+            }
+            mondayTo = '0:00';
+            if (result.Monday[1] !== 0) {
+              mondayTo = result.Monday[1].toString().split('');
+              mondayTo.splice(mondayTo.length - 2, 0, ':');
+              mondayTo = mondayTo.join('');
+            }
           }
 
           if (result.Tuesday.length) {
-            tuesdayFrom = result.Tuesday[0].toString().split('');
-            tuesdayFrom.splice(tuesdayFrom.length - 2, 0, ':');
-            tuesdayFrom = tuesdayFrom.join('');
-            tuesdayTo = result.Tuesday[1].toString().split('');
-            tuesdayTo.splice(tuesdayTo.length - 2, 0, ':');
-            tuesdayTo = tuesdayTo.join('');
+            tuesdayFrom = '0:00';
+            if (result.Tuesday[0] !== 0) {
+              tuesdayFrom = result.Tuesday[0].toString().split('');
+              tuesdayFrom.splice(tuesdayFrom.length - 2, 0, ':');
+              tuesdayFrom = tuesdayFrom.join('');
+            }
+            tuesdayTo = '0:00';
+            if (result.Tuesday[1] !== 0) {
+              tuesdayTo = result.Tuesday[1].toString().split('');
+              tuesdayTo.splice(tuesdayTo.length - 2, 0, ':');
+              tuesdayTo = tuesdayTo.join('');
+            }
           }
 
           if (result.Wednesday.length) {
-            wednesdayFrom = result.Wednesday[0].toString().split('');
-            wednesdayFrom.splice(wednesdayFrom.length - 2, 0, ':');
-            wednesdayFrom = wednesdayFrom.join('');
-            wednesdayTo = result.Wednesday[1].toString().split('');
-            wednesdayTo.splice(wednesdayTo.length - 2, 0, ':');
-            wednesdayTo = wednesdayTo.join('');
+            wednesdayFrom = '0:00';
+            if (result.Wednesday[0] !== 0) {
+              wednesdayFrom = result.Wednesday[0].toString().split('');
+              wednesdayFrom.splice(wednesdayFrom.length - 2, 0, ':');
+              wednesdayFrom = wednesdayFrom.join('');
+            }
+            wednesdayTo = '0:00';
+            if (result.Wednesday[1] !== 0) {
+              wednesdayTo = result.Wednesday[1].toString().split('');
+              wednesdayTo.splice(wednesdayTo.length - 2, 0, ':');
+              wednesdayTo = wednesdayTo.join('');
+            }
           }
 
           if (result.Thursday.length) {
-            thursdayFrom = result.Thursday[0].toString().split('');
-            thursdayFrom.splice(thursdayFrom.length - 2, 0, ':');
-            thursdayFrom = thursdayFrom.join('');
-            thursdayTo = result.Thursday[1].toString().split('');
-            thursdayTo.splice(thursdayTo.length - 2, 0, ':');
-            thursdayTo = thursdayTo.join('');
+            thursdayFrom = '0:00';
+            if (result.Thursday[0] !== 0) {
+              thursdayFrom = result.Thursday[0].toString().split('');
+              thursdayFrom.splice(thursdayFrom.length - 2, 0, ':');
+              thursdayFrom = thursdayFrom.join('');
+            }
+            thursdayTo = '0:00';
+            if (result.Thursday[1] !== 0) {
+              thursdayTo = result.Thursday[1].toString().split('');
+              thursdayTo.splice(thursdayTo.length - 2, 0, ':');
+              thursdayTo = thursdayTo.join('');
+            }
           }
 
           if (result.Friday.length) {
-            fridayFrom = result.Friday[0].toString().split('');
-            fridayFrom.splice(fridayFrom.length - 2, 0, ':');
-            fridayFrom = fridayFrom.join('');
-            fridayTo = result.Friday[1].toString().split('');
-            fridayTo.splice(fridayTo.length - 2, 0, ':');
-            fridayTo = fridayTo.join('');
+            fridayFrom = '0:00';
+            if (result.Friday[0] !== 0) {
+              fridayFrom = result.Friday[0].toString().split('');
+              fridayFrom.splice(fridayFrom.length - 2, 0, ':');
+              fridayFrom = fridayFrom.join('');
+            }
+            fridayTo = '0:00';
+            if (result.Friday[1] !== 0) {
+              fridayTo = result.Friday[1].toString().split('');
+              fridayTo.splice(fridayTo.length - 2, 0, ':');
+              fridayTo = fridayTo.join('');
+            }
           }
 
           if (result.Saturday.length) {
-            saturdayFrom = result.Saturday[0].toString().split('');
-            saturdayFrom.splice(saturdayFrom.length - 2, 0, ':');
-            saturdayFrom = saturdayFrom.join('');
-            saturdayTo = result.Saturday[1].toString().split('');
-            saturdayTo.splice(saturdayTo.length - 2, 0, ':');
-            saturdayTo = saturdayTo.join('');
+            saturdayFrom = '0:00';
+            if (result.Saturday[0] !== 0) {
+              saturdayFrom = result.Saturday[0].toString().split('');
+              saturdayFrom.splice(saturdayFrom.length - 2, 0, ':');
+              saturdayFrom = saturdayFrom.join('');
+            }
+            saturdayTo = '0:00';
+            if (result.Saturday[1] !== 0) {
+              saturdayTo = result.Saturday[1].toString().split('');
+              saturdayTo.splice(saturdayTo.length - 2, 0, ':');
+              saturdayTo = saturdayTo.join('');
+            }
           }
 
           this.setState({
@@ -190,7 +232,6 @@ class SignUp extends React.Component {
 
   handleScheduleChange(time, stateName) {
     if (time) {
-      // const newTime = time.split(':')[0];
       switch (stateName) {
         case 'sundayFrom':
           this.setState({ sundayFrom: time });
@@ -259,6 +300,32 @@ class SignUp extends React.Component {
       .then(result => {
         return result;
       });
+  }
+
+  resetSchedule(name) {
+    switch (name) {
+      case 'sunday':
+        this.setState({ sundayFrom: '', sundayTo: '' });
+        break;
+      case 'monday':
+        this.setState({ mondayFrom: '', mondayTo: '' });
+        break;
+      case 'tuesday':
+        this.setState({ tuesdayFrom: '', tuesdayTo: '' });
+        break;
+      case 'wednesday':
+        this.setState({ wednesdayFrom: '', wednesdayTo: '' });
+        break;
+      case 'thursday':
+        this.setState({ thursdayFrom: '', thursdayTo: '' });
+        break;
+      case 'friday':
+        this.setState({ fridayFrom: '', fridayTo: '' });
+        break;
+      case 'saturday':
+        this.setState({ saturdayFrom: '', saturdayTo: '' });
+        break;
+    }
   }
 
   createUser(userObj) {
@@ -420,7 +487,8 @@ class SignUp extends React.Component {
       mondayFrom, mondayTo, tuesdayFrom, tuesdayTo, wednesdayFrom,
       wednesdayTo, thursdayFrom, thursdayTo, fridayFrom, fridayTo,
       saturdayFrom, saturdayTo, isEdit } = this.state;
-    let errorMessage, buttonName, submitMethod;
+    let errorMessage, buttonName, submitMethod, sundayReset, mondayReset, tuesdayReset,
+      wednesdayReset, thursdayReset, fridayReset, saturdayReset;
     const sundayFromMethod = value => this.handleScheduleChange(value, 'sundayFrom');
     const sundayToMethod = value => this.handleScheduleChange(value, 'sundayTo');
     const mondayFromMethod = value => this.handleScheduleChange(value, 'mondayFrom');
@@ -440,6 +508,13 @@ class SignUp extends React.Component {
     }
 
     if (isEdit) {
+      sundayReset = () => this.resetSchedule('sunday');
+      mondayReset = () => this.resetSchedule('monday');
+      tuesdayReset = () => this.resetSchedule('tuesday');
+      wednesdayReset = () => this.resetSchedule('wednesday');
+      thursdayReset = () => this.resetSchedule('thursday');
+      fridayReset = () => this.resetSchedule('friday');
+      saturdayReset = () => this.resetSchedule('saturday');
       buttonName = 'Update';
       submitMethod = this.handleEdit;
     } else {
@@ -555,37 +630,37 @@ class SignUp extends React.Component {
                 </div>
               </div>
               <div className="stats__block">
-                <div className="stats__block-title">Sunday</div>
+                <div className="stats__block-title" onClick={sundayReset}>Sunday</div>
                 <TimePicker hourPlaceholder="From" value={sundayFrom} onChange={sundayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
                 <TimePicker hourPlaceholder="To" value={sundayTo} onChange={sundayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
               </div>
               <div className="stats__block">
-                <div className="stats__block-title">Monday</div>
+                <div className="stats__block-title" onClick={mondayReset}>Monday</div>
                 <TimePicker hourPlaceholder="From" value={mondayFrom} onChange={mondayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
                 <TimePicker hourPlaceholder="To" value={mondayTo} onChange={mondayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
               </div>
               <div className="stats__block">
-                <div className="stats__block-title">Tuesday</div>
+                <div className="stats__block-title" onClick={tuesdayReset}>Tuesday</div>
                 <TimePicker hourPlaceholder="From" value={tuesdayFrom} onChange={tuesdayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
                 <TimePicker hourPlaceholder="To" value={tuesdayTo} onChange={tuesdayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
               </div>
               <div className="stats__block">
-                <div className="stats__block-title">Wednesday</div>
+                <div className="stats__block-title" onClick={wednesdayReset}>Wednesday</div>
                 <TimePicker hourPlaceholder="From" value={wednesdayFrom} onChange={wednesdayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
                 <TimePicker hourPlaceholder="To" value={wednesdayTo} onChange={wednesdayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
               </div>
               <div className="stats__block">
-                <div className="stats__block-title">Thursday</div>
+                <div className="stats__block-title" onClick={thursdayReset}>Thursday</div>
                 <TimePicker hourPlaceholder="From" value={thursdayFrom} onChange={thursdayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
                 <TimePicker hourPlaceholder="To" value={thursdayTo} onChange={thursdayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
               </div>
               <div className="stats__block">
-                <div className="stats__block-title">Friday</div>
+                <div className="stats__block-title" onClick={fridayReset}>Friday</div>
                 <TimePicker hourPlaceholder="From" value={fridayFrom} onChange={fridayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
                 <TimePicker hourPlaceholder="To" value={fridayTo} onChange={fridayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
               </div>
               <div className="stats__block">
-                <div className="stats__block-title">Saturday</div>
+                <div className="stats__block-title" onClick={saturdayReset}>Saturday</div>
                 <TimePicker hourPlaceholder="From" value={saturdayFrom} onChange={saturdayFromMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
                 <TimePicker hourPlaceholder="To" value={saturdayTo} onChange={saturdayToMethod} className="time__block-options" clearIcon={null} clockIcon={null} maxDetail="hour" disableClock={true} />
               </div>
