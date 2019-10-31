@@ -236,10 +236,13 @@ body {
 .map__list {
   height: 37.5%;
   width: 100%;
-  overflow: scroll;
+  overflow-y: auto;
   background-color: rgb(255, 255, 255, 0.9);
   border: 2px solid #111D2D;
   border-radius: 5px;
+}
+  ::-webkit-scrollbar {
+  display: none;
 }
  /* ::-webkit-scrollbar {
       width: 2px;
@@ -373,13 +376,9 @@ body {
   border: 2px solid #111D2D;
   background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
 }
-  /* ::-webkit-scrollbar {
-    width: 2px;
-    background: transparent;
-    }
-  ::-webkit-scrollbar-thumb {
-    background: #4F667C;
-  } */
+  ::-webkit-scrollbar {
+  display: none;
+}
 
 .profile__status {
   height: 5%;
@@ -1079,13 +1078,9 @@ body {
   font-size: 1.5rem;
   overflow: scroll;
 }
-  /* ::-webkit-scrollbar {
-    width: 2px;
-    background: transparent;
-    }
-  ::-webkit-scrollbar-thumb {
-    background: #4F667C;
-  } */
+  ::-webkit-scrollbar {
+  display: none;
+}
 
 .gym__view-name {
   width: 80%;
@@ -1133,13 +1128,9 @@ body {
   background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
   overflow: scroll;
 }
-  /* ::-webkit-scrollbar {
-      width: 2px;
-      background: transparent;
-    }
-  ::-webkit-scrollbar-thumb {
-    background: #4F667C;
-  } */
+  ::-webkit-scrollbar {
+  display: none;
+}
 
 .gym__view-rating-container {
   width: 100%;
