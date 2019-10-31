@@ -8,8 +8,15 @@ class MessageList extends React.Component {
     this.state = {
       messageArr: []
     };
+    this.interval = null;
   }
   componentDidMount() {
+    this.getAllMessages();
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+  getAllMessages() {
     fetch(`/api/message.php?userId=${this.props.currentUser.id}`)
       .then(result => result.json())
       .then(result => {
@@ -30,6 +37,11 @@ class MessageList extends React.Component {
         return <MessageOverview key={index} friendInfo={element} toggleView={this.toggleView} setView={this.props.setView}/>;
       });
     }
+
+    clearInterval(this.interval);
+    this.interval = setInterval(() => {
+      this.getAllMessages();
+    }, 5000);
 
     return (
       <div className="main__container">
