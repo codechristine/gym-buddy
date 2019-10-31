@@ -874,6 +874,10 @@ body {
   background-color: #d84c00;
 }
 
+.profile__button:focus {
+  transform: scale(1);
+}
+
 .gym__button-filter {
   height: 2rem;
   width: 6rem;
