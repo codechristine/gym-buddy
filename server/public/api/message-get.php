@@ -2,7 +2,7 @@
 
 $userId = $_GET['userId'];
 
-$query = " SELECT m.receiverid AS currentUserId, m.senderid as friendId, u.username, u.photo, GROUP_CONCAT(messageval) as totalMessage, MAX(m.id) as maxId
+$query = " SELECT m.receiverid AS currentUserId, m.senderid as friendId, u.username, u.photo, GROUP_CONCAT(messageval ORDER BY m.id) as totalMessage, MAX(m.id) as maxId
           FROM `messages` as m
           LEFT JOIN (SELECT * FROM `user`) as u
           ON m.senderid = u.id
