@@ -242,28 +242,6 @@ class SignUp extends React.Component {
     this.containerRef.current.scrollTop = 0;
     this.setState({
       userName: ''
-      // firstName: '',
-      // lastName: '',
-      // age: '',
-      // weightLifting: '',
-      // cardio: '',
-      // yoga: '',
-      // bodyBuilding: '',
-      // swimming: '',
-      // sundayFrom: '',
-      // sundayTo: '',
-      // mondayFrom: '',
-      // mondayTo: '',
-      // tuesdayFrom: '',
-      // tuesdayTo: '',
-      // wednesdayFrom: '',
-      // wednesdayTo: '',
-      // thursdayFrom: '',
-      // thursdayTo: '',
-      // fridayFrom: '',
-      // fridayTo: '',
-      // saturdayFrom: '',
-      // saturdayTo: ''
     });
   }
 
@@ -480,7 +458,7 @@ class SignUp extends React.Component {
               </div>
               <div className="signup__block">
                 <h2 className="signup__block-name">Username</h2>
-                <input value={userName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="Username" maxLength="14" required />
+                <input value={userName} type="text" onChange={this.handleChange} className="signup__block-input" placeholder="Username" maxLength="12" required />
               </div>
               <div className="signup__error">{errorMessage}</div>
               <div className="signup__block">
