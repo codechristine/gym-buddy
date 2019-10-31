@@ -16,11 +16,13 @@
   $swimming = $rawdata["swimming"];
   $id = $rawdata["id"];
   $prevname = $rawdata["prevname"];
+  $lowerCasePrevName = strtolower($prevname);
   $cleanUserName = str_replace("'","\'", $user_name);
+  $lowerCaseUserName = strtolower($cleanUserName);
   $cleanFirstName = str_replace("'","\'", $first_name);
   $cleanLastName = str_replace("'","\'", $last_name);
 
-  $query = "SELECT * FROM `user` WHERE `username` = '$cleanUserName' ";
+  $query = "SELECT * FROM `user` WHERE `username` = '$lowerCaseUserName' ";
   $editQuery = "UPDATE `user`
                   SET `username` = '$cleanUserName',
                       `firstname` = '$cleanFirstName',
@@ -38,7 +40,7 @@
   $num_rows = mysqli_num_rows($result);
   $editResult = mysqli_query($conn, $editQuery);
 
-  if ($prevname === $user_name) {
+  if ($lowerCasePrevName === $lowerCaseUserName) {
     if(!$editResult) {
       throw new Exception( 'Edit was not successful');
     } else {
