@@ -126,15 +126,16 @@ class Profile extends React.Component {
       photo = 'https://static.thenounproject.com/png/538846-200.png';
     }
 
-    if (statusResponse.success) {
-      statusMessage = statusResponse.success;
-      statusClass = 'success';
+    if (statusResponse) {
+      if (statusResponse.success) {
+        statusMessage = statusResponse.success;
+        statusClass = 'success';
+      } else if (statusResponse.error) {
+        statusMessage = statusResponse.error;
+        statusClass = 'error';
+      }
     }
 
-    if (statusResponse.error) {
-      statusMessage = statusResponse.error;
-      statusClass = 'error';
-    }
     return (
       <div className="main__container">
         <Header name={this.props.view.name} prevName={this.props.view.prevName} setView={this.props.setView} currentUser={this.props.currentUser} placeObject={this.props.view.params}/>

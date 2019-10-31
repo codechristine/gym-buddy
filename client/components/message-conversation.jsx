@@ -18,8 +18,10 @@ class MessageConversation extends React.Component {
     this.getAllMessages();
     this.scrollToBottom();
   }
-  componentDidUpdate() {
-    animateScroll.scrollToBottom({ duration: 1000, containerId: 'messageContainer' });
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.messageArr.length < this.state.messageArr.length) {
+      this.scrollToBottom();
+    }
   }
   componentWillUnmount() {
     clearInterval(this.interval);
