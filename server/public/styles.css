@@ -34,7 +34,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-image: linear-gradient(to bottom ,rgba(251, 193, 188) 70%, rgba(255, 255, 255)); */
   background-image: linear-gradient(to bottom right, #4F667C 50%, #111D2D 50%);
   clip: polygon(0 60%, 0 100%, 100% 100%, 100% 12%);
 }
@@ -164,10 +163,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .main__view:focus {
   outline: none;
+  transform: scale(0.9);
 }
 
 .main__search-container {
@@ -258,6 +260,7 @@ body {
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid #4F667C;
+  cursor: pointer;
 }
 
 .map__list-photo {
@@ -348,6 +351,7 @@ body {
   font-size: 3rem;
   color: #54d39c;
   text-align: center;
+  cursor: pointer;
 }
 
 .profile__buttons-top,
@@ -655,6 +659,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
 }
 
 .buddy__card-picture {
@@ -828,10 +833,17 @@ body {
   border-radius: 2.5rem;
   background-color: #d84c00;
   color: #fff;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 .btn:focus {
   outline: none;
+  transform: scale(0.9);
 }
 
 .main__button,
@@ -1438,6 +1450,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
 }
 
 .message__photo {
