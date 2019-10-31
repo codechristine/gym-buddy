@@ -16,12 +16,15 @@
   $swimming = $rawdata["swimming"];
   $id = $rawdata["id"];
   $prevname = $rawdata["prevname"];
+  $cleanUserName = str_replace("'","\'", $user_name);
+  $cleanFirstName = str_replace("'","\'", $first_name);
+  $cleanLastName = str_replace("'","\'", $last_name);
 
-  $query = "SELECT * FROM `user` WHERE `username` = '$user_name' ";
+  $query = "SELECT * FROM `user` WHERE `username` = '$cleanUserName' ";
   $editQuery = "UPDATE `user`
-                  SET `username` = '$user_name',
-                      `firstname` = '$first_name',
-                      `lastname` = '$last_name',
+                  SET `username` = '$cleanUserName',
+                      `firstname` = '$cleanFirstName',
+                      `lastname` = '$cleanLastName',
                       `age` = '$age',
                       `weightlifting` = '$weightlifting',
                       `cardio` = '$cardio',
