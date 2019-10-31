@@ -10,7 +10,8 @@ export default class GymView extends React.Component {
       placeObject: null,
       gymListArr: [],
       filterCategory: null,
-      filterValue: null
+      filterValue: null,
+      inFilter: false
     };
     this.insertGymData = this.insertGymData.bind(this);
     this.removeGymData = this.removeGymData.bind(this);
@@ -86,12 +87,13 @@ export default class GymView extends React.Component {
       .then(result => result.json())
       .then(result => {
         this.setState({
-          gymListArr: result
+          gymListArr: result,
+          inFilter: true
         });
       });
   }
   render() {
-    const { placeObject, gymListArr } = this.state;
+    const { placeObject, gymListArr, inFilter } = this.state;
     const isLoggedIn = this.props.isLoggedIn;
     const signUp = () => this.props.setView('signup', 'home', {});
     const logIn = () => this.props.setView('login', 'home', {});
@@ -101,34 +103,40 @@ export default class GymView extends React.Component {
 
     if (isLoggedIn) {
       button = <button className="btn gym__button set" onClick={() => { this.insertGymData(); }}>Set Gym</button>;
+
       if (placeObject && this.props.currentUser.gymid === placeObject.place_id) {
         button = <button className="btn gym__button remove" onClick={() => { this.removeGymData(); }}>Remove</button>;
       }
+
+      const filterForm =
+      <form className="gym__view-filter" onSubmit={this.handleSubmit}>
+        <select name="category" onChange={this.handleChange} >
+          <option value="">Category</option>
+          <option value="weightlifting">Weight Lifting</option>
+          <option value="cardio">Cardio</option>
+          <option value="yoga">Yoga</option>
+          <option value="bodybuilding">Body Building</option>
+          <option value="swimming">Swimming</option>
+        </select>
+        <select name="value" onChange={this.handleChange} >
+          <option value="">Skill</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">intermediate</option>
+          <option value="expert">Expert</option>
+        </select>
+        <button className="btn gym__button-filter" type="submit">Filter</button>
+      </form>;
 
       if (!gymListArr.length) {
         element = <div className="buddy__none">
           <img src="https://cdn4.iconfinder.com/data/icons/faces-10/96/sadness-512.png" alt="no friends" className="buddy__card-photo" />
           <div className="gym__view-message">No Gym Buddy Users</div>
         </div>;
+        if (inFilter) {
+          filterElement = filterForm;
+        }
       } else {
-        filterElement =
-          <form className="gym__view-filter" onSubmit={this.handleSubmit}>
-            <select name="category" onChange={this.handleChange} >
-              <option value="">Category</option>
-              <option value="weightlifting">Weight Lifting</option>
-              <option value="cardio">Cardio</option>
-              <option value="yoga">Yoga</option>
-              <option value="bodybuilding">Body Building</option>
-              <option value="swimming">Swimming</option>
-            </select>
-            <select name="value" onChange={this.handleChange} >
-              <option value="">Skill</option>
-              <option value="beginner">Beginner</option>
-              <option value="intermediate">intermediate</option>
-              <option value="expert">Expert</option>
-            </select>
-            <button className="btn gym__button-filter" type="submit">Filter</button>
-          </form>;
+        filterElement = filterForm;
         element = gymListArr.map(element => {
           const placeObject = this.props.view.params;
           const setViewMethod = () => this.props.setView('buddy', 'gym', { element, placeObject });
