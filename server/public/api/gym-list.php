@@ -1,8 +1,8 @@
 <?php
   require_once('functions.php');
+  set_exception_handler('error_handler');
   require_once('db-connection.php');
   startup();
-  set_exception_handler('error_handler');
 
   $gymID = $_GET['placeId'];
   $userName = $_GET['userName'];
