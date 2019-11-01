@@ -1,7 +1,7 @@
 <?php
 require_once('functions.php');
-require_once('db-connection.php');
 set_exception_handler('error_handler');
+require_once('db-connection.php');
 
 $userName = $_POST["userName"];
 $photo = $_FILES["photo"];
