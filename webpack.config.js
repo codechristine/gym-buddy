@@ -24,13 +24,6 @@ module.exports = {
             ]
           }
         }
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
       }
     ]
   },
@@ -46,7 +39,7 @@ module.exports = {
       '/api': {
         target: 'http://localhost',
         headers: {
-          Host: 'gym-buddy.localhost'
+          Host: 'wicked-sales.localhost'
         }
       }
     }
