@@ -244,13 +244,6 @@ body {
   ::-webkit-scrollbar {
   display: none;
 }
- /* ::-webkit-scrollbar {
-      width: 2px;
-      background: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-    background: #4F667C;
-  } */
 
 .map__list-item {
   height: 9.25rem;
@@ -980,32 +973,6 @@ body {
 /**************************************
               ANIMATION
 **************************************/
-
-@keyframes swipeRight {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes swipeLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.swipeRight {
-  animation: swipeRight 0.5s ease;
-}
-
-.swipeLeft {
-  animation: swipeLeft 0.5s ease;
-}
 
 .lds-ring {
   display: inline-block;
