@@ -25,29 +25,29 @@
     ];
 
     while($row = mysqli_fetch_assoc($result)){
-            $pizza = $row["schedule"];
-            $pieces = array_map('intval', explode(' ', $pizza));
+            $scheduleDay = $row["schedule"];
+            $scheduleVal = array_map('intval', explode(' ', $scheduleDay));
         switch($row["week_day"]){
             case $row["week_day"] === "Sunday":
-                $output[$row["week_day"]] = $pieces = array_map('intval', explode(' ', $pizza));
+                $output[$row["week_day"]] = $scheduleVal = array_map('intval', explode(' ', $scheduleDay));
                 break;
             case $row["week_day"] === "Monday":
-                $output[$row["week_day"]] = $pieces = array_map('intval', explode(' ', $pizza));
+                $output[$row["week_day"]] = $scheduleVal = array_map('intval', explode(' ', $scheduleDay));
                 break;
             case $row["week_day"] === "Tuesday":
-                $output[$row["week_day"]] = $pieces = array_map('intval', explode(' ', $pizza));
+                $output[$row["week_day"]] = $scheduleVal = array_map('intval', explode(' ', $scheduleDay));
                 break;
             case $row["week_day"] === "Wednesday":
-                $output[$row["week_day"]] = $pieces = array_map('intval', explode(' ', $pizza));
+                $output[$row["week_day"]] = $scheduleVal = array_map('intval', explode(' ', $scheduleDay));
                 break;
             case $row["week_day"] === "Thursday":
-                $output[$row["week_day"]] = $pieces = array_map('intval', explode(' ', $pizza));
+                $output[$row["week_day"]] = $scheduleVal = array_map('intval', explode(' ', $scheduleDay));
                 break;
             case $row["week_day"] === "Friday":
-                $output[$row["week_day"]] = $pieces = array_map('intval', explode(' ', $pizza));
+                $output[$row["week_day"]] = $scheduleVal = array_map('intval', explode(' ', $scheduleDay));
                 break;
             case $row["week_day"] === "Saturday":
-                $output[$row["week_day"]] = $pieces = array_map('intval', explode(' ', $pizza));
+                $output[$row["week_day"]] = $scheduleVal = array_map('intval', explode(' ', $scheduleDay));
                 break;
         }
     }
