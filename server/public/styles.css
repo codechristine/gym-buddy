@@ -1,11 +1,6 @@
 /**************************************
-              FONTS
+            HTML / BODY
 **************************************/
-
-/*
-font-family: 'Playfair Display', serif;
-font-family: 'Source Sans Pro', sans-serif;
-*/
 
 *,
 *::after,
@@ -23,6 +18,10 @@ html {
 
 body {
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 /**************************************
@@ -241,9 +240,7 @@ body {
   border: 2px solid #111D2D;
   border-radius: 5px;
 }
-  ::-webkit-scrollbar {
-  display: none;
-}
+
 
 .map__list-item {
   height: 9.25rem;
@@ -369,9 +366,7 @@ body {
   border: 2px solid #111D2D;
   background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
 }
-  ::-webkit-scrollbar {
-  display: none;
-}
+
 
 .profile__status {
   height: 5%;
@@ -1049,9 +1044,6 @@ body {
   font-size: 1.5rem;
   overflow: scroll;
 }
-  ::-webkit-scrollbar {
-  display: none;
-}
 
 .gym__view-name {
   width: 80%;
@@ -1098,9 +1090,6 @@ body {
   border-radius: 5px;
   background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
   overflow: scroll;
-}
-  ::-webkit-scrollbar {
-  display: none;
 }
 
 .gym__view-rating-container {
