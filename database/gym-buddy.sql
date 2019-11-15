@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 29, 2019 at 11:59 PM
+-- Generation Time: Nov 15, 2019 at 09:46 PM
 -- Server version: 5.7.27-0ubuntu0.18.04.1
 -- PHP Version: 7.2.19-0ubuntu0.18.04.2
 
@@ -44,20 +44,46 @@ INSERT INTO `friends` (`sender`, `receiver`, `id`) VALUES
 (3, 6, 44),
 (7, 2, 65),
 (2, 7, 66),
-(1, 3, 79),
-(3, 1, 80),
-(1, 2, 81),
-(2, 1, 82),
-(16, 1, 85),
-(1, 16, 86),
 (15, 16, 87),
 (16, 15, 88),
-(1, 15, 89),
-(15, 1, 90),
 (5, 3, 91),
 (3, 5, 92),
-(22, 1, 97),
-(1, 22, 98);
+(8, 1, 101),
+(1, 8, 102),
+(1, 3, 133),
+(3, 1, 134),
+(7, 5, 183),
+(5, 7, 184),
+(1, 22, 195),
+(22, 1, 196),
+(34, 3, 219),
+(3, 34, 220),
+(1, 6, 227),
+(6, 1, 228),
+(36, 35, 233),
+(35, 36, 234),
+(5, 36, 235),
+(36, 5, 236),
+(5, 35, 237),
+(35, 5, 238),
+(1, 17, 239),
+(17, 1, 240),
+(1, 34, 245),
+(34, 1, 246),
+(1, 2, 247),
+(2, 1, 248),
+(12, 9, 251),
+(9, 12, 252),
+(1, 10, 253),
+(10, 1, 254),
+(1, 5, 255),
+(5, 1, 256),
+(1, 42, 267),
+(42, 1, 268),
+(42, 7, 273),
+(7, 42, 274),
+(42, 28, 275),
+(28, 42, 276);
 
 -- --------------------------------------------------------
 
@@ -186,7 +212,27 @@ INSERT INTO `gyms` (`id`, `name`, `placeid`, `lat`, `lng`) VALUES
 (105, 'Wild Card Boxing', 'ChIJayJxQjS_woARpOduEu6eJRM', 34.0915087, -118.327339),
 (106, '24 Hour Fitness', 'ChIJe30U6qzAwoARFTDe5iSaxzQ', 34.0971612, -118.3285021),
 (107, 'Love for Pilates - Hollywood', 'ChIJh-jeuza_woARK-XRlfEBPvk', 34.094004, -118.327673),
-(108, 'Pilates Art Center', 'ChIJMR9XBfO3woARpHRJLDdv89I', 34.083152, -118.3284448);
+(108, 'Pilates Art Center', 'ChIJMR9XBfO3woARpHRJLDdv89I', 34.083152, -118.3284448),
+(109, 'UFC GYM Garden Grove', 'ChIJvXRQXALY3IARZeDKcU6DTFY', 33.7776622, -117.9170965),
+(110, 'Subfighter MMA', 'ChIJexrcbGPo3IARZwlMRWcWRho', 33.6237798, -117.723688),
+(111, 'ProConnic Natural Health', 'ChIJ5UhAoV3p3IARybhL0O670iY', 33.6229496, -117.7235645),
+(112, 'OC CryoCare', 'ChIJY2H312Lo3IAR65o5zgauyfo', 33.622036, -117.724891),
+(113, 'Russ Miura Jiu Jitsu - Next Generation OC', 'ChIJ57Sd52Lo3IARqIKIF9I0uBw', 33.62178, -117.7240799),
+(114, 'Hard Core Fitness Studio', 'ChIJnSbWZGbo3IARRTvIjuW5N2w', 33.6296171, -117.7192395),
+(115, 'Maddy Lifts Fitness & Nutrition', 'ChIJlaYuXeYn3YARIuEaiVq_EUQ', 33.697877, -117.9986746),
+(116, 'The Camp Transformation Center - Huntington Beach', 'ChIJKSF21eom3YARdLGR77LeVto', 33.6973983, -118.0012338),
+(117, 'Red Wolf CrossFit', 'ChIJ13rSRZQm3YAR9TD128-UjFY', 33.7005763, -117.9992406),
+(118, 'Transformation Camp HB', 'ChIJGx2BlFUn3YAR6N8FjJ4C67M', 33.7091379, -117.9999727),
+(119, 'HB Pilates & Fitness', 'ChIJqz2K4k0h3YARDch3YgsRphI', 33.6999917, -118.0077825),
+(120, 'OC Fit Boot Camp Personal Trainer Huntington Beach', 'ChIJR-4I9pUm3YARSPxep7cSq6Q', 33.6968336, -118.0009756),
+(121, 'Human Movement Lab', 'ChIJYWCaYo0m3YARdePioSK226M', 33.7077852, -117.9972571),
+(122, 'United Studios of Self Defense Huntington Beach', 'ChIJARyD54km3YARlvESBqT18fk', 33.7160787, -118.0024061),
+(123, 'Hardcore Fitness Huntington Beach', 'ChIJo6CK1ykn3YARNMclQd99HXk', 33.7053304, -117.9950606),
+(124, 'Flow Water Yoga Life', 'ChIJFWrJqJgn3YARZc38MRZPL14', 33.7027803, -117.9895279),
+(125, 'OPTIMUM CrossFit', 'ChIJFaFVjIcm3YAR39_zSWCZ8zQ', 33.714803, -118.008552),
+(126, 'Align Fitness By Allie', 'ChIJLd69wW4g3YAR4C_Ah0DCUnQ', 33.701873, -117.98979),
+(127, 'Tribe Strength', 'ChIJn3COxKcn3YAR2AHL_l9HGhE', 33.715695, -118.0095135),
+(128, 'Fighter Girls', 'ChIJvXyu0mjo3IARZ4cGCzGpD_w', 33.6327337, -117.7193475);
 
 -- --------------------------------------------------------
 
@@ -214,8 +260,76 @@ INSERT INTO `messages` (`id`, `senderid`, `receiverid`, `messageval`) VALUES
 (5, 2, 3, 'Hello, Im looking for someone to workout with! '),
 (6, 3, 1, 'Hello?'),
 (7, 2, 1, 'Hello Do you still use this app?'),
-(8, 4, 1, 'Haha I hope this works'),
-(9, 5, 1, 'Dont reply to this, its a test');
+(9, 5, 1, 'Dont reply to this, its a test'),
+(10, 1, 5, 'Hey!'),
+(11, 1, 5, 'Hello Again'),
+(12, 1, 5, 'Hello Again'),
+(41, 1, 5, 'Test'),
+(42, 1, 5, 'Hello'),
+(43, 1, 5, 'Whats going on bro haha'),
+(44, 1, 5, 'Testing'),
+(45, 1, 5, 'Testing'),
+(46, 1, 5, 'test'),
+(47, 1, 5, 'tes'),
+(48, 1, 5, 'tes'),
+(49, 1, 5, 'tset'),
+(50, 2, 1, 'I want to check to see if the order of messages update'),
+(51, 1, 3, 'Testing'),
+(55, 1, 16, 'Hello!'),
+(56, 16, 1, 'Hey there'),
+(57, 8, 1, 'Yo whats up bro'),
+(58, 1, 8, 'Hey Dan can I get a CSS question'),
+(60, 1, 8, 'Thanks'),
+(61, 1, 8, 'Whats going on Dan'),
+(62, 8, 1, 'Hey Aaron, youre not good'),
+(63, 1, 8, 'Thanks Dan'),
+(64, 1, 8, 'Sup Dan'),
+(65, 3, 1, 'Yo aaron, this app is tight son'),
+(66, 1, 3, 'Thanks Jan, you the OG'),
+(67, 8, 1, 'Hello Aaron'),
+(68, 8, 1, 'How are you doing'),
+(69, 1, 5, 'Another Test bro'),
+(70, 7, 5, 'Hey Tony'),
+(71, 1, 7, 'Hello Chump Supreme'),
+(73, 6, 1, 'Hello Aaron! I want to get stronger at benching and I saw that you workout on most weekdays, I was w'),
+(74, 6, 1, 'Hello again Aaron, just checking again to see how many letters I can fit in this dialogue box before it actually overflo'),
+(81, 1, 22, 'Hello'),
+(82, 1, 6, 'Hey Tarun, wanna grab costco after we workout today?'),
+(83, 6, 1, 'Yea sure'),
+(84, 6, 1, 'You\'re getting this live right'),
+(85, 1, 10, 'Hey Dan hows it going'),
+(86, 1, 17, 'yoooo'),
+(87, 17, 1, 'Hello Aaron'),
+(88, 6, 1, 'I hope you are'),
+(89, 1, 8, 'Wait, this is Adison now'),
+(90, 1, 8, 'Hey Adison can I get a css question'),
+(91, 1, 3, 'I mean richard'),
+(92, 1, 2, 'Yes it works bro'),
+(93, 8, 1, 'Sure thing bud'),
+(94, 8, 1, 'Isnt this messaging sick'),
+(95, 8, 1, 'this messaging is live'),
+(96, 6, 1, 'Bro you owe me Costco hotdogs, dont forget'),
+(97, 6, 1, 'Im cool with a pizza too'),
+(98, 1, 6, 'You got it bro, but also I carried you in BP so I think we should be even'),
+(99, 1, 34, 'yo whats up willy, I didnt know you went to this gym'),
+(100, 34, 1, 'yea bro just started, I even got the membership with free towels'),
+(101, 12, 9, 'Hey Jan, Im in yo DMs'),
+(102, 9, 12, 'Yoooooo its lit'),
+(103, 12, 9, 'This it lit!'),
+(104, 1, 10, 'Hey Dan can I get some css questions'),
+(105, 10, 1, 'No.'),
+(106, 6, 1, 'Nah bro I carried you'),
+(107, 1, 6, 'No you didnt'),
+(108, 6, 1, 'But I did'),
+(109, 1, 40, 'Hello!'),
+(110, 1, 8, 'Its dope!'),
+(111, 1, 8, 'haha'),
+(112, 1, 42, 'We made this app!'),
+(113, 7, 42, 'We made this app!'),
+(114, 28, 42, 'We made this app!'),
+(115, 42, 1, 'Nice!'),
+(116, 42, 1, 'Lets go!'),
+(117, 42, 7, 'Nice!');
 
 -- --------------------------------------------------------
 
@@ -237,11 +351,6 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`id`, `username`, `day`, `starttime`, `endtime`) VALUES
-(1, 'AyyAyyRonn', 'Thursday', 700, 900),
-(2, 'AyyAyyRonn', 'Wednesday', 700, 900),
-(3, 'AyyAyyRonn', 'Tuesday', 700, 900),
-(4, 'AyyAyyRonn', 'Monday', 700, 900),
-(5, 'AyyAyyRonn', 'Friday', 700, 900),
 (6, 'Mphaaan', 'Monday', 2000, 800),
 (7, 'Mphaaan', 'Sunday', 800, 1500),
 (8, 'Mphaaan', 'Saturday', 800, 1500),
@@ -252,32 +361,82 @@ INSERT INTO `schedule` (`id`, `username`, `day`, `starttime`, `endtime`) VALUES
 (20, 'ScheduleFinal', 'Thursday', 800, 1000),
 (21, 'ScheduleFinal', 'Saturday', 1000, 1400),
 (22, 'ScheduleFinal', 'Friday', 600, 800),
-(41, 'CorgiChristine', 'Wednesday', 800, 900),
-(42, 'CorgiChristine', 'Monday', 1000, 1200),
-(43, 'CorgiChristine', 'Tuesday', 700, 800),
-(44, 'CorgiChristine', 'Sunday', 0, 600),
-(45, 'CorgiChristine', 'Thursday', 1000, 1200),
-(46, 'CorgiChristine', 'Saturday', 1000, 1200),
-(47, 'CorgiChristine', 'Friday', 1000, 1200),
-(48, 'Tester2', 'Sunday', 1000, 1200),
 (50, 'DanTheMan2', 'Tuesday', 1800, 2200),
 (51, 'DanTheMan2', 'Thursday', 1800, 2200),
 (52, 'DanTheMan2', 'Friday', 1800, 2200),
 (53, 'DanTheMan2', 'Monday', 1800, 2200),
 (54, 'DanTheMan2', 'Wednesday', 1800, 2200),
-(62, 'ligmaass', 'Monday', 100, 200),
-(63, 'ligmaass', 'Sunday', 100, 200),
-(64, 'ligmaass', 'Thursday', 100, 200),
-(65, 'ligmaass', 'Tuesday', 100, 200),
-(66, 'ligmaass', 'Wednesday', 100, 200),
-(67, 'ligmaass', 'Friday', 100, 200),
-(68, 'ligmaass', 'Saturday', 100, 200),
-(69, 'SunnyDayss', 'Thursday', 700, 1000),
-(70, 'SunnyDayss', 'Wednesday', 700, 1000),
-(71, 'SunnyDayss', 'Tuesday', 700, 1000),
-(72, 'SunnyDayss', 'Monday', 700, 1000),
-(73, 'SunnyDayss', 'Friday', 700, 1000),
-(74, 'Tester', 'Sunday', 800, 1000);
+(96, 'TonyDaTester', 'Sunday', 800, 1000),
+(104, 'ligmaass', 'Monday', 100, 200),
+(105, 'ligmaass', 'Sunday', 100, 200),
+(106, 'ligmaass', 'Tuesday', 100, 200),
+(107, 'ligmaass', 'Thursday', 100, 200),
+(108, 'ligmaass', 'Wednesday', 100, 200),
+(109, 'ligmaass', 'Saturday', 100, 200),
+(110, 'ligmaass', 'Friday', 100, 200),
+(111, 'rjaytea', 'Wednesday', 1800, 2200),
+(112, 'rjaytea', 'Sunday', 1000, 2200),
+(113, 'rjaytea', 'Saturday', 1000, 2200),
+(119, 'HitmonWillee', 'Thursday', 800, 1000),
+(120, 'HitmonWillee', 'Monday', 700, 800),
+(121, 'HitmonWillee', 'Tuesday', 800, 1000),
+(122, 'HitmonWillee', 'Wednesday', 800, 1000),
+(123, 'HitmonWillee', 'Friday', 600, 1000),
+(130, 'Sham(Ed)', 'Wednesday', 1200, 1600),
+(131, 'Sham(Ed)', 'Monday', 1200, 1600),
+(132, 'Sham(Ed)', 'Tuesday', 1200, 1600),
+(133, 'Sham(Ed)', 'Thursday', 1200, 1600),
+(134, 'Sham(Ed)', 'Friday', 1200, 1600),
+(150, 'Skyen', 'Monday', 1600, 1800),
+(151, 'Skyen', 'Wednesday', 1600, 1800),
+(152, 'Skyen', 'Tuesday', 1600, 1800),
+(153, 'Skyen', 'Thursday', 1600, 1800),
+(154, 'Skyen', 'Friday', 1600, 1800),
+(175, 'LocSenpai', 'Monday', 1700, 2200),
+(176, 'LocSenpai', 'Wednesday', 1700, 2200),
+(177, 'LocSenpai', 'Thursday', 1700, 2200),
+(178, 'LocSenpai', 'Tuesday', 1700, 2200),
+(179, 'LocSenpai', 'Friday', 1700, 2200),
+(180, 'ChrisP.', 'Monday', 800, 900),
+(181, 'ChrisP.', 'Wednesday', 800, 900),
+(182, 'ChrisP.', 'Thursday', 800, 900),
+(183, 'ChrisP.', 'Tuesday', 800, 900),
+(184, 'ChrisP.', 'Friday', 800, 900),
+(185, 'LigmaBlank', 'Thursday', 100, 300),
+(186, 'LigmaBlank', 'Wednesday', 100, 300),
+(187, 'LigmaBlank', 'Monday', 100, 300),
+(188, 'LigmaBlank', 'Tuesday', 100, 300),
+(189, 'LigmaBlank', 'Friday', 100, 300),
+(190, 'Thaoster', 'Wednesday', 700, 800),
+(191, 'Thaoster', 'Monday', 700, 800),
+(192, 'Thaoster', 'Tuesday', 700, 800),
+(193, 'Thaoster', 'Friday', 700, 800),
+(194, 'Thaoster', 'Thursday', 700, 800),
+(195, 'DaneTheMane', 'Wednesday', 800, 1400),
+(196, 'DaneTheMane', 'Friday', 800, 1400),
+(197, 'DaneTheMane', 'Monday', 800, 1400),
+(349, 'DanDaMan', 'Sunday', 0, 2300),
+(350, 'DanDaMan', 'Tuesday', 0, 2300),
+(351, 'DanDaMan', 'Wednesday', 0, 2300),
+(352, 'DanDaMan', 'Monday', 0, 2300),
+(353, 'DanDaMan', 'Thursday', 0, 2300),
+(354, 'DanDaMan', 'Friday', 0, 2300),
+(355, 'DanDaMan', 'Saturday', 0, 2300),
+(361, 'TurnerTester', 'Thursday', 700, 1000),
+(362, 'TurnerTester', 'Wednesday', 700, 1000),
+(363, 'TurnerTester', 'Tuesday', 700, 1000),
+(364, 'TurnerTester', 'Monday', 700, 1000),
+(365, 'TurnerTester', 'Friday', 700, 1000),
+(368, 'AyyAyyRonn', 'Wednesday', 700, 1000),
+(369, 'AyyAyyRonn', 'Monday', 700, 1000),
+(370, 'AyyAyyRonn', 'Tuesday', 700, 1000),
+(371, 'AyyAyyRonn', 'Thursday', 700, 1000),
+(372, 'AyyAyyRonn', 'Friday', 700, 1000),
+(394, 'Guest', 'Tuesday', 800, 1000),
+(395, 'Guest', 'Thursday', 800, 1000),
+(396, 'Guest', 'Monday', 800, 1000),
+(397, 'Guest', 'Wednesday', 800, 1000),
+(398, 'Guest', 'Friday', 800, 1000);
 
 -- --------------------------------------------------------
 
@@ -297,7 +456,7 @@ CREATE TABLE `user` (
   `yoga` varchar(20) NOT NULL,
   `bodybuilding` varchar(20) NOT NULL,
   `swimming` varchar(20) NOT NULL,
-  `photo` varchar(100) NOT NULL,
+  `photo` varchar(1200) NOT NULL,
   `gymid` varchar(50) NOT NULL,
   `gymname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -307,25 +466,39 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `firstname`, `lastname`, `age`, `weightlifting`, `cardio`, `yoga`, `bodybuilding`, `swimming`, `photo`, `gymid`, `gymname`) VALUES
-(1, 'SunnyDayss', 'AJ', 'Domingo', 25, 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
-(2, 'CorgiChristine', 'Christine', 'Le', 28, 'Beginner', 'Beginner', 'Beginner', 'Beginner', 'Beginner', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
-(3, 'JanNaaasty', 'Jan', 'To-Ong', 30, 'Beginner', 'Beginner', 'Beginner', 'Beginner', 'Beginner', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
-(4, 'ChrisPeterson', 'Chris', 'Peterson', 30, 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', 'Expert', '', 'ChIJBdiv1lAp3YAR3qiPBNJWr5o', 'Planet Fitness'),
-(5, 'Tester', 'Tester', 'Testing', 18, 'Expert', 'Intermediate', 'Intermediate', 'Beginner', 'Beginner', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
-(6, 'Tester2', 'Aaron', 'Domingo', 25, 'Beginner', 'Beginner', 'Beginner', 'Beginner', 'Beginner', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
-(7, 'Tester3', 'Tester', '3', 3, 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
-(8, 'DanTheMan', 'Dan', 'Patterson', 25, 'Expert', 'Expert', 'Expert', 'Expert', 'Expert', '', '', ''),
-(9, 'Tester4', 'Tester', '4', 4, 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', 'Intermediate', '', '', ''),
-(10, 'test', '1', '1', 1, 'Expert', 'Beginner', 'Beginner', 'Intermediate', 'Intermediate', '', '', ''),
-(12, 'Tester5', 'Aaron', 'Domingo', 25, 'Beginner', 'Beginner', 'Beginner', 'Beginner', 'Beginner', '', '', ''),
-(13, 'ScheduleTest', 'Schedule', 'Test', 18, 'Beginner', 'Beginner', 'Beginner', 'Beginner', 'Beginner', '', '', ''),
-(14, 'ScheduleTest2', 'Schedule', 'Test', 18, 'Beginner', 'Beginner', 'Beginner', 'Beginner', 'Beginner', '', '', ''),
-(15, 'AyyAyyRonn', 'Aaron', 'Domingo', 25, 'Expert', 'Beginner', 'Beginner', 'Intermediate', 'Beginner', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
-(16, 'Mphaaan', 'Miranda', 'Phan', 24, 'Expert', 'Expert', 'Expert', 'Expert', 'Expert', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
-(17, 'Tester6', 'Test', 'Test', 18, 'Beginner', 'Intermediate', 'Intermediate', 'Beginner', 'Expert', '', '', ''),
-(18, 'ScheduleFinal', 'Schedule', 'Guy', 25, 'Intermediate', 'Intermediate', 'Intermediate', 'Expert', 'Expert', '', '', ''),
-(21, 'DanTheMan2', 'Dan', 'Patterson', 30, 'Expert', 'Intermediate', 'Intermediate', 'Expert', 'Expert', '', 'ChIJBdiv1lAp3YAR3qiPBNJWr5o', 'Planet Fitness'),
-(22, 'ligmaass', 'uzair', 'ashraf', 25, 'Intermediate', 'Beginner', 'Beginner', 'Expert', 'Beginner', '', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym');
+(1, 'AyyAyyRonn', 'Aaron', 'Domingo', 25, 'Intermediate', 'Beginner', 'Beginner', 'Intermediate', 'Beginner', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-ubIDVqfnx8SNw87WlfuYJDC9yi_RoS_UrRz-eCkUzL-5ExK1&s', 'ChIJexLPhuPn3IARxiRg4ByaBfY', '24 Hour Fitness'),
+(2, 'Sham(Ed)', 'Edward', 'Lee', 25, 'Expert', 'Beginner', 'Beginner', 'Expert', 'Beginner', 'https://media.licdn.com/dms/image/C5603AQHEP0hQhaFpWQ/profile-displayphoto-shrink_800_800/0?e=1577923200&v=beta&t=fAFC3WyuEu-xeHr-vzNxHyPZ7b9cN4nI6Zdvg5Wyj0s', 'ChIJE-I-7APn3IAR4vHzRGLI9L0', 'Ra Yoga Irvine Spectrum Center'),
+(3, 'rjaytea', 'Richard', 'Tea', 25, 'Intermediate', 'Expert', 'Expert', 'Expert', 'Intermediate', 'https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-1/55924254_2114549045260661_9125710463433179136_o.jpg?_nc_cat=111&_nc_oc=AQnAyn-8gcUkVdJFeKi3WSfhqm39ypIPKMl_eKrhOFLZK7dwOBV0EKFvjif0A7PZ6ue3255ARoy0WDOp4OR_JltG&_nc_ht=scontent-lax3-2.xx&oh=db6f50dbc9f83d6b6d7e2398bea647df&oe=5E1B4FEE', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
+(5, 'Skyen', 'Kenneth', 'Keiu', 26, 'Expert', 'Expert', 'Expert', 'Expert', 'Expert', 'https://scontent-lax3-2.xx.fbcdn.net/v/t31.0-8/24273743_2276438785715701_3871577549920364144_o.jpg?_nc_cat=110&_nc_oc=AQkA42kCF4tUz7ZljeqnVUoFOHVwzQzBwmCSMtSxjaWDZQB2f1f52zHLdLkWTT96wDK24JoAbiN-PSMIVlm5g0Ia&_nc_ht=scontent-lax3-2.xx&oh=0cbff6725e05cedaba58dc09f0af3455&oe=5E1A4883', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
+(6, 'taruntula', 'Tarun', 'Padath', 25, 'Expert', 'Expert', 'Expert', 'Expert', 'Expert', 'https://media.licdn.com/dms/image/C4D0BAQFgmh2pajt3jQ/company-logo_200_200/0?e=2159024400&v=beta&t=PvgNnkl06fFOyEuieerGDaPk9Gk7xZLaXit4ePzszhs', 'ChIJCY_EtIfp3IARqy-QE088Ldw', 'Ruination CrossFit'),
+(7, 'CorgiChristine', 'Christine', 'Le', 28, 'Intermediate', 'Expert', 'Expert', 'Expert', 'Expert', 'https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg', 'ChIJexLPhuPn3IARxiRg4ByaBfY', '24 Hour Fitness'),
+(8, 'AikosMaster', 'Adison', 'Ly', 28, 'Expert', 'Expert', 'Intermediate', 'Expert', 'Expert', 'https://media.licdn.com/dms/image/C5603AQFI1P-pRgXUTA/profile-displayphoto-shrink_800_800/0?e=1577923200&v=beta&t=zWLENi4Y9S-QFix1tRaEstIREv0Uhc1jSdKjYxtjJKs', 'ChIJOxdciWHo3IARA-2_vRaeSfI', 'Phenomenal Fitness Inc'),
+(9, 'JanNaaasty', 'Jan', 'To-Ong', 30, 'Beginner', 'Expert', 'Expert', 'Expert', 'Beginner', 'https://media.licdn.com/dms/image/C5603AQGr3MQsHR9usQ/profile-displayphoto-shrink_800_800/0?e=1577923200&v=beta&t=PFljX6HVx78ycrNNFxCPtWjCmenS4vSZ6Z1cxXwa4a8', 'ChIJe64ileTn3IARzAGg1tAuBig', 'Radiant Hot Yoga - Irvine'),
+(10, 'DanDaMan', 'Daniel', 'Pasc', 18, 'Expert', 'Expert', 'Expert', 'Expert', 'Expert', 'https://www.insidehook.com/wp-content/uploads/2019/03/Arnold_Header_1496168849.jpg?fit=1200%2C750', 'ChIJexLPhuPn3IARxiRg4ByaBfY', '24 Hour Fitness'),
+(11, 'LigmaBlank', 'Uzair', 'Ashraf', 25, 'Intermediate', 'Intermediate', 'Expert', 'Beginner', 'Beginner', 'https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Ffinal-project-dog-images.s3.us-east-2.amazonaws.com%2Fuzair.jpg', 'ChIJz5Xx5Azn3IARdrS_A8X3Utg', 'SIX Station Interval Xperience'),
+(12, 'ChrisP.', 'Christie', 'Hui', 22, 'Expert', 'Beginner', 'Intermediate', 'Expert', 'Beginner', 'https://media.licdn.com/dms/image/C5103AQE2LdS0CbwJZg/profile-displayphoto-shrink_800_800/0?e=1577923200&v=beta&t=ZjB1-blWF_65iBQAZLc1wtoen-OkCPNQqTVDojiSt04', 'ChIJrS4pTGXn3IAR-wx3Ma9rdbk', 'Ashley Whitford, RYT-200'),
+(13, 'Sean', 'Sean', 'H.', 21, 'Beginner', 'Expert', 'Expert', 'Intermediate', 'Beginner', 'https://www.geek.com/wp-content/uploads/2018/04/Call-of-Duty-Modern-Warfare-2-625x352.jpg', 'ChIJz5Xx5Azn3IARdrS_A8X3Utg', 'SIX Station Interval Xperience'),
+(14, 'GIJoe', 'Joe', 'Moberly', 26, 'Beginner', 'Intermediate', 'Intermediate', 'Expert', 'Expert', 'https://www.ssbwiki.com/images/thumb/0/03/Samus_SSBU.png/250px-Samus_SSBU.png', 'ChIJe64ileTn3IARzAGg1tAuBig', 'Radiant Hot Yoga - Irvine'),
+(15, 'MamaP', 'Brena', 'Patel', 28, 'Expert', 'Intermediate', 'Intermediate', 'Beginner', 'Intermediate', 'http://m.quickmeme.com/img/3e/3ee905234a49fe22ba0fd57f9f603e068dc727bd17b0a44d4b1dcae7d166a1cc.jpg', 'ChIJM2eheHro3IARnvBlgo9ijb0', 'CorePower Yoga'),
+(16, 'LanaDelRay', 'Lena', 'Porina', 21, 'Expert', 'Intermediate', 'Intermediate', 'Expert', 'Beginner', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFeh76iK4Co5TqDtiO7gogA6RSJriKhrcvc9bh1na3hUEqAZeLaQ&s', 'ChIJM2eheHro3IARnvBlgo9ijb0', 'CorePower Yoga'),
+(17, 'NiceKeyboard', 'Anjaleena', 'Barclay', 21, 'Expert', 'Expert', 'Beginner', 'Beginner', 'Intermediate', 'https://images-na.ssl-images-amazon.com/images/I/81PLqxtrJ3L._SX466_.jpg', 'ChIJexLPhuPn3IARxiRg4ByaBfY', '24 Hour Fitness'),
+(20, 'LoverOfDogs', 'Heondo', 'Kim', 24, 'Beginner', 'Beginner', 'Intermediate', 'Expert', 'Intermediate', 'https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2016/07/0001-h_2016.jpg', 'ChIJXYoHmnro3IARQKc3pQn1pO8', 'ProSport Physical Therapy & Performance'),
+(21, 'DaneTheGreat', 'Dane', 'Maison', 25, 'Beginner', 'Expert', 'Intermediate', 'Intermediate', 'Expert', 'https://si.wsj.net/public/resources/images/BN-XF140_0129EM_574V_20180129031614.jpg', 'ChIJXYoHmnro3IARQKc3pQn1pO8', 'ProSport Physical Therapy & Performance'),
+(24, 'Jimothy', 'James', 'Cho', 34, 'Expert', 'Beginner', 'Intermediate', 'Expert', 'Beginner', 'https://cdn10.bigcommerce.com/s-npe4l/products/1157/images/1335/B-MZ-SMSHD---HIGH__85441.1477602947.1280.1280.jpg?c=2', 'ChIJe64ileTn3IARzAGg1tAuBig', 'Radiant Hot Yoga - Irvine'),
+(25, 'OldManIAm', 'Kevin', 'Ihm', 30, 'Beginner', 'Beginner', 'Beginner', 'Beginner', 'Expert', 'https://cdn-s3.si.com/images/Michael-Phelps-SI-cover-shoot-SI523_TK1_00272.jpg', 'ChIJCY_EtIfp3IARqy-QE088Ldw', 'Ruination CrossFit'),
+(26, 'MrMitch', 'Mitch', 'O\'Hair', 21, 'Expert', 'Expert', 'Expert', 'Expert', 'Expert', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxKE1ochLqy5RfZNgvk5AiS0Vujh0-tRCvJdNSThBdBsrk5UrJYQ&s', 'ChIJkY69c4Dp3IARXvXORjVHOD4', 'Upgrade Pilates'),
+(27, 'FlexBoxGuru', 'Cody', 'Miller', 30, 'Expert', 'Expert', 'Expert', 'Expert', 'Expert', '', 'ChIJoeNKXffn3IARb-jiR-bw4nY', 'KINETIC'),
+(28, 'LeonOnirac', 'Noel', 'Carino', 25, 'Expert', 'Beginner', 'Intermediate', 'Expert', 'Beginner', 'https://upload.wikimedia.org/wikipedia/en/1/13/Stick_figure.png', 'ChIJexLPhuPn3IARxiRg4ByaBfY', '24 Hour Fitness'),
+(29, 'ChanningTatum', 'Channing', 'Tatum', 21, 'Expert', 'Beginner', 'Beginner', 'Expert', 'Expert', 'https://images.fandango.com/ImageRenderer/0/0/redesign/static/img/default_poster.png/0/images/masterrepository/performer%20images/p419915/dearjohn-pm-channingtatum-1.jpg', 'ChIJd_f8NpPe3IARRl8WktLzSSs', 'Equinox Sports Club Orange County'),
+(32, 'MrAmerica', 'Chris', 'Evans', 21, 'Expert', 'Expert', 'Beginner', 'Expert', 'Expert', 'https://d.newsweek.com/en/full/857534/captain-america-avengers.jpg?w=1600&h=1600&q=88&f=bacbc8948b0288ce8266643d5a0b1814', 'ChIJd_f8NpPe3IARRl8WktLzSSs', 'Equinox Sports Club Orange County'),
+(33, 'MyHoney', 'Winnie', 'Pooh', 93, 'Expert', 'Beginner', 'Beginner', 'Intermediate', 'Expert', 'https://i.kym-cdn.com/entries/icons/original/000/029/060/cover3.jpg', 'ChIJd_f8NpPe3IARRl8WktLzSSs', 'Equinox Sports Club Orange County'),
+(34, 'HitmonWillee', 'Willy', 'Tran', 25, 'Intermediate', 'Beginner', 'Beginner', 'Intermediate', 'Expert', 'https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-9/28870278_2009341555762132_3459112655279620096_o.jpg?_nc_cat=103&_nc_oc=AQm-itAyf7PCjX1uFD3e52XMiQjBvaPWgq6SshmZ5Dds43NePvdNUKoaRMfZV-KthtwdB1dPumY6_ghnLqSITgYX&_nc_ht=scontent-lax3-2.xx&oh=e87e185edcd0baf8cd07f85e8b81d06d&oe=5E5E087D', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
+(35, 'LocSenpai', 'Loc', 'Lam', 25, 'Beginner', 'Expert', 'Expert', 'Beginner', 'Expert', 'https://scontent-lax3-2.xx.fbcdn.net/v/t31.0-8/10733581_828072820584812_792692030546677963_o.jpg?_nc_cat=102&cachebreaker=sd&_nc_oc=AQlrgz7tKH6_VIDw_qKo5qON1JHFdYdM1Eru9OS7YsywUWgDSKiyoQCoKqTT5_mdlYM&_nc_ht=scontent-lax3-2.xx&oh=ee68449920248f92769da9326d350a7b&oe=5E53CFBB', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
+(36, 'Tommasu', 'Tommy', 'Nguyen', 25, 'Expert', 'Expert', 'Expert', 'Expert', 'Expert', 'https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-9/68509402_10214275785517809_7496326139074314240_o.jpg?_nc_cat=109&cachebreaker=sd&_nc_oc=AQlgQihzJuMjsGZhlVsmvUInmfhw6bJbIp_EXh42CHITVAVy7HiTnD-Mp0zhUuJuC9A&_nc_ht=scontent-lax3-2.xx&oh=9057a539c928f2c298cd08ce5249cb1a&oe=5E1B1E5B', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
+(39, 'Thaoster', 'Thao', 'Huynh', 24, 'Expert', 'Expert', 'Beginner', 'Beginner', 'Expert', 'https://scontent-lax3-2.xx.fbcdn.net/v/t31.0-8/18192492_1696142943733423_9032157631170816704_o.jpg?_nc_cat=102&cachebreaker=sd&_nc_oc=AQmKcNEfIo2ZAoZCkTrH9YTj_xhPXijxjiT6eGXJj3p-9YBL8yxDeZSricoeJixYvZY&_nc_ht=scontent-lax3-2.xx&oh=99f09077d11333449a371c5e9c7ff0e1&oe=5E20F6AF', 'ChIJN0NR4zko3YARzZNNzuknP5A', 'Gold\'s Gym'),
+(40, 'DaneTheMane', 'Dane', 'Maison', 25, 'Intermediate', 'Intermediate', 'Intermediate', 'Expert', 'Expert', '', 'ChIJexLPhuPn3IARxiRg4ByaBfY', '24 Hour Fitness'),
+(41, 'TurnerTester', 'Turner', 'Thompson', 24, 'Intermediate', 'Expert', 'Beginner', 'Expert', 'Intermediate', '', 'ChIJexLPhuPn3IARxiRg4ByaBfY', '24 Hour Fitness'),
+(42, 'Guest', 'Guest', 'User', 18, 'Beginner', 'Intermediate', 'Intermediate', 'Intermediate', 'Beginner', '', 'ChIJexLPhuPn3IARxiRg4ByaBfY', '24 Hour Fitness');
 
 --
 -- Indexes for dumped tables
@@ -370,27 +543,27 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `friends`
 --
 ALTER TABLE `friends`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
 --
 -- AUTO_INCREMENT for table `gyms`
 --
 ALTER TABLE `gyms`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` smallint(50) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` smallint(50) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=399;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
