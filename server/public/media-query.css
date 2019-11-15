@@ -14,7 +14,7 @@
   }
 
   .main__view {
-    width: 75%;
+    width: 50%;
   }
 
   .gym__view-info-container {
@@ -41,6 +41,14 @@
   .login__card-username {
     font-size: 2.2rem;
   }
+
+  .main__search-field {
+  width: 60%;
+  }
+
+  .main__search-field:focus {
+  width: 80%;
+  }
 }
 
 /**************************************
@@ -56,10 +64,6 @@
   .main__container {
     height: 97.5%;
     width: 87%;
-  }
-
-  .main__view {
-    width: 70%;
   }
 
   .gym__view-info-container {
@@ -104,24 +108,17 @@
 **************************************/
 
 /* laptops/desktop */
-@media only screen and (min-width: 1026px) {
+@media only screen and (min-width: 1025px) {
   html {
     font-size: 60%;
   }
 
   .main__container {
-    width: 50%;
+    width: 70%;
   }
 
   .main__view {
-    width: 65%;
+    width: 30%;
   }
 
-  .main__body {
-    height: 90rem;
-  }
-/*
-  .profile__container {
-    height: 90rem;
-  } */
 }
