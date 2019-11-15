@@ -4,17 +4,13 @@
 
 /* small tablets to 768 pixels */
 @media only screen and (min-width: 600px) {
-  html {
-  font-size: 80%;
-  }
-
   .main__container {
     height: 97.5%;
     width: 90%;
   }
 
   .main__view {
-    width: 50%;
+    width: 70%;
   }
 
   .gym__view-info-container {
@@ -57,13 +53,14 @@
 
 /* big tablets to 1024 pixels */
 @media only screen and (min-width: 801px) {
-  html {
-  font-size: 70%;
-  }
 
   .main__container {
     height: 97.5%;
     width: 87%;
+  }
+
+  .main__view {
+    width: 50%;
   }
 
   .gym__view-info-container {
@@ -81,17 +78,6 @@
 
   .profile__info-gym {
   font-size: 4rem;
-  }
-
-  .map__button,
-  .profile__button,
-  .gym__button,
-  .buddy__button,
-  .upload__button,
-  .icon__container {
-    height: 3.8rem;
-    width: 10rem;
-    font-size: 2rem;
   }
 
   .login__card-input {
@@ -114,11 +100,35 @@
   }
 
   .main__container {
-    width: 70%;
+    width: 60%;
   }
 
   .main__view {
-    width: 30%;
+    width: 50%;
   }
 
+}
+
+@media only screen and (min-width: 1400px) {
+
+  .main__container {
+    width: 50%;
+  }
+
+}
+
+/**************************************
+        MOBILE LANDSCAPE
+**************************************/
+
+@media only screen
+and (max-width: 823px)
+and (max-height: 414px)
+and (orientation: landscape) {
+  html {
+    font-size: 4px;
+  }
+  .main__container {
+    width: 60%;
+  }
 }
