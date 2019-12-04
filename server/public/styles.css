@@ -1,0 +1,1603 @@
+/**************************************
+            HTML / BODY
+**************************************/
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /* 10px  */
+  font-family: 'Source Sans Pro', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/**************************************
+              MAIN
+**************************************/
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #4F667C 50%, #111D2D 50%);
+  clip: polygon(0 60%, 0 100%, 100% 100%, 100% 12%);
+}
+
+.main__container {
+  height: 97.5%;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/**************************************
+              HEADER
+**************************************/
+
+.main__header {
+  height: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main__header-title {
+  font-size: 3rem;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d84c00;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.main__header-sub,
+.main__header-gym {
+  font-size: 3rem;
+  width: 52.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d84c00;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.main__header-username {
+  font-size: 3rem;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d84c00;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.main__header-gym {
+  font-size: 1.75rem;
+  height: 100%;
+  text-align: center;
+  border: 1px solid #fff;
+}
+
+/**************************************
+              BODY
+**************************************/
+
+.main__body {
+  height: 95%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/**************************************
+              HOME SCREEN
+**************************************/
+
+.main__carousel-container {
+  height: 100%;
+  width: 100%;
+}
+
+.main__carousel {
+  height: 70%;
+  width: 100%;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  border: 1px solid #fff;
+}
+
+.main__carousel-header {
+  font-size: 9rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1rem;
+}
+
+.main__view{
+  height: 7.5%;
+  width: 80%;
+  font-size: 2.5rem;
+  border-radius: 5rem;
+  background-color: #d84c00;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.main__view:focus {
+  outline: none;
+  transform: scale(0.9);
+}
+
+.main__search-container {
+  width: 90%;
+  height: 17.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main__search-field {
+  width: 60%;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #4F667C;
+  transition: all 0.2s;
+  cursor: pointer;
+  color: #fff;
+}
+
+.main__search-field:focus {
+  outline: none;
+  width: 100%;
+  border-bottom: 2px solid #54d39c;
+}
+
+.main__search-dropdown {
+  height: 100%;
+  width: 100%;
+}
+
+.main__search-item {
+  font-size: 1.25rem;
+  font-weight: 300;
+  cursor: pointer;
+  color: #fff;
+}
+
+.main__search-item-active {
+  font-size: 1.25rem;
+  color: #54d39c;
+  cursor: pointer;
+}
+
+/**************************************
+              MAP VIEW
+**************************************/
+
+.map__view {
+  height: 60%;
+  width: 100%;
+}
+
+.map__view-map {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 2px solid #4F667C;
+}
+
+.map__list {
+  height: 37.5%;
+  width: 100%;
+  overflow-y: auto;
+  background-color: rgb(255, 255, 255, 0.9);
+  border: 2px solid #111D2D;
+  border-radius: 5px;
+}
+
+
+.map__list-item {
+  height: 9.25rem;
+  padding: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #4F667C;
+  cursor: pointer;
+}
+
+.map__list-photo {
+  width: 45%;
+  height: 80%;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.map__list-picture {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.map__list-info {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.map__list-name {
+  color: #000000;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.map__list-info {
+  color: #d84c00;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+/**************************************
+              PROFILE
+**************************************/
+
+.profile__container {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.profile__container-top {
+  height: 59%;
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid #4F667C;
+}
+
+.profile__photo {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid #d84c00;
+}
+
+.profile__info {
+  height: 40%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profile__info-name,
+.profile__info-age {
+  font-size: 2rem;
+}
+
+.profile__info-gym {
+  font-size: 3rem;
+  color: #54d39c;
+  text-align: center;
+  cursor: pointer;
+}
+
+.profile__buttons-top,
+.profile__buttons-bottom {
+  height: 8.5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.profile__buttons-top {
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.profile__container-bottom {
+  height: 39%;
+  width: 100%;
+  overflow: scroll;
+  border-radius: 5px;
+  border: 2px solid #111D2D;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
+}
+
+
+.profile__status {
+  height: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+/**************************************
+              SIGN UP
+**************************************/
+
+.signup__container {
+  width: 100%;
+  height: 92.5%;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
+  margin-top: 0.5rem;
+  overflow: scroll;
+  border: 2px solid #111D2D;
+}
+
+.signup__container-top {
+  height: 30rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.signup__container-middle,
+.signup__container-bottom {
+  height: 40rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.signup__block {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.signup__block-name {
+  font-size: 2.5rem;
+  font-weight: 300;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+.signup__block-input {
+  width: 52.5%;
+  height: 50%;
+  font-size: 2rem;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+  text-align: center;
+}
+
+.signup__block-input:focus {
+  outline: none;
+}
+
+.signup__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d84c00;
+  height: 10%;
+  font-size: 1.5rem;
+}
+
+.stats__title {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #54d39c;
+}
+
+.stats__header,
+.stats__block {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stats__header-title {
+  font-size: 2rem;
+  width: 30%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats__header-options {
+  font-size: 2rem;
+  display: flex;
+  width: 60%;
+  color: #fff;
+  justify-content: space-around;
+}
+
+.stats__block-title {
+  font-size: 1.75rem;
+  width: 30%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats__block-options,
+.time__block-options {
+  font-size: 1.15rem;
+  display: flex;
+  width: 60%;
+  height: 40%;
+  color: #fff;
+  justify-content: center;
+}
+
+.stats__block-dropdown,
+.time__block-dropdown {
+  width: 100%;
+  overflow: scroll;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.stats__block-dropdown:focus {
+  outline: none;
+}
+
+.time__block-options {
+  width: 30%;
+  height: 60%;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.time__block-options > *:focus {
+  outline: none !important;
+}
+
+.react-time-picker__wrapper {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.react-time-picker__inputGroup__input,
+.react-time-picker__inputGroup__hour,
+.react-time-picker__inputGroup__amPm {
+  width: 50% !important;
+}
+
+.react-time-picker__inputGroup__input:focus {
+  outline: none !important;
+}
+
+/**************************************
+              LOGIN
+**************************************/
+
+.login__container {
+  width: 100%;
+  height: 90%;
+  border-radius: 5px;
+  border: 2px solid #111D2D;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__box {
+  height: 70%;
+  width: 90%;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.login__input {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.login__card {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login__info {
+  width: 100%;
+  height: 45%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login__card-username {
+  font-size: 2rem;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #54d39c;
+}
+
+.login__card-input {
+  width: 55%;
+  height: 50%;
+  border-radius: 5px;
+  background-color: rgb(79, 102, 124, 0.2);
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.login__status {
+  font-size: 1.5rem;
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  color: #d84c00;
+}
+
+.success {
+  color: #54d39c;
+}
+
+.login__card-input:focus {
+  outline: none;
+}
+
+/**************************************
+              BUDDY LIST
+**************************************/
+
+.buddy__container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.buddy__card {
+  width: 100%;
+  height: 9.75rem;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.6) 50%, rgb(17, 29, 45, 0.6));
+  border-bottom: 1px solid #111D2D;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+
+.buddy__card-picture {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buddy__card-photo {
+  height: 8.5rem;
+  width: 8.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid #fff;
+  background-color: #fff;
+}
+
+.buddy__card-name {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.buddy__none {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.buddy__message {
+  color: #233567;
+}
+
+
+/**************************************
+              GYM USER
+**************************************/
+
+.gymuser__card {
+  width: 100%;
+  height: 7.5rem;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-bottom: 1px solid #111D2D;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.gymuser__card-picture {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gymuser__card-photo {
+  height: 6.5rem;
+  width: 6.5rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: #fff;
+}
+
+.gymuser__card-name {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #000000;
+}
+
+.friends {
+  background-color: rgb(84, 211, 156, 0.8);
+}
+/**************************************
+           EXPERTISE LIST
+**************************************/
+
+.expertise__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expertise__card {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.expertise__card-name,
+.expertise__card-value {
+  height: 100%;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+}
+
+
+/**************************************
+              CALENDAR
+**************************************/
+
+.calendar__container {
+  width: 100%;
+  height: 95%;
+  border-radius: 5px;
+  border: 2px solid #315b96;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar__container-top {
+  height: 7.5%;
+  width: 100%;
+  display: flex;
+  border-bottom: 2px solid #315b96;
+}
+
+.calendar__day {
+  width: 12.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.calendar__container-bottom {
+  height: 92.5%;
+  width: 100%;
+  display: flex;
+}
+
+.calendar__time {
+  height: 100%;
+  width: 12.5%;
+  border-left: 0.5px solid black;
+}
+
+/**************************************
+              BUTTONS
+**************************************/
+
+.btn {
+  border-radius: 2.5rem;
+  background-color: #d84c00;
+  color: #fff;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn:focus {
+  outline: none;
+  transform: scale(0.9);
+}
+
+.main__button,
+.signup__button,
+.login__button {
+  height: 4rem;
+  width: 12rem;
+  font-size: 1.75rem;
+}
+
+.map__button,
+.profile__button,
+.gym__button,
+.buddy__button,
+.upload__button,
+.message__button {
+  height: 3rem;
+  width: 8rem;
+  font-size: 1.5rem;
+}
+
+.login__button,
+.signup__button,
+.profile__button,
+.gym__button,
+.buddy__button {
+  background-color: #d84c00;
+}
+
+.profile__button:focus {
+  transform: scale(1);
+}
+
+.gym__button-filter {
+  height: 2rem;
+  width: 6rem;
+  font-size: 1.25rem;
+  background-color: #d84c00;
+}
+
+.remove {
+  background-color: #d84c00;
+}
+
+.selected,
+.add,
+.message__button {
+  background-color: #54d39c;
+}
+
+.upload__button {
+  position: relative;
+}
+
+.upload__button input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.set {
+  background-color: #54d39c;
+}
+/**************************************
+              ICONS
+**************************************/
+
+.icon__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 8rem;
+  border-radius: 2.5rem;
+  background-color: #d84c00;
+  color: #fff;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.icon__main {
+  font-size: 2rem;
+}
+
+.icon__home {
+  margin-left: auto;
+}
+
+.icon__arrow {
+  color: #fff;
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+.icon__dot {
+  color: #fff;
+  font-size: 1rem;
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.message__icon {
+  font-size: 3rem;
+  color: #d84c00;
+}
+
+/**************************************
+              CAROUSEL
+**************************************/
+
+.background-0 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url("./images/landingpage-1.jpg");
+}
+
+.background-1 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url("./images/landingpage-2.jpg");
+}
+
+.background-2 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url("./images/landingpage-4.jpeg");
+}
+
+.background-3 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url("./images/landingpage-5.jpg");
+}
+
+.background-4 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url("./images/landingpage-6.jpg");
+}
+
+/**************************************
+              ANIMATION
+**************************************/
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 7.5%;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #d84c00;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #d84c00 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/**************************************
+              GYM-VIEW
+**************************************/
+/* main__body */
+.gym__view-container {
+  height: 95%;
+  width: 100%;
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.gym__view-carousel-container {
+  height: 28%;
+  width: 100%;
+  display: flex;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.gym__view-info-container {
+  height: 42.5%;
+  width: 100%;
+  border: 2px solid  #111D2D;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255, 0.9);
+  color: #000000;
+  font-size: 1.5rem;
+  overflow: scroll;
+}
+
+.gym__view-name {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gym__view-info-name-and-button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2%;
+}
+
+.gym__view-info-address-and-hours-container {
+  margin: 2%;
+}
+
+.gym__view-button {
+  border-radius: 2.5rem;
+  background-color: #233567;
+  color: #fff;
+  font-size: 2rem;
+  padding: 10px;
+}
+
+.gym__carousel {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gym__view-list {
+  height: 28%;
+  width: 100%;
+  border: 2px solid #111D2D;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
+  overflow: scroll;
+}
+
+.gym__view-rating-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gym__view-hours {
+  width: 60%;
+}
+
+.gym__view-rating {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.gym__view-link {
+  font-size: 2rem;
+  text-decoration: none;
+  color: #54d39c;
+}
+
+.website__none,
+.gym__none {
+  color: #000000;
+}
+
+.gym__view-nophotos {
+  font-size: 2rem;
+}
+
+.gym__view-message {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  font-size: 2.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.gym__view-buttons {
+  width: 60%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gym__view-filter {
+  background-color: #fff;
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #315b96;
+}
+
+.gym__view-filter > select {
+  text-align: center;
+  border: 1px solid #111D2D;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.gym__view-filter > select:focus {
+  outline: none;
+}
+
+/**************************************
+              BUDDIES
+**************************************/
+
+.buddy__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buddy__container-top {
+  height: 60%;
+  width: 100%;
+  background-color: rgb(255, 255, 255, 0.9);
+  border: 2px solid #315b96;
+  border-radius: 5px;
+}
+
+.buddy__container-photo {
+  height: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.buddy__photo {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buddy__picture {
+  height: 12rem;
+  width: 12rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid #d84c00;
+}
+
+.buddy__info {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buddy__info-buttons {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buddy__info-name {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buddy__name {
+  font-size: 1.8rem;
+}
+
+.buddy__gym {
+  font-size: 2rem;
+  color: #54d39c;
+  text-align: center;
+}
+
+.noGym {
+  color: #000000;
+}
+
+.buddy__container-stats {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buddy__stats-message {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.buddy__stats-header {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.buddy__stats-card {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buddy__stats-category,
+.buddy__stats-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  font-size: 2rem;
+}
+
+
+.buddy__container-bottom {
+  height: 37.5%;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
+  border: 2px solid #111D2D;
+  border-radius: 5px;
+}
+
+/**************************************
+              SCHEDULE
+**************************************/
+
+.schedule__container {
+  width: 100%;
+  height: 100%;
+}
+
+.weekday__tablink,
+.weekday__tablink-blank {
+  background-color: inherit;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+}
+
+.schedule__content-container {
+  height: 90%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.schedule__none,
+.schedule__skip {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.schedule__skip {
+  background-color: rgb(255, 255, 255, 0.8);
+  background-image: none;
+  color: #111D2D;
+  font-size: 2.5rem;
+}
+
+.weekday__tablink > * {
+  font-size: 1.5rem;
+  height: 100%;
+  width: 15%;
+  border: none;
+  background-color: #fff;
+}
+
+.weekday__tablink > *:focus {
+  outline: none;
+}
+
+.weekday__tablink-blank {
+  color: transparent;
+}
+
+.tab__selected {
+  background-color: #111D2D;
+  color: #fff;
+}
+
+.hour__card {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-bottom: 1px solid #111D2D;
+}
+
+.hour__selected {
+  background-color: rgb(84, 211, 156, 0.8);
+  color: #fff;
+}
+
+.hour__card-number {
+  font-size: 1.5rem;
+}
+
+/**************************************
+              MESSAGES
+**************************************/
+
+.message__container {
+  width: 100%;
+  height: 90%;
+  border-radius: 5px;
+  border: 2px solid #111D2D;
+  background-image: linear-gradient(to bottom, rgb(79, 102, 124, 0.8) 30%, rgb(17, 29, 45, 0.8));
+  overflow: scroll;
+}
+
+.message__card {
+  width: 100%;
+  height: 9.6rem;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-bottom: 1px solid #111D2D;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+
+.message__photo {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message__picture {
+  height: 8.5rem;
+  width: 8.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid #fff;
+  background-color: #fff;
+}
+
+.message__info {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message__info-username {
+  font-size: 2rem;
+  height: 40%;
+  width: 100%;
+  color: #d84c00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message__info-last-message {
+  font-size: 1.25rem;
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message__empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #fff;
+}
+
+
+.conversation__container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.conversation__container-button {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.conversation__container-message {
+  height: 70%;
+  width: 100%;
+  align-items: center;
+  background-color: rgb(255, 255, 255, 0.6);
+  border-radius: 5px;
+  overflow: scroll;
+  padding: 1rem;
+}
+
+
+.conversation__container-input {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.conversation__container-friend-username {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #fff;
+  margin: auto;
+}
+
+.bubble__container {
+  height: 5rem;
+  width: 90%;
+  margin: 0 auto 1rem auto;
+}
+
+.bubble__image {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  background-color: #fff;
+}
+
+.image__user {
+  border: 2px solid #fff;
+}
+
+.image__friend {
+  border: 2px solid #54d39c;
+}
+
+.bubble__container-message {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  border-radius: 5px;
+  padding: 0.25rem;
+}
+
+.message__user {
+  background-color: #fff;
+}
+
+.message__friend {
+  background-color: #54d39c;
+}
+
+.bubble__user {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.bubble__friend {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.conversation__form {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.conversation__input {
+  width: 70%;
+  height: 40%;
+  border-radius: 5px;
+}
+
+.conversation__input:focus {
+  outline: none;
+}
+
+.conversation__none {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+}

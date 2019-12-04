@@ -1,0 +1,134 @@
+/**************************************
+              SMALL TABLETS
+**************************************/
+
+/* small tablets to 768 pixels */
+@media only screen and (min-width: 600px) {
+  .main__container {
+    height: 97.5%;
+    width: 90%;
+  }
+
+  .main__view {
+    width: 70%;
+  }
+
+  .gym__view-info-container {
+    font-size: 1.3rem;
+  }
+
+  .gym__view-info-address-and-hours-container {
+    margin: 5%;
+  }
+
+  .profile__info-name,
+  .profile__info-age {
+    font-size: 2.5rem;
+  }
+
+  .profile__info-gym {
+    font-size: 3.4rem;
+  }
+
+  .login__card-input {
+    font-size: 1.8rem;
+  }
+
+  .login__card-username {
+    font-size: 2.2rem;
+  }
+
+  .main__search-field {
+  width: 60%;
+  }
+
+  .main__search-field:focus {
+  width: 80%;
+  }
+}
+
+/**************************************
+              BIG TABLETS
+**************************************/
+
+/* big tablets to 1024 pixels */
+@media only screen and (min-width: 801px) {
+
+  .main__container {
+    height: 97.5%;
+    width: 87%;
+  }
+
+  .main__view {
+    width: 50%;
+  }
+
+  .gym__view-info-container {
+    font-size: 1.6rem;
+  }
+
+  .gym__view-info-address-and-hours-container {
+    margin: 6%;
+  }
+
+  .profile__info-name,
+  .profile__info-age {
+    font-size: 2.8rem;
+  }
+
+  .profile__info-gym {
+  font-size: 4rem;
+  }
+
+  .login__card-input {
+    font-size: 2rem;
+  }
+
+  .login__card-username {
+    font-size: 2.5rem;
+  }
+}
+
+/**************************************
+        DESKTOP/LAPTOP TABLETS
+**************************************/
+
+/* laptops/desktop */
+@media only screen and (min-width: 1025px) {
+  html {
+    font-size: 60%;
+  }
+
+  .main__container {
+    width: 60%;
+  }
+
+  .main__view {
+    width: 50%;
+  }
+
+}
+
+@media only screen and (min-width: 1400px) {
+
+  .main__container {
+    width: 50%;
+  }
+
+}
+
+/**************************************
+        MOBILE LANDSCAPE
+**************************************/
+
+@media only screen
+and (max-width: 823px)
+and (max-height: 414px)
+and (orientation: landscape) {
+  html {
+    font-size: 4px;
+  }
+  .main__container {
+    width: 60%;
+  }
+}
