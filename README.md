@@ -1,4 +1,4 @@
-# Gym Buddy 
+# Gym Buddy
 (In Progress)
 
 A full-stack mobile-first LAMP application with full CRUD functionality that allow users to look for the right gym for them and connect with other users.
@@ -16,7 +16,7 @@ A full-stack mobile-first LAMP application with full CRUD functionality that all
 
 ## Live Demo
 
-Try the application live at https://gym-buddy.aarondomingo.com
+Try the application live at https://gym-buddy.christinele.dev
 
 ## Features
 
@@ -51,7 +51,7 @@ Try the application live at https://gym-buddy.aarondomingo.com
 1. Clone the repository.
 
     ```shell
-    git clone https://github.com/aaronmdomingo/gym-buddy.git
+    git clone https://github.com/codechristine/gym-buddy.git
     cd gym-buddy
     ```
 
